@@ -1,6 +1,6 @@
-##JS关于this
+## JS关于this
 
-###一般函数
+### 一般函数
 ```js
 var obj = {
 	birth: 1990,
@@ -16,7 +16,7 @@ var obj = {
 
 ```
 
-###箭头函数
+### 箭头函数
 ```js
 var obj = {
 	birth: 1990,

@@ -1,6 +1,6 @@
-##MVC MVVM 架构模式
+## MVC MVVM 架构模式
 
-###MVC模式
+### MVC模式
 
 >MVC (Model(模型) -- Controller(控制器) -- View(视图))
 
@@ -17,7 +17,7 @@
 
 **缺点：运行效率相对较低（尤其对于小项目） 控制和视图有时联系过于紧密 没有实现真的分离和重用**
 
-###MVVM
+### MVVM
 
 >MVVM (Model(模型) -- View（视图） -- ViewModel（模型视图）采用数据的双向绑定)
 

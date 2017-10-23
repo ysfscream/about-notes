@@ -1,4 +1,4 @@
-##JS原生Math.max用法
+## JS原生Math.max用法
 
 ```js
 console.log(Math.max(10, -10));

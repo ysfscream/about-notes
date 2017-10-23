@@ -1,4 +1,4 @@
-##JSON.stringify
+## JSON.stringify
 
 >该方法是把JS的值或者对象转化为一个JSON字符串
 

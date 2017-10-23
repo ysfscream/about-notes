@@ -1,4 +1,4 @@
-##Git使用
+## Git使用
 * `git init `初始化
 * `git git remote add origin URL`添加到URL源代码库
 * `git add -A`

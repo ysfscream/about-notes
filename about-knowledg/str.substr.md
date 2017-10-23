@@ -1,4 +1,4 @@
-##JS str.substr()字符串的方法
+## JS str.substr()字符串的方法
 
 ```js
 var str = "abcdefghij";

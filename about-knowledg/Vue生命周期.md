@@ -1,10 +1,10 @@
-##Vue的生命周期
+## Vue的生命周期
 
-###官方文档解释
+### 官方文档解释
 
 ![No IMG](https://cn.vuejs.org/images/lifecycle.png)
 
-###生命周期函数
+### 生命周期函数
 
 1. `beforeCreate` : 实例创建前 此时的 $el 和 data 都为 undefined 没有进行初始化
 2. `created` : 实例创建后 data 初始化了 但是 $el 没有初始化 数据并没有在DOM上渲染
@@ -15,7 +15,7 @@
 7. `beforeDestory` : 实例销毁之前调用
 8. `destory` : 实例销毁后调用 Vue实例所指示的所有东西 都将解绑
 
-###一般在真实应用场景下的应用
+### 一般在真实应用场景下的应用
 
  1. `created` : Ajax 请求异步数据时的获取 初始化数据
  2. `mounted` : 挂载元素内DOM节点的获取

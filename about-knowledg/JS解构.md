@@ -1,7 +1,7 @@
-##JS解构赋值
+## JS解构赋值
 > 语法是一个JavaScript表达式，可以使的值从数组或属性对象中提取到不同的变量中
 
-###解构数组
+### 解构数组
 ```js
 var x = ['one', 'two', 'three']
 
@@ -20,7 +20,7 @@ console.log(a) //2
 console.log(b) //1
 ```
 
-###对象解构
+### 对象解构
 ```js
 var o = {p: 42, q: true}
 var {p, q} = o 
