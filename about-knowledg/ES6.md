@@ -17,3 +17,28 @@ input.map(function(number){
 箭头函数后面带 {} 里面要写 **return返回值**  
 没有写 {} 的 x => x 默认有 **return x 返回值**
 >箭头函数里的this指向外部的对象，不指向自己本身
+
+# class定义类
+
+```js
+class Student {
+	constructor(name) {
+		this.name = name
+	}
+	hello() {
+        alert('Hello, ' + this.name + '!');
+    }
+}
+
+//继承
+
+class PrimaryStudent extends Student {
+	constructor(name, grade) {
+		super(name) //利用super调用父类的构造函数
+		this.grade = grade
+	}
+	getGrade() {
+		return this.grade
+	}
+}
+```
