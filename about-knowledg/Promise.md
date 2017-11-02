@@ -17,7 +17,7 @@ var checkLogin = function() {
 				result: true
 			})
 		} else {
-			reject('error)
+			reject('error')
 		}
 	})
 }
