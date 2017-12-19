@@ -1,5 +1,9 @@
 # about-blog
 
-Personal private blog please don't view
+Personal private blog. ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
 
-Record some stories and knowledg
+❤️ Record love stories
+
+📙 Record some knowledges
+
+
