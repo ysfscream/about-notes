@@ -9,3 +9,15 @@ input.map(item => item + 1)
 input.map(function(item){
 	return item + 1
 })
+```
+
+### 配置文件 .babelrc
+
+```JS
+{
+    "presets": [], //字段设定转码规则
+    "plugins": [] //
+}
+
+```
+
