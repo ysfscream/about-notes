@@ -1,0 +1,163 @@
+.zyr .zyr-header {
+  text-align: center;
+  font-family: 'Satisfy', cursive;
+  margin-top: 50px;
+  /*========= emoji style by Love  ===========*/
+  /*============= emoji style by emoji-se ============*/
+}
+.zyr .zyr-header .emoji {
+  width: 120px;
+  height: 120px;
+  margin: 15px;
+  background: #FFDA6A;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+}
+.zyr .zyr-header .emoji-face {
+  width: inherit;
+  height: inherit;
+}
+.zyr .zyr-header .emoji-face,
+.zyr .zyr-header .emoji-eyebrows,
+.zyr .zyr-header .emoji-eyes,
+.zyr .zyr-header .emoji-mouth,
+.zyr .zyr-header .emoji-tooth,
+.zyr .zyr-header .emoji-hand,
+.zyr .zyr-header .emoji-thumb,
+.zyr .zyr-header .emoji-heart {
+  position: absolute;
+}
+.zyr .zyr-header .emoji-face:before,
+.zyr .zyr-header .emoji-face:after,
+.zyr .zyr-header .emoji-eyebrows:before,
+.zyr .zyr-header .emoji-eyebrows:after,
+.zyr .zyr-header .emoji-eyes:before,
+.zyr .zyr-header .emoji-eyes:after,
+.zyr .zyr-header .emoji-mouth:before,
+.zyr .zyr-header .emoji-mouth:after,
+.zyr .zyr-header .emoji-tooth:before,
+.zyr .zyr-header .emoji-tooth:after,
+.zyr .zyr-header .emoji-hand:before,
+.zyr .zyr-header .emoji-hand:after,
+.zyr .zyr-header .emoji-thumb:before,
+.zyr .zyr-header .emoji-thumb:after,
+.zyr .zyr-header .emoji-heart:before,
+.zyr .zyr-header .emoji-heart:after {
+  position: absolute;
+  content: '';
+}
+.zyr .zyr-header .emoji-love {
+  background: #F55064;
+}
+.zyr .zyr-header .emoji-love .emoji-heart {
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  animation: heart-beat 2s linear infinite;
+}
+.zyr .zyr-header .emoji-love .emoji-heart:after,
+.zyr .zyr-header .emoji-love .emoji-heart:before {
+  left: calc(50% - 20px);
+  top: calc(50% - 32px);
+  width: 40px;
+  height: 65px;
+  background: #FFFFFF;
+  border-radius: 20px 20px 0 0;
+}
+.zyr .zyr-header .emoji-love .emoji-heart:after {
+  transform: translate(20px) rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.zyr .zyr-header .emoji-love .emoji-heart:before {
+  transform: translate(-20px) rotate(45deg);
+  transform-origin: 100% 100%;
+}
+@keyframes heart-beat {
+  20% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(0.5);
+  }
+}
+.zyr .zyr-header .emoji-se:after {
+  content: "se";
+}
+.zyr .zyr-header .emoji-se .emoji-eyes {
+  top: calc(50% - 40px);
+  left: 3px;
+  width: 30px;
+  height: 30px;
+  animation: eyes-beat 1s linear infinite;
+}
+.zyr .zyr-header .emoji-se .emoji-eyes:after,
+.zyr .zyr-header .emoji-se .emoji-eyes:before {
+  width: 20px;
+  height: 30px;
+  border-radius: 40px 40px 0 0;
+  background: red;
+}
+.zyr .zyr-header .emoji-se .emoji-eyes:after {
+  transform: translate(-2px) rotate(45deg);
+  transform-origin: 0 100%;
+}
+.zyr .zyr-header .emoji-se .emoji-eyes:before {
+  transform: translate(5px) rotate(-45deg);
+  transform-origin: 100% 100%;
+}
+@keyframes eyes-beat {
+  50% {
+    transform: scale(1.3);
+  }
+}
+.zyr .zyr-header .emoji-se .emoji-mouth {
+  top: calc(50% + 15px);
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 40px;
+  background: #000000;
+  border-radius: 0 0 40px 40px;
+}
+.zyr .zyr-header .emoji-se .emoji-mouth:after {
+  left: calc(50% + 28px);
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  background: #548DFF;
+  border-radius: 0 100% 40% 50% / 0 50% 40% 100%;
+  animation: tear-drop 2s linear infinite;
+}
+@keyframes tear-drop {
+  0%,
+			100% {
+    top: 5px;
+    transform: rotate(45deg) scale(0);
+  }
+  25% {
+    transform: rotate(45deg) scale(1);
+  }
+  49.9% {
+    top: 15px;
+    transform: rotate(45deg) scale(0);
+  }
+  50% {
+    top: 20px;
+    transform: rotate(45deg) scale(0);
+  }
+  75% {
+    transform: rotate(45deg) scale(1);
+  }
+  99.9% {
+    top: 35px;
+    transform: rotate(45deg) scale(0);
+  }
+}
+.zyr .zyr-header .emoji-se .emoji-tongue {
+  margin-left: 4px;
+  width: 70px;
+  height: 30px;
+  background: #F55064;
+  border-radius: 50%;
+}
