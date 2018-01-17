@@ -47,7 +47,7 @@ class PrimaryStudent extends Student {
 
 # 展开运算符
 
-用于函数调用
+用于函数调用 [MDN DOC](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
 ```JS
 myFunction(...iterableObj);
@@ -91,20 +91,21 @@ myFunction(-1, ...args, 2, ...[3]);
   如果已经有一个数组，此时还需要再新建一个数组，要求新数组包含已有数组的数组项的话，就要用到push，splice，concat 等数组方法。有了扩展运算符会让代码更简洁:
   
 ```JS
-let parts = ['shoulder', 'knees'];
+let one = ['a', 'b', 'c']
+let two = ['d', 'e', 'f']
+let three = ['g', 'h', 'i']
 
-let Tshirts = ['Lee', 'Nike'];
+// way #1
 
+let way1 = one.connact(one, two)
 
-let lyrics = ['head', ...parts, 'and', 'toes'];
+// way #2
 
-// ["head", "shoulder", "knees", "and", "toes"]
+let way2 = [].connact(one, two, three)
 
+// way #3
 
-
-let lyrics = ['head', ...parts, 'and', 'toes', ...Tshirts];
-
-// ["head", "shoulder", "knees", "and", "toes", "Lee", "Nike"]
+let way3 = [...one, ...two, ...three]
 
 ```
 
