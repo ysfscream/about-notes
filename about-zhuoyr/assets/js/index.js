@@ -18,7 +18,31 @@ function weloveTime (startTime) {
   var seconds = Math.round(leave3 / 1000)
   let timeDisplay = document.getElementById('time')
   // console.log('💑 ' + days + ' : ' + hours + ' : ' + minutes + ' : ' + seconds)
-  timeDisplay.innerText = '💑 ' + days + ' : ' + hours + ' : ' + minutes + ' : ' + seconds
+  timeDisplay.innerText = days + ' : ' + hours + ' : ' + minutes + ' : ' + seconds
 }
 
 setInterval('weloveTime(love)', 1000)
+
+var date = new Date()
+var hours = date.getHours()
+if (hours > 8 && hours < 12) {
+  document.getElementById('hours').innerHTML = 'Good morning, zhuoyr 🌝'
+} else if (hours > 12 && hours < 19) {
+  document.getElementById('hours').innerHTML = 'Good afternoon, zhuoyr 🌞'
+} else if (hours >= 19 && hours < 23) {
+  document.getElementById('hours').innerHTML = 'Good night, zhuoyr 🌛'
+} else {
+  document.getElementById('hours').innerHTML = '😴 (～﹃～)~zZ'
+}
+
+function randNum () {
+  return Math.round(Math.random() * 5)
+}
+
+var pos = (function () {
+  var pos = ['20px', '50px', '100px', '150px', '200px', '250px']
+  var p = randNum()
+  return pos[p]
+})
+
+document.getElementById('hours').style.top = pos()

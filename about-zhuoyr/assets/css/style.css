@@ -1,6 +1,31 @@
 html, body {
 	background: linear-gradient(to right, #DAE2F8, #faaca8);
 }
+#hours {
+  background: #FFFFFF;
+  border-radius: 25px;
+  box-shadow: 2px 2px 5px rgb(233, 232, 232);
+  padding: 15px;
+  position: absolute;
+  font-size: 20px;
+  color: #424242;
+  font-family: 'Kalam', cursive;  
+  animation: hours-words 8s linear;
+  z-index: 9999;
+  white-space:nowrap;
+  left: 100%;
+  
+}
+
+@keyframes hours-words {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
 .zyr .zyr-header {
   text-align: center;
   font-family: 'Satisfy', cursive;
@@ -128,9 +153,30 @@ html, body {
 }
 .zyr .zyr-body .love-time-word {
   font-family: 'Kalam', cursive;
-  color: #F2F4F3;
+  color: #ffebee;  
 }
 
 .zyr .zyr-body .love-time {
   color: #F2F4F3;
+}
+.zyr .zyr-body .love-time span{
+  font-size: 25px;
+}
+
+#time {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 30px;
+  line-height: 2;
+  animation: love-time 3s;
+}
+
+@keyframes love-time {
+  from {
+    font-size: 10px;
+    line-height: 10;
+  }
+  to {
+    font-size: 30px;
+    line-height: 2;
+  }
 }
