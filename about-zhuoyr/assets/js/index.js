@@ -1,4 +1,4 @@
-var love = '2017-3-3'
+var love = '2017/3/3'
 
 function weloveTime (startTime) {
   var startDate = new Date(startTime)
@@ -16,9 +16,9 @@ function weloveTime (startTime) {
   // 计算相差秒数
   var leave3 = leave2 % (60 * 1000) // 计算分钟数后剩余的毫秒数
   var seconds = Math.round(leave3 / 1000)
-  //   console.log(`${days}:${hours}:${minutes}:${seconds}`)
   let timeDisplay = document.getElementById('time')
-  timeDisplay.innerHTML = '💑 ' + days + ' : ' + hours + ' : ' + minutes + ' : ' + seconds
+  // console.log('💑 ' + days + ' : ' + hours + ' : ' + minutes + ' : ' + seconds)
+  timeDisplay.innerText = '💑 ' + days + ' : ' + hours + ' : ' + minutes + ' : ' + seconds
 }
 
 setInterval('weloveTime(love)', 1000)
