@@ -1,6 +1,8 @@
 # Vue vuex
 
-## 最简单的 示例 [vuex doc](https://vuex.vuejs.org/zh-cn/intro.html)
+## 最简单的 
+
+示例 [vuex doc](https://vuex.vuejs.org/zh-cn/intro.html)
 
 ```JS
 
@@ -59,7 +61,7 @@ computed: {
 
 ```
 
-## 提交载荷 (playload)
+## 提交载荷 (payload)
 
 `store.commit` 传入额外的参数，在大多数情况下，载荷应该是一个对象，这样可以包含多个字段并且记录的 mutation 会更易读
 
