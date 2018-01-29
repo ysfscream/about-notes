@@ -1,7 +1,8 @@
-# Promise
+# Promise Async Function
 
+> [async function](http://www.ruanyifeng.com/blog/2015/05/async.html)  函数声明将定义一个异步函数，返回 AsyncFunction 对象
 
-> `Promise` 对象用于一个异步操作的的最终完成(或失败)其结果值得表示
+> [Promise](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345008539155e93fc16046d4bb7854943814c4f9dc2000) 对象用于一个异步操作的的最终完成(或失败)其结果值得表示
 
 **简单示例**
 
@@ -83,40 +84,6 @@ getGithubUser('mbeaudru')
 
 
 ```
-
-
-**Promise 封装的一个 ajax 方法**
-
-```js
-
-const ajaxFetch = {
-	get(url) {
-		return new Promise((resolve, reject) => {
-			let xhr = new XMLHttpRequest()
-			xhr.open('GET', url, true)
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState === 4) {
-					if (xhr.status === 200) {
-						resolve({
-							status: 200,
-							data: xhr.responseText
-						}, xhr)
-					} else {
-						reject({
-							code: xhr.status,
-							message: xhr.response
-						}, xhr)
-					}
-				}
-			}
-			xhr.send()
-		})
-	}
-}
-
-```
-
-
 
 
 
