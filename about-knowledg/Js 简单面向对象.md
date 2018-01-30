@@ -1,10 +1,12 @@
 ## Js 简单面向对象
 
-> javaScript所有的数据都可以看做是对象, 其中没有类和实例的概念， 是通过`prototype`（原型链）来实现面向对象的编程的
+> javaScript所有的数据都可以看做是对象, 对象是属性的容器，其中没有类和实例的概念， 是通过`prototype`（原型链）来实现面向对象的编程的 所有的对象都是为 `true`
 
-> javaScript的数据类型有 `Array String Number Boolean Object Null undefined` 当使用 `typeof` 时 `null [] Array` 返回的都是Object 
+> javaScript的数据类型有 `Array String Number Boolean Object Null undefined` 当使用 `typeof` 时 `null [] Array` 返回的都是Object 有数字 字符串 布尔值 null undefined 其它的都为对象 
 
 ### Js的对象
+
+对象通过引用来传递 它们永远不会被复制
 
 ```js
 

@@ -26,5 +26,6 @@
 
 13. `topic`: 主题 一般规则 
 
+14. `horizontally`: 水平
 
 
