@@ -61,7 +61,7 @@ async function AsyncStr() {
 	return 'hello'
 }
 
-console.log(getAsyncStr()) // Promise{ 'hello' }
+console.log(AsyncStr()) // Promise{ 'hello' }
 getAsyncStr().then(res => console.log(res)) // hello
 
 

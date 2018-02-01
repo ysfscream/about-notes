@@ -1,0 +1,51 @@
+# Vue 自定义指令
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>自定义指令</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+</head>
+<body>
+    <p class='p'>
+     I will now be tacked noto the page
+     <input v-focus type='text'>
+     <input v-border type='text'>
+   </p>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+// 自定义全局指令
+Vue.directive('border',{
+		bind(el){
+			el.style.border='3px red solid'
+		}
+})
+	new Vue({
+		el:'.p',
+		//自定义局部指令
+		directives:{
+			tack:{
+				inserted(el) {
+					el.style.color='red'
+				}
+			},
+			focus: {
+		    // 指令的定义
+		    inserted(el) {
+		      el.focus()
+		    }
+  		}
+		}
+	})
+</script>
+</html>
+
+```
+
