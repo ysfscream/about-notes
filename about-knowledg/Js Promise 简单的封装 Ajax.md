@@ -7,7 +7,7 @@
 function getJSON(url) {
     return new Promise((resolve, reject) => {
         var xhr = new XMLHttpRequest()
-        xhr.opne('GET', url, true)
+        xhr.open('GET', url, true)
         xhr.onreadystatechange = function() {
             if (this.readState === 4) {
                 if (this.status === 200) {
@@ -54,4 +54,8 @@ function getJSON(url) {
 }
 
 ```
+
+>XMLHttpRequest is a built-in object in web browsers.
+>It is not distributed with Node; you have to install it separately using npm.
+>That said, Node comes with the http module which is the normal tool for choice for making HTTP requests from Node.
 

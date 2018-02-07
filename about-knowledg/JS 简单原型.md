@@ -25,3 +25,25 @@ foo ---> Function.prototype --->Object.prototype ---> null
 `Function.prototype` 定义了 `apply()` `call()` 等方法 因此可以在任何的 `Function` 对象上直接调用这些方法
 
 **如果一个对象的原型链很长 那么访问一个对象的属性就会变得很慢 因此不能把原型链弄很长**
+
+
+
+给所有的函数 function 添加一个公有的方法, 在当前对象调用该方法时，可直接使用，当类库中没有时就可以执行
+
+```js
+Function.prototype.method = function(name, func) {
+  if (!this.prototype[name]) {
+    this.prototype[name] = func
+  }
+}
+```
+
+比如字符串移除收尾的空格：
+
+```js
+String.method('trim', function() {
+  return this.replace(/^\s+|\s+$g, '')
+})
+' STRING '.trim() // 'STRING'
+```
+

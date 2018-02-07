@@ -1,6 +1,5 @@
 # MongoDB mongoose
 
-## __v
 The versionKey is a property set on each document when first created by Mongoose. This keys value contains the internal revision of the document. The name of this document property is configurable. The default is __v.
 
 If this conflicts with your application you can configure as such:
@@ -38,3 +37,6 @@ add params authSource
 mongoose.connect('mongodb://username:password@host:port/database?options...?authSource=admin');
 ```
 
+
+
+使用 Mongoose 无需关心连接是否建立，它会先把数据库操作指令先缓存起来，在连接上以后数据库以后会把这些指令发送给 MongoDB

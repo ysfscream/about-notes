@@ -18,6 +18,10 @@ let way2 = [].connact(one, two, three)
 // way #3
 
 let way3 = [...one, ...two, ...three]
+
+// 快速交换两个数字
+
+[a, b] = [b, a]
 ```
 
 - 回调 -> Promise -> async/await
@@ -54,4 +58,6 @@ getData()
 	console.log.log(e)
 })()
 ```
+
+
 
