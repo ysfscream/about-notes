@@ -1,7 +1,16 @@
 # Js Object.keys Objeck.values
 
-> Object.keys() 方法会返回一个由一个给定**对象**的自身可枚举属性组成的**数组**，数组中属性名的排列顺序和使用 [`for...in`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in) 循环遍历该对象时返回的顺序一致 （两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）。
+## Object.keys
+>Object.keys() 方法会返回一个由一个给定**对象**的自身可枚举属性组成的**数组**，数组中属性名的排列顺序和使用 [`for...in`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in) 循环遍历该对象时返回的顺序一致 （两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）。
 
+```js
+var obj = {
+	'a': 1,
+	'b': 2,
+	'c': 3
+}
+Object.keys(obj) //输出['a', 'b', 'c']
+```
 ```js
 /* Array 对象 */ 
 let arr = ["a", "b", "c"];
@@ -27,7 +36,7 @@ console.log(Object.keys(anObj));
 ```
 
 
-
+## Object.values()
 > Object.values()方法返回一个给定对象自己的所有可枚举属性值的数组，值的顺序与使用[`for...in`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in)循环的顺序相同 ( 区别在于 for-in 循环枚举原型链中的属性 )。
 
 ```js
