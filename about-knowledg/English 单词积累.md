@@ -19,4 +19,5 @@
 17. meditation: 沉思 深思
 18. rationalize: 使···合理，为···找借口
 19. sue: 请求
+20. gestures:  手势
 

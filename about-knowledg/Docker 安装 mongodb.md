@@ -2,8 +2,6 @@
 
 https://brickyang.github.io/2017/03/15/%E5%88%A9%E7%94%A8-Docker-%E8%BF%90%E8%A1%8C-MongoDB/
 
-https://brickyang.github.io/2017/03/15/%E5%88%A9%E7%94%A8-Docker-%E8%BF%90%E8%A1%8C-MongoDB/
-
 - docker pull mongo 下拉官方镜像
 
 - ## 运行 mongo
