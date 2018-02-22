@@ -69,7 +69,7 @@ Docker 容器通过 Docker 镜像来创建
 
 - `docker container restart` 命令会将一个运行态的容器终止，然后再重新启动它
 
-- `ocker exec` 命令进入容器进行操作
+- `docker exec` 命令进入容器进行操作
 
   - `docker exec` 后边可以跟多个参数，这里主要说明 `-i` `-t` 参数。
 

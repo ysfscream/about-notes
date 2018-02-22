@@ -4,7 +4,7 @@
 
 
 
-##基于session认证所显露的问题
+## 基于session认证所显露的问题
 
 **Session**: 每个用户经过我们的应用认证之后，我们的应用都要在服务端做一次记录，以方便用户下次请求的鉴别，通常而言session都是保存在内存中，而随着认证用户的增多，服务端的开销会明显增大。
 
@@ -133,7 +133,7 @@ jwt的第三部分是一个签证信息，这个签证信息由三部分组成�
 - payload (base64后的)
 - secret
 
-这个部分需要base64加密后的header和base64加密后的payload使用`.`连接组成的字符串，然后通过header中声明的加密方式进行加盐`secret`组合加密，然后就构成了jwt的第三部分。
+这个部分需要base64加密后的header和base64加密后的payload使用`.`连接组成的字符串，然后通过header中声明的加密方式进行校验`secret`组合加密，然后就构成了jwt的第三部分。
 
 ```
 // javascript
@@ -177,3 +177,4 @@ fetch('api/user/1', {
 [参考2](https://juejin.im/post/58da720b570c350058ecd40f)
 
 [参考3](https://www.jianshu.com/p/576dbf44b2ae)
+
