@@ -1,6 +1,7 @@
 #git 命令自动 push 或 rebase
 #!/bin/bash
 read -p "push or rebase: " oper
+echo $oper
 if [$oper == "push"]
 then
   echo $oper
