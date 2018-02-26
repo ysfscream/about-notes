@@ -1,4 +1,4 @@
-#git 命令自动 push 或 rebase
+#git 命令自动 push 或 rebase blog 文档
 #!/bin/bash
 read -p "push or rebase: " oper
 if [ $oper == "push" ]
