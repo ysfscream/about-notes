@@ -13,3 +13,9 @@
 this.$ref.child.Function()
 ```
 
+更新父组件 v-model 绑定的值
+
+```js
+this.$emit('input', value)
+```
+
