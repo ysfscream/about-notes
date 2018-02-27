@@ -8,7 +8,7 @@ then
   read -p "Check that the files changes are correct. [y/n]: " variable
   if [ $variable == "y" ]
   then
-    git commit -m "docs: Add the document"
+    git commit -m "docs: Add the document `date`"
     git push origin master
   else
     echo "It's not pushed"
