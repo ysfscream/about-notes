@@ -47,7 +47,7 @@
   background: #E01A4F;
 }
 ```
-![](/Users/yushifan/Documents/about-knowledg/media/1513147152410.jpg)
+![](../media/1513147152410.jpg)
 
 > 网格间距  `grid-column-gap: 10px; grid-row-gap: 1em;`
 
@@ -61,7 +61,7 @@
 }
 ```
 
-![](/Users/yushifan/Documents/about-knowledg/media/WX20171213-151505@2x.png)
+![](../media/WX20171213-151505@2x.png)
 
 ### fr 单位
 
@@ -105,7 +105,7 @@
   grid-template-columns: 20px repeat(4, 1fr) 20px;
 }
 ```
-![](/Users/yushifan/Documents/about-knowledg/media/1513148914157.jpg)
+![](../media/1513148914157.jpg)
 
 > Repeat 语句可以传入一个轨道列表，因此你可以用它来创建一个多轨道模式的重复轨道列表。在下一个例子中，网格将有共计6个轨道，为1个1fr轨道后面跟着1个2fr轨道，该模式重复3次。
 
@@ -115,7 +115,7 @@
   grid-template-columns: repeat(3, 1fr 2fr);
 }
 ```
-![](/Users/yushifan/Documents/about-knowledg/media/WX20171213-151146@2x.png)
+![](../media/WX20171213-151146@2x.png)
 
 
 
