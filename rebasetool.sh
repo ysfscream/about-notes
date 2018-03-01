@@ -1,4 +1,3 @@
-#git 命令自动 push 或 rebase blog 文档
 #!/bin/bash
 read -p "push or rebase: " oper
 if [ $oper == "push" ]
@@ -8,8 +7,10 @@ then
   read -p "Check that the files changes are correct. [y/n]: " variable
   if [ $variable == "y" ]
   then
-    git commit -m "docs: Add the document `date`"
-    git push origin master
+    git commit -m "docs: Add the documents `date`"
+    read -p "checkout branch: " branch
+    git pull origin $branch
+    git push origin $branch
   else
     echo "It's not pushed"
   fi
@@ -20,8 +21,9 @@ else
   read -p "Modified to complete. [y/n]: " variable
   if [ $variable == "y" ]
   then
-    git push origin master -f
+    read -p "checkout branch: " branch
+    git push origin $branch -f
   else
-    echo "It's not rebase"
+    echo "It's not rebased"
   fi
 fi

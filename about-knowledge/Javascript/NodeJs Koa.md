@@ -277,3 +277,22 @@ const middlewares = compose([logger, main]);
 app.use(middlewares);
 ```
 
+## 静态资源
+
+如果网站提供静态资源（图片、字体、样式表、脚本......），为它们一个个写路由就很麻烦，也没必要。[`koa-static`](https://www.npmjs.com/package/koa-static)模块封装了这部分的请求。请看下面的例子（完整代码看[这里](https://github.com/ruanyf/koa-demos/blob/master/demos/12.js)）。
+
+> ```
+> const path = require('path');
+> const serve = require('koa-static');
+>
+> const main = serve(path.join(__dirname));
+> app.use(main);
+>
+> ```
+
+运行这个 Demo。
+
+> ```
+> $ node demos/12.js
+> ```
+
