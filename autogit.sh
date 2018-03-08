@@ -7,7 +7,7 @@ then
   read -p "Check that the files changes are correct. [y/n]: " variable
   if [ $variable == "y" ]
   then
-    git commit -m "docs: Add the documents `date`"
+    git commit -m "docs: Add some documents `date`"
     read -p "checkout branch: " branch
     git pull origin $branch
     git push origin $branch

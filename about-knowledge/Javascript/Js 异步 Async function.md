@@ -85,15 +85,47 @@ getGithubUser('mbeaudru')
 
 ```
 
+async 函数返回一个 Promise 对象，可以使用 then 方法添加回调函数。当函数执行的时候，一旦遇到 await 就会先返回，等到触发的异步操作完成，再接着执行函数体内后面的语句。
 
+异步函数示例：
 
+```js
+console.log(1)
+const asy = async () => {
+  return await setTimeout(() => {
+    console.log(2)
+  })
+}
+asy()
+console.log(3)
 
+1
+3
+2
+```
 
+> ```
+> async function dbFuc(db) {
+>   let docs = [{}, {}, {}];
+>
+>   // 报错
+>   docs.forEach(function (doc) {
+>     await db.post(doc);
+>   });
+> }
+>
+>
+> ```
 
+上面代码会报错，因为 await 用在普通函数之中了。但是，如果将 forEach 方法的参数改成 async 函数，也有问题。
 
-
-
-
-
-
-
+> ```
+> async function dbFuc(db) {
+>   let docs = [{}, {}, {}];
+>
+>   // 可能得到错误结果
+>   docs.forEach(async function (doc) {
+>     await db.post(doc);
+>   });
+> }
+> ```
