@@ -25,4 +25,9 @@
 23. head：头 前进 出发
 24. dude：家伙
 25. bearer: 持票人；[建] 承木；[机] 托架；送信人；搬运工人；不记名（债券，股票等）
+26. puzzle: 谜题
+27. essential：至关重要的
+28. initiative：主动权 主动的
+29. rolling out version: 推出版本
+30. shy away from: 回避
 

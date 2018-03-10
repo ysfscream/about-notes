@@ -5,5 +5,5 @@
 3. please keep an eye out for any future opportunities. 请留意任何未来的机会
 4. When you focus on yourself you’ll realize that your life isn’t so bad after all and that you have a lot of things to be grateful for.
 5. an aspiring front end developer with an eye for minimal design 一个有抱负的前端开发人员，以最小的设计眼光。
-
+6. taking a lot of initatives: 需要很多的帮助。
 
