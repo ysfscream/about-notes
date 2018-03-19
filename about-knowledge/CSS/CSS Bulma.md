@@ -9,7 +9,7 @@
 
 官方 columns gap
 
-```HTM
+```HTML
 <div class="columns">
   <div class="column test">
 	 <div class="extra-word">
