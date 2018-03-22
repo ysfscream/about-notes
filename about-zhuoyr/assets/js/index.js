@@ -34,15 +34,3 @@ if (hours > 8 && hours < 12) {
 } else {
   document.getElementById('hours').innerHTML = '😴 (～﹃～)~zZ'
 }
-
-function randNum () {
-  return Math.round(Math.random() * 5)
-}
-
-var pos = (function () {
-  var pos = ['20px', '50px', '100px', '150px', '200px', '250px']
-  var p = randNum()
-  return pos[p]
-})
-
-document.getElementById('hours').style.top = pos()

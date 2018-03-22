@@ -2,30 +2,11 @@ html, body {
 	background: linear-gradient(to right, #DAE2F8, #faaca8);
 }
 #hours {
-  background: #FFFFFF;
-  border-radius: 25px;
-  box-shadow: 2px 2px 5px rgb(233, 232, 232);
-  padding: 15px;
-  position: absolute;
   font-size: 20px;
-  color: #424242;
+  color: #ffffff;
   font-family: 'Kalam', cursive;  
-  animation: hours-words 8s linear;
   z-index: 9999;
-  white-space:nowrap;
-  left: 100%;
-  
 }
-
-@keyframes hours-words {
-  from {
-    left: -100%;
-  }
-  to {
-    left: 100%;
-  }
-}
-
 .zyr .zyr-header {
   text-align: center;
   font-family: 'Satisfy', cursive;
@@ -179,4 +160,51 @@ html, body {
     font-size: 30px;
     line-height: 2;
   }
+}
+
+.birthday {
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #e5a5a5;
+  width: 90%;
+  background: #FFFFFF;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  animation: birthday-time  2s;
+}
+
+@keyframes birthday-time {
+  0% {
+   top: -190px;
+  }
+  50% {
+    top: 30px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+.line {
+  border: 3px dashed #ffffff;
+  margin-left: 100px;
+  padding-bottom: 10px;
+  height: 100px;
+}
+
+.birthday a {
+  color: #F55064;
+}
+
+.birthday h3 {
+  color: #F55064;
+}
+
+
+.footer {
+  position: absolute;
+  top: 95%;
+  left: 25%;
+  text-align: center;
 }
