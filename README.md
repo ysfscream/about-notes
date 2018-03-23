@@ -1,7 +1,20 @@
-# about-blog
+# about-blog.
 
-Personal private blog. ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
+Knowledge is power. ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
 
-❤️ Record love [stories](https://ysfscream.github.io/about-blog/about-zhuoyr/)
+One day, I want to be strong. 💪
 
 📙 Record some [knowledges](https://github.com/ysfscream/about-blog/tree/master/about-knowledge)
+
+## List
+
+- HTML
+- CSS
+- Javascript
+- HTTP
+- Vue
+- MongoDB
+- Docker
+- Git
+- English
+- Docs
