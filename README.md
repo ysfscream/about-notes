@@ -4,7 +4,9 @@ Knowledge is power. ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
 
 One day, I want to be strong. 💪
 
-📙 Record some [knowledges](https://github.com/ysfscream/about-blog/tree/master/about-knowledge)
+📙 Record some knowledges.
+
+There are good and bad, welcome to learn together. 👏
 
 ## List
 

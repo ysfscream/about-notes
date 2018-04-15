@@ -8,6 +8,8 @@
 
 [参考2](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014735914606943e2866257aa644b4bdfe01d26d29960b000)
 
+[参考3](https://github.com/jasonGeng88/blog/blob/master/201706/rest-api.md)
+
 ## 协议
 
 API与用户的通信协议，总是使用[HTTPs协议](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)。

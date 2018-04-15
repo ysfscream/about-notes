@@ -30,4 +30,9 @@
 28. initiative：主动权 主动的
 29. rolling out version: 推出版本
 30. shy away from: 回避
-
+31. performance: 性能；绩效；表演；执行；表现
+32. polished: 擦亮的；优美的；圆滑的
+33. pristine: 崭新的，清新的，干净的；未开发的，原始的
+34. promptly: 迅速地；立即地；敏捷地
+35. hub: 中心
+36. implement:  实施，执行；实现，使生效
