@@ -36,3 +36,15 @@
 34. promptly: 迅速地；立即地；敏捷地
 35. hub: 中心
 36. implement:  实施，执行；实现，使生效
+37. audience: 观众；听众；读者；接见；正式会见；拜会
+38. consistently : 一贯地；一致地；坚实地
+39. revamped: 修订（revamp的过去分词）
+40. perspective: 观点；远景；透视图
+41. criticism: 批评；考证；苛求
+42. Kick start: 启动
+43. insight:  洞察力；洞悉 ，眼光
+44. channel: 引导，开导；形成河道，通道；频道；沟渠；海峡
+45. risky: 危险的；冒险的；（作品等）有伤风化的
+46. hence: 因此
+47. passion: 激情，热爱
+48. ​
