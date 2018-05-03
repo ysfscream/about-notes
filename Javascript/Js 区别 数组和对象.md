@@ -38,3 +38,20 @@ const a = []
 Array.isArray(a) // true
 ```
 
+
+
+## 数组和函数的 length
+
+```js
+const arr = [1, 2, 3] 
+arr.length // 3
+const arrFunc = (x, y, z) => {
+    return x + y + z
+}
+arrFunc.length // 3 函数的 length 为函数的参数个数
+const a = {
+	b: 1,
+}
+a.length // undefined
+```
+
