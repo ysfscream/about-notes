@@ -1,5 +1,7 @@
 # about-blog.
 
+> This is a memory repository. You can take it out when you need it.  --me
+
 Knowledge is power. ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
 
 One day, I want to be strong. 💪
@@ -21,3 +23,4 @@ There are good and bad, welcome to learn together. 👏
 - [English](https://github.com/ysfscream/about-blog/tree/master/English)
 - [Docs](https://github.com/ysfscream/about-blog/tree/master/Docs)
 - [Wxmp](https://github.com/ysfscream/about-blog/tree/master/wxmp)
+- [Tools](https://github.com/ysfscream/about-blog/tree/master/Tools)
