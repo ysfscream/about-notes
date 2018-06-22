@@ -47,4 +47,7 @@
 45. risky: 危险的；冒险的；（作品等）有伤风化的
 46. hence: 因此
 47. passion: 激情，热爱
-48. ​prevent: 阻止
+48. prevent: 阻止
+49. optimization: 最佳化，最优化
+50. seal:  密封；印章；海豹；封条；标志
+51. channel:  通道；频道；沟渠；海峡
