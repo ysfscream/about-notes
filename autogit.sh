@@ -8,9 +8,8 @@ then
   if [ $variable == "y" ]
   then
     git commit -m ":memo: Add some documents `date`"
-    read -p "checkout branch: " branch
-    git pull origin $branch
-    git push origin $branch
+    git pull origin master
+    git push origin master
   else
     echo "It's not pushed"
   fi
