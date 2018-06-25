@@ -53,3 +53,35 @@ default -> v4.1.0
 直接查看官方文档：https://github.com/tj/n
 
 参考：https://75team.com/post/manage_node_with_n.html
+
+```bash
+# 安装 Node 版本
+$ n 版本号
+
+# 选择你想使用的版本
+$ n 
+
+# Use or install the latest official release:
+$ n latest
+Use or install the stable official release:
+
+$ n stable
+Use or install the latest LTS official release:
+
+$ n lts
+
+Remove some versions:
+
+$ n rm 0.9.4 v0.10.0
+Alternatively, you can use - in lieu of rm:
+
+$ n - 0.9.4
+Removing all versions except the current version:
+
+$ n prune 
+```
+
+
+
+
+
