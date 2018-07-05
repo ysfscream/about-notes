@@ -1,5 +1,25 @@
 # CSS水平垂直居中
 
+注意：
+
+> `text-align: center`、`verticle-align: center` 是否可行呢？答案也是否定的。这两个属性只能用于行内元素，对于块级元素的布局是无效的。
+
+实现水平居中可以使用 `margin: 0 auto`
+
+### 0.flex 布局
+
+父级容器设置 display: flex，设置justify-content，align-items
+
+```css
+#dad {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+```
+
+
+
 ### 1.文本的水平垂直居中
 
 >text-aligen:center + line-height（等于div的高）
