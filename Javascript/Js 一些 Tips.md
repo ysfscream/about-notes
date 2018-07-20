@@ -1,4 +1,4 @@
-# Js 一些利于理解的代码段
+# Js 一些 Tips
 
 - 展开运算符的用处
 
@@ -59,5 +59,15 @@ getData()
 })()
 ```
 
+- 简短的条件判断 如果条件判断后只有一个结果 可以运用 && 运算符
 
+```js
+if (condition) {
+	doSomething()
+}
+
+// 修改为
+
+condition && doSomething()
+```
 
