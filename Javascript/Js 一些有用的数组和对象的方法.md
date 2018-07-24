@@ -208,7 +208,7 @@ console.log(Object.values(an_obj)); // ['b', 'c', 'a']
 
 
 
-# Object.freeze 和 Object.seal
+## Object.freeze 和 Object.seal
 
 >  Prevents you from modifying existing object properties or adding new properties and values to an object. It’s often what people think `const` does, however `const` allows you to modify an object.
 
@@ -235,6 +235,104 @@ Object.seal(sealedObject);
 sealedObject.name = 'Bob';
 sealedObject.wearsWatch = true;
 // sealedObject will be equal to { name: 'Bob' }
+```
+
+
+
+## Object.defineProperty
+
+> `Object.defineProperty()` 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。默认情况下，使用 `Object.defineProperty()` 添加的属性值是不可修改的。
+
+```js
+Object.defineProperty(obj, prop, descriptor)
+```
+
+obj：要在其上定义属性的对象
+
+prop：要定义或者修改的属性的名称
+
+description：将被定义或修改的属性描述 
+
+​	数据描述符和存取描述符均具有以下可选键值：
+
+- `configurable`
+
+  当且仅当该属性的 configurable 为 true 时，该属性`描述符`才能够被改变，同时该属性也能从对应的对象上被删除。**默认为 false**。
+
+- `enumerable`
+
+  当且仅当该属性的`enumerable`为`true`时，该属性才能够出现在对象的枚举属性中。**默认为 false**。
+
+**数据描述符同时具有以下可选键值**：
+
+- `value`
+
+  该属性对应的值。可以是任何有效的 JavaScript 值（数值，对象，函数等）。**默认为 undefined**。
+
+- `writable`
+
+  当且仅当该属性的`writable`为`true`时，`value`才能被[赋值运算符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Assignment_Operators)改变。**默认为 false**。
+
+**存取描述符同时具有以下可选键值**：
+
+- `get`
+
+  一旦目标对象访问该属性，就会调用这个方法，并返回结果。
+
+  一个给属性提供 getter 的方法，如果没有 getter 则为 `undefined`。当访问该属性时，该方法会被执行，方法执行时没有参数传入，但是会传入`this`对象（由于继承关系，这里的`this`并不一定是定义该属性的对象）。
+
+  **默认为 undefined**。
+
+- `set`
+
+  一旦目标对象设置该属性，就会调用这个方法。
+
+  一个给属性提供 setter 的方法，如果没有 setter 则为 `undefined`。当属性值修改时，触发执行该方法。该方法将接受唯一参数，即该属性新的参数值。
+
+  **默认为 undefined**。
+
+```js
+let obj = {}
+Object.defineProperty(obj, 'key', {value: 10})
+console.log(obj) // {key: 10}
+```
+
+setter 和 getter 的用法
+
+```js
+let obj = {}
+let value = 1
+Object.defineProperty(obj, 'prop', {
+	get: function() {
+		console.log('get')
+		return value
+	},
+	set(newValue) {
+		console.log('set')
+		value = newValue
+	}
+})
+console.log(obj.prop)
+obj.prop = 2
+console.log(obj.prop)
+```
+
+打印输出
+
+'get', 1, 'set', 'get', 2 
+
+
+
+## hasOwnProperty
+
+> `hasOwnProperty()` 方法会返回一个布尔值，指示对象**自身**属性中是否具有指定的属性
+
+```js
+const obj = { a: 1 }
+
+obj.hasOwnProperty('a') // true
+
+obj.hasOwnProperty('b') // false
 ```
 
 

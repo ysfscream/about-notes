@@ -69,6 +69,19 @@ String.method('trim', function() {
 
 ### js实现new运算符过程来剖析
 
+先了解一下 **构造函数 constructor**， 是用于创建和初始化类中创建的一个对象的一种特殊方法。
+
+```js
+constructor([arguments]) { ... }
+
+// 在 ES6 中构造函数的作用
+class Polygon {
+    constructor() {
+        this.name = "Polygon";
+    }
+}
+```
+
 ```js
 // 构造函数 定义其 prototype
 function Foo(name) {

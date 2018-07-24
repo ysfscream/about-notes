@@ -71,3 +71,26 @@ if (condition) {
 condition && doSomething()
 ```
 
+- 三元表达式
+
+```js
+let ticTacToe;
+if(ticTacToe === 1){
+  ticTacToe = 'X';
+} else {
+  ticTacToe = 'O';
+}
+// It can be written like this
+let ticTacToe = ticTacToe === 1 ? 'X' : 'O';
+```
+
+
+
+- There is more then console.log()
+
+console logged a JS object, arrays, try it: 
+
+```js
+console.table(yourObject)
+```
+
