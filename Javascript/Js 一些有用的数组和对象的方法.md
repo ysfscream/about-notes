@@ -1,8 +1,8 @@
 #  Js 一些有用的数组和对象的方法
 
+##  str.substr 和 str.substring
 
-
-##  str.substr
+>  **substr()** 方法返回一个字符串中从指定位置开始到指定字符数的字符。
 
 ```js
 var str = "abcdefghij";
@@ -16,6 +16,62 @@ console.log("(1): "      + str.substr(1));     // (1): bcdefghij
 console.log("(-20, 2): " + str.substr(-20,2)); // (-20, 2): ab
 console.log("(20, 2): "  + str.substr(20,2));  // (20, 2): 
 ```
+
+
+
+> **substring()** 方法返回一个字符串在开始索引到结束索引之间的一个子集, 或从开始索引直到字符串的末尾的一个子集。
+
+
+
+## str.slice ，str.split 和 str.splice 
+
+> **slice()** 方法返回一个从开始到结束（**\*不包括结束***）选择的数组的一部分**浅拷贝**到一个新数组对象。且原始数组不会被修改。
+
+```js
+arr.slice();
+// [0, end]
+
+arr.slice(begin);
+// [begin, end]
+
+arr.slice(begin, end);
+// [begin, end)
+
+const arr = [1, 2, 3, 4]
+arr.slice(1) // [2, 3, 4]
+arr.slice(1, 2) // [2]
+arr.slice(1, 3) // [2, 3]
+```
+
+> **split()** 方法使用指定的分隔符字符串将一个[`String`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/String)对象分割成字符串数组，以将字符串分隔为子字符串，以确定每个拆分的位置。 
+
+```js
+str.split([separator[, limit]])
+
+const str = 'hello'
+str.split('') // ["h", "e", "l", "l", "o"]
+str.split('', 3) // ["h", "e", "l"]
+```
+
+> **splice()** 方法对数组内的元素进行修改，可以通过删除或者增加元素， 返回改动的元素的数组
+
+```js
+Array .splice( start[ , deleteCount[ , item1[ , item2[ , ...]]]] )
+
+const arr = ['Jan', 'March', 'April', 'June']
+arr.splice(1, 0, 'Feb')
+console.log(arr)
+// 插入 ['Jan', 'Feb', 'March', 'April', 'June']
+arr.splice(4, 1, 'May')
+console.log(arr)
+// 替换 ['Jan', 'Feb', 'March', 'April', 'May']
+arr.splice(2, 1)
+console.log(arr)
+// 删除 ["Jan", "Feb", "April", "May"]
+
+```
+
+
 
 
 
