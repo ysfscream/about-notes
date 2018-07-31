@@ -94,3 +94,11 @@ console logged a JS object, arrays, try it:
 console.table(yourObject)
 ```
 
+
+
+- 在一个字符串中，在小写和大写字母中间加入空格
+
+```js
+'LoveYou'.replace(/([a-z])([A-Z])/g, '$1 $2') // Love You
+```
+
