@@ -5,6 +5,7 @@
 ![](../media/vim.jpg)
 
 很多很多参考链接 https://coolshell.cn/articles/5426.html  https://feifeiyum.github.io/2017/01/23/base-vimusage/
+https://macplay.github.io/posts/vim-bu-xu-yao-duo-guang-biao-bian-ji-gong-neng/
 
 > 很多操作前加数字 可快速操作 重复命令 N次
 
@@ -80,4 +81,4 @@
 
 - `ctl-b` -> 向后翻页
 
-
+- 修改 N 个位置的单词 `/搜索的单词 -> cgn (修改单词) -> . (输入点操作)`

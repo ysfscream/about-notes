@@ -15,8 +15,10 @@ There are good and bad, welcome to learn together. 👏
 - [HTML](https://github.com/ysfscream/about-blog/tree/master/HTML)
 - [CSS](https://github.com/ysfscream/about-blog/tree/master/CSS)
 - [JavaScript](https://github.com/ysfscream/about-blog/tree/master/Javascript)
+- [Python](https://github.com/ysfscream/about-blog/tree/master/Python)
 - [HTTP](https://github.com/ysfscream/about-blog/tree/master/HTTP)
 - [Vue](https://github.com/ysfscream/about-blog/tree/master/Vue)
+- [React](https://github.com/ysfscream/about-blog/tree/master/React)
 - [MongoDB](https://github.com/ysfscream/about-blog/tree/master/MongoDB)
 - [Docker](https://github.com/ysfscream/about-blog/tree/master/Docker)
 - [Git](https://github.com/ysfscream/about-blog/tree/master/Git)
@@ -25,3 +27,4 @@ There are good and bad, welcome to learn together. 👏
 - [Wxmp](https://github.com/ysfscream/about-blog/tree/master/wxmp)
 - [Tools](https://github.com/ysfscream/about-blog/tree/master/Tools)
 - [IoT](https://github.com/ysfscream/about-blog/tree/master/IoT)
+
