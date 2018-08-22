@@ -7,3 +7,7 @@ JavaScript 运行时 才能实例化
 [代码示示例](http://jsbin.com/qimaw/1/edit?html,output)
 
 除此以外，还包含只读的 `content` 属性，通过它可以读取模板内容。一般来说，可以通过判断 `content` 属性是否存在来判断浏览器是否支持 **<template> **元素。
+
+
+
+在 template 标签中，js 未编译和运行以前，里面的内容不会显示

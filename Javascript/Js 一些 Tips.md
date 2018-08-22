@@ -102,3 +102,21 @@ console.table(yourObject)
 'LoveYou'.replace(/([a-z])([A-Z])/g, '$1 $2') // Love You
 ```
 
+
+- let 和 var 的区别, 作用域
+
+```js
+// interviewer: what will the following code output?
+const arr = [10, 12, 15, 21];
+for (let i = 0; i < arr.length; i++) {
+  setTimeout(function() {
+    console.log('Index: ' + i + ', element: ' + arr[i]);
+  }, 3000);
+}
+
+// Change let to var, what will the following code output?
+```
+
+
+
+

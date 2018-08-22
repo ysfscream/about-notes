@@ -5,4 +5,6 @@
 * `git commit -m "项目描述"`
 * `git push`推送
 * `git pull`下拉更新
+* `git checkout -b newBranch` 新建 newBranch 分支并切换到 新建分支
+  * 步骤类似于 `git branch newBranch` && `git checkout newBranch`
 

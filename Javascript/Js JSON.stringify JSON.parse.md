@@ -10,31 +10,32 @@ const data = {
 	b: 123
 }
 JSON.stringify(data)
-
 //输出
+{ "a": "aaa", "b": 123 }
 
-{
-	"a": "aaa",
-	"b": 123	
-}
 
 //还可以用函数过滤数据
-
 function replacer(key, value) {
   if (typeof value === 'string') {
     return undefined;
   }
   return value;
 } 
-
-
 JSON.stringify(data, replacer)
-
 //输出
+{ "b": "123" }
 
-{
-	b: 123
+
+// 控制缩进
+JSON.stringify(data, replacer, space)
+JSON.stringify(data, null, 2)
+//输出
+{ 
+    "b": 
+	"123" 
 }
+
+
 ```
 
 
