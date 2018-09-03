@@ -1,4 +1,4 @@
-# Vue Veux 数组赋值 states 报错 Do not mutate vuex store state outside mutation handlers
+# Vue Vuex 数组赋值 states 报错 Do not mutate vuex store state outside mutation handlers
 
 > **The reason is that arrays are stored as references in Javascript and payload.items is likely to be changed outside Vuex. So we should just use a fresh copy of payload.itemsinstead.**
 
