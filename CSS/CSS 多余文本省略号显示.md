@@ -9,3 +9,12 @@
 }
 ```
 
+## CSS 文字控制行数
+
+```css
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+```
+
+显示两行 多余显示省略号。。。webkit 有效
