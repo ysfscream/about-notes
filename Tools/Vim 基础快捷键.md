@@ -82,3 +82,5 @@ https://macplay.github.io/posts/vim-bu-xu-yao-duo-guang-biao-bian-ji-gong-neng/
 - `ctl-b` -> 向后翻页
 
 - 修改 N 个位置的单词 `/搜索的单词 -> cgn (修改单词) -> . (输入点操作)`
+
+http://www.ruanyifeng.com/blog/2018/09/vimrc.html 阮一峰 配置 Vim 入门
