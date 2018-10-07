@@ -35,7 +35,7 @@ module.exports = {
   entry: './path/to/my/entry/file.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'my-first-webpack.bundle.js' // [name].js 使用占位符(substitutions)来确保每个文件具有唯一的名称。
+    filename: 'my-first-webpack.bundle.js' // [name].js 使用占位符(substitutions)来确保每个文件具有唯一的名称, name 为文件名，模块名称。[name].[chunkhash].js chunk 内容的 hash。
   }
 };
 ```
@@ -106,6 +106,7 @@ loader 被用于转换某些类型的模块，而插件则可以用于执行范�
 ```javascript
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 通过 npm 安装
 const webpack = require('webpack'); // 用于访问内置插件
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const config = {
   module: {
@@ -115,7 +116,8 @@ const config = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
-    new HtmlWebpackPlugin({template: './src/index.html'})
+    new HtmlWebpackPlugin({template: './src/index.html'}) // HtmlWebpackPlugin 会默认生成 index.html 文件。这就是说，它会用新生成的 index.html 文件，把我们的原来的替换
+  	new CleanWebpackPlugin(['dist']) //	每次构建前清理 /dist 文件夹，因此只会生成用到的文件。
   ]
 };
 
@@ -170,23 +172,6 @@ module.exports = {
 -    new webpack.NoEmitOnErrorsPlugin()
 -  ]
 }
-```
-
-## 基本配置
-
-**webpack.config.js**
-
-```javascript
-var path = require('path');
-
-module.exports = {
-  mode: 'development',
-  entry: './foo.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'foo.bundle.js'
-  }
-};
 ```
 
 ## webpack 模块
@@ -275,3 +260,79 @@ module.exports = [ serverConfig, clientConfig ];
 ```
 
 上面的例子将在你的 `dist` 文件夹下创建 `lib.js` 和 `lib.node.js` 文件。
+
+
+
+## 配置
+
+### 基本
+
+**webpack.config.js**
+
+```javascript
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const webpack = require('webpack')
+
+module.exports = {
+  entry: {
+    app: './src/index.js',
+  },
+  output: {
+    filename: '[name].[chunkhash].js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ {template: './index.html'} }), // HtmlWebpackPlugin 会默认生成 index.html 文件。这就是说，它会用新生成的 index.html 文件，把我们的原来的替换
+    new CleanWebpackPlugin(['dist']) //	每次构建前清理 /dist 文件夹，因此只会生成用到的文件。
+    new webpack.NamedModulesPlugin(), // 添加了 NamedModulesPlugin，以便更容易查看要修补(patch)的依赖
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
+      }
+    ]
+  },
+  devtool: 'eval-source-map', //使用 source map 将编译后的代码映射回原始源代码，出现错误可以精准指向源码，而不是打包后的 bundle 文件
+  devServer: {
+    hot: true, // 启用 HMR 就是更新 webpack-dev-server 的配置
+    port: 8080, // 默认 8080 可自定义
+	contentBase: './dist'
+  } // 使用 webpack-dev-server 提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)。让我们设置以下 以上配置告知 webpack-dev-server，在 localhost:8080 下建立服务，将 dist 目录下的文件，作为可访问文件。package.json 添加脚本 "webpack-dev-server --open" 即可打开服务。
+}
+```
+
+从 webpack 4 开始，也可以通过 `"mode"` 配置选项轻松切换到压缩输出，只需设置为 `"production"`。
+
+**webpack.config.js**
+
+```diff
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
++ mode: "production"
+};
+```
+
+### 开发模式
+
+### 生产环境
+
