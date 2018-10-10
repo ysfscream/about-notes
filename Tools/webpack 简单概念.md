@@ -280,11 +280,11 @@ module.exports = {
     app: './src/index.js',
   },
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
-    new HtmlWebpackPlugin({ {template: './index.html'} }), // HtmlWebpackPlugin 会默认生成 index.html 文件。这就是说，它会用新生成的 index.html 文件，把我们的原来的替换
+    new HtmlWebpackPlugin({template: './index.html'}), // HtmlWebpackPlugin 会默认生成 index.html 文件。这就是说，它会用新生成的 index.html 文件，把我们的原来的替换
     new CleanWebpackPlugin(['dist']) //	每次构建前清理 /dist 文件夹，因此只会生成用到的文件。
     new webpack.NamedModulesPlugin(), // 添加了 NamedModulesPlugin，以便更容易查看要修补(patch)的依赖
     new webpack.HotModuleReplacementPlugin()
@@ -317,6 +317,8 @@ module.exports = {
 
 从 webpack 4 开始，也可以通过 `"mode"` 配置选项轻松切换到压缩输出，只需设置为 `"production"`。
 
+注意，也可以在命令行接口中使用 `--optimize-minimize` 标记，来使用 `UglifyJSPlugin`。
+
 **webpack.config.js**
 
 ```diff
@@ -332,7 +334,132 @@ module.exports = {
 };
 ```
 
+package.json
+
+```json
+"devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "express": "^4.16.3",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
+},
+```
+
+
+
+
+
+*开发环境(development)*和*生产环境(production)*的构建目标差异很大。在*开发环境*中，我们需要具有强大的、具有实时重新加载(live reloading)或热模块替换(hot module replacement)能力的 source map 和 localhost server。而在*生产环境*中，我们的目标则转向于关注更小的 bundle，更轻量的 source map，以及更优化的资源，以改善加载时间。由于要遵循逻辑分离，我们通常建议为每个环境编写**彼此独立的 webpack 配置**。
+
+虽然，以上我们将*生产环境*和*开发环境*做了略微区分，但是，请注意，我们还是会遵循不重复原则(Don't repeat yourself - DRY)，保留一个“通用”配置。为了将这些配置合并在一起，我们将使用一个名为 [`webpack-merge`](https://github.com/survivejs/webpack-merge) 的工具。通过“通用”配置，我们不必在环境特定(environment-specific)的配置中重复代码。
+
+### 通用
+
+webpack.common.js
+
+```js
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+
+module.exports = {
+  entry: {
+    app: './src/index.js'
+  },
+  output: {
+    filename: '[name].[chunk].js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    }),
+    new CleanWebpackPlugin(['./dist'])
+  ],
+}
+```
+
 ### 开发模式
 
+webpack.dev.js
+
+```js
+const merge = require('webpack-merge')
+const common = require('./webpack.common.js')
+
+module.exports = merge(common, {
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist'
+  },
+    module: {
+        rules: [
+            { test: /\.css$/, use: ['style-loader', 'css-loader'] }
+        ]
+    }
+})
+```
+
 ### 生产环境
+
+webpack.prod.js
+
+```js
+const webpack = require('webpack');
+const merge = require('webpack-merge')
+const uglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const common = require('webpack-merge')
+
+module.exports = merge(common, {
+  devtool: 'source-map', // 追踪源码错误，避免在生产中使用 inline-*** 和 eval-***，因为它们可以增加 bundle 大小，并降低整体性能。
+  plugins: [
+  	new uglifyJSPlugin({
+		sourceMap: true
+  	}),
+    new webpack.DefinePlugin({
+    	'process.env.NODE_ENV': JSON.stringify('production') // 指定环境，许多 library 将通过与 process.env.NODE_ENV 环境变量关联，以决定 library 中应该引用哪些内容。例如，当不处于生产环境中时，某些 library 为了使调试变得容易，可能会添加额外的日志记录(log)和测试(test)。其实，当使用 process.env.NODE_ENV === 'production' 时，一些 library 可能针对具体用户的环境进行代码优化，从而删除或添加一些重要代码。我们可以使用 webpack 内置的 DefinePlugin 为所有的依赖定义这个变量
+    })
+  ]
+})
+```
+
+
+
+### 分离 CSS（split css）
+
+`extract-text-webpack-plugin`
+
+```js
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const webpack = require('webpack');
+const merge = require('webpack-merge')
+const uglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const common = require('webpack-merge')
+
+module.exports = merge(common, {
+  devtool: 'source-map',
+  plugins: [
+  	new uglifyJSPlugin({
+		sourceMap: true
+  	}),
+    new webpack.DefinePlugin({
+    	'process.env.NODE_ENV': JSON.stringify('production')
+    })
+    new ExtractTextPlugin({
+      filename:  (getPath) => {
+      	return getPath('css/[name].[contenthash]css').replace('css/js', 'css');
+      },
+    }),
+  ]
+})
+```
+
+它会将所有的入口 chunk(entry chunks)中引用的 `*.css`，移动到独立分离的 CSS 文件。因此，你的样式将不再内嵌到 JS bundle 中，而是会放到一个单独的 CSS 文件（即 `styles.css`）当中。 如果你的样式文件大小较大，这会做更快提前加载，因为 CSS bundle 会跟 JS bundle 并行加载。
 
