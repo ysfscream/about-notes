@@ -2,6 +2,8 @@
 
 https://juejin.im/post/5b24b116e51d4558a65fdb70
 
+https://juejin.im/post/5a5d64fbf265da3e243b831f
+
 JavaScript 是一门单线程语言，当遇到异步任务(如ajax操作等)时，不可能一直等待异步完成，再继续往下执行，在这期间浏览器是空闲状态，显而易见这会导致巨大的资源浪费。
 
 ## 执行栈
@@ -108,3 +110,15 @@ Promise、 MutaionObserver、process.nextTick(Node.js环境）
 执行另一个宏任务，定时器，console.log(1)。
 
 2、4、3、1
+
+Event Loop只做一件事情，负责监听Call Stack和Callback Queue。当Call Stack里面的调用栈运行完变成空了，Event Loop就把Callback Queue里面的第一条事件(其实就是回调函数)放到调用栈中并执行它，后续不断循环执行这个操作。
+
+![img](https://user-gold-cdn.xitu.io/2018/1/16/160fcd26f8023a85?imageslim)
+
+
+
+JS的运行原理主要有以下几个方面：
+
+- JS引擎主要负责把JS代码转为机器能执行的机器码，而JS代码中调用的一些WEB API则由其运行环境提供，这里指的是浏览器。
+- JS是单线程运行，每次都从调用栈出取出代码进行调用。如果当前代码非常耗时，则会阻塞当前线程导致浏览器卡顿。
+- 回调函数是通过加入到事件队列中，等待Event Loop拿出并放到调用栈中进行调用。只有Event Loop监听到调用栈为空时，才会从事件队列中从队头拿出回调函数放进调用栈里。
