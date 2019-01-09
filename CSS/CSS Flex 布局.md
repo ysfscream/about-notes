@@ -43,7 +43,7 @@ flex 的核心的概念就是 **容器** 和 **轴**。容器包括外层的 **�
 
   ![img](https://lc-mhke0kuv.cn-n1.lcfile.com/495f46fc9c5c0c6d1e65.png)
 
-  
+
 
   - 设置子容器如何沿交叉轴排列：**align-items** 
 
@@ -243,6 +243,70 @@ flex 的核心的概念就是 **容器** 和 **轴**。容器包括外层的 **�
 
   ![img](https://lc-mhke0kuv.cn-n1.lcfile.com/0dd26d8e99257ff36443.png)
 
+
+
+  ## 12栏布局
+
+  创建一个 3 列布局，其中每列占据容器的 col-{n} / 12 比率
+
+  设置父容器为 `display: flex`，然后使用 `flex` 为每列提供与其比值相对应的 `flex-grow` 值。
+
+  ```css
+  <style lang="scss">
+  .row {
+    display: flex;
+    &__col {
+      ...
+      &--2 {
+        flex: 2
+      }
+      &--7 {
+        flex: 7
+      }
+      &--3 {
+        flex: 3
+      }
+    }
+  }
+  </style>
+  <div class="row">
+    <div class="row__col row__col--2"></div>
+    <div class="row__col row__col--7"></div>
+    <div class="row__col row__col--4"></div>
+  </div>
+  ```
+
+  ### 加分回答
+
+  - 在使用过程中需注意浏览器兼容问题
+  - 常见用法除了布局外还可以用于上下居中、左右居中、页面平铺等
+  - 父容器
+  - flex-direction：决定主轴的方向（row | row-reverse | column | column-reverse）
+  - flex-wrap：轴线排列方式（nowrap | wrap | wrap-reverse）
+  - flex-flow：是 `flex-direction` 和 `flex-wrap` 的简写形式，默认值为 `row nowrap`
+  - justify-content：主轴上的对齐方式（flex-start | flex-end | center | space-between | space-around）
+  - align-items：交叉轴上的对齐方式（flex-start | flex-end | center | baseline | stretch）
+  - align-content：多根轴线的对齐方式（flex-start | flex-end | center | space-between | space-around | stretch）
+  - 子容器
+  - order：排列顺序。数值越小，排列越靠前
+  - flex-grow：子容器比例
+  - flex-shrink：在父容器限制下，子容器缩小比例
+  - flex-basis：父容器有多余空间时，子容器占据的主轴空间的大小
+  - flex：`flex-grow`，`flex-shrink` 和 `flex-basis` 的简写，默认值为 `0 1 auto`
+  - align-self：单个子容器在交叉轴上的对齐方式，可覆盖`align-items`属性
+
+  作者：Vanessa
+
+  链接：https://hacpai.com/article/1545875909329
+
+  来源：黑客派
+
+  协议：CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+
+
+
+
+
    
 
    
@@ -256,5 +320,3 @@ flex 的核心的概念就是 **容器** 和 **轴**。容器包括外层的 **�
    
 
     
-
-  

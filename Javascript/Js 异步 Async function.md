@@ -6,6 +6,35 @@
 >
 > https://juejin.im/post/5b1ffff96fb9a01e345ba704
 
+
+
+## Promise
+
+`Promise` 对象用于表示一个异步操作的最终状态（完成或失败）及其返回值。他有以下几种状态：
+
+- pending：初始状态，完成或失败状态的前一个状态
+- fulfilled：操作成功完成
+- rejected：操作失败
+
+pending 状态的 Promise 对象会触发 fulfilled/rejected 状态，在其状态处理方法中可以传入参数 / 失败信息。当操作成功完成时，Promise 对象的 `then` 方法就会被调用；否则就会触发 `catch`。如：
+
+```js
+const myFirstPromise = new Promise((resolve, reject) => {
+    setTimeout(function(){
+        resolve("成功!"); 
+    }, 250);
+});
+
+myFirstPromise.then((data) => {
+    console.log("Yay!" + data);
+}).catch((e) => {...});
+const myFirstPromise = new Promise((resolve, reject) => {
+    setTimeout(function(){
+        resolve("成功!"); 
+    }, 250);
+})
+```
+
 **简单示例**
 
 ``` js
@@ -46,6 +75,8 @@ getGithubUser('mbeaudru')
   .catch(err => console.log(err));
 
 ```
+
+
 
 ## async await
 
@@ -160,3 +191,18 @@ console.log(3)
 >   });
 > }
 > ```
+
+
+
+Async/Await
+
+```js
+async function readJsonFile() {
+  try {
+      const file = await readFile('../generator/config.json');
+      console.log(file.toString());
+  } catch (e) {
+      console.log('出错啦');
+  }
+}
+```

@@ -59,7 +59,7 @@ yarn global add yarn
 | ------------------------- | ------------------------- | ---------------------- |
 | npm install(npm i)        | yarn install(yarn)        | 根据 package.json 安装所有依赖 |
 | npm i –save [package]     | yarn add [package]        | 添加依赖包                  |
-| npm i –save-dev [package] | yarn add [package] –dev   | 添加依赖包至 devDependencies |
+| npm i –save-dev [package] | yarn add [package] -–dev   | 添加依赖包至 devDependencies |
 | npm i -g [package]        | yarn global add [package] | 进行全局安装依赖包              |
 | npm update –save          | yarn upgrade [package]    | 升级依赖包                  |
 | npm uninstall [package]   | yarn remove [package]     | 移除依赖包                  |

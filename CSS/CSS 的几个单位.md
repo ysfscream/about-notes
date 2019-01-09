@@ -2,7 +2,7 @@
 
 from -> https://github.com/simaQ/cssfun/issues/1
 
-## rem
+## em 和 rem
 
 `em` 被定义为相对于当前对象内文本的字体大小。如果设置了font-size字体大小，那么body的任何子元素的1em就是等于body设置的font-size。
 
@@ -23,6 +23,10 @@ from -> https://github.com/simaQ/cssfun/issues/1
 ```
 
 但是通常情况下我们还是希望就依赖单一的相对度量单位就好，rem r 即为 root（根），就只依赖于最根的字体的大小。
+
+* `em` 继承父元素中的 `font-size`
+* `rem` 继承根元素（`html`）中的 `font-size`
+* 在大多数浏览器中，根元素的 `font-size` 默认值为 `16px`
 
 ## vh and vw
 

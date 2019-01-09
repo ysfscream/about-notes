@@ -1,0 +1,807 @@
+# Python  学习的部分知识点
+
+https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000
+
+
+
+## 基础
+
+list和tuple是Python内置的有序集合，一个可变，一个不可变。根据需要来选择使用它们。
+
+Python有五个标准的数据类型：
+
+- Numbers（数字）
+- String（字符串）
+- List（列表）
+- Tuple（元组）
+- Dictionary（字典）
+
+其中属于集合类型的数据类型有 **列表、元组及字典**。
+
+## 函数
+
+函数可以同时返回多个值，但其实就是一个tuple。
+
+
+
+### 参数
+
+1. Python的函数具有非常灵活的参数形态，既可以实现简单的调用，又可以传入非常复杂的参数。
+
+   默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！
+
+2. 将参数前面带 * 号可以设置为可变参数
+
+3. 要注意定义可变参数和关键字参数的语法：
+
+   `*args`是可变参数，args接收的是一个tuple；
+
+   `**kw`是关键字参数，kw接收的是一个dict。
+
+   ```python
+   def f1(a, b, c=0, *args, **kw):
+       print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+   
+   def f2(a, b, c=0, *, d, **kw):
+       print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+   
+   >>> f1(1, 2)
+   a = 1 b = 2 c = 0 args = () kw = {}
+   >>> f1(1, 2, c=3)
+   a = 1 b = 2 c = 3 args = () kw = {}
+   >>> f1(1, 2, 3, 'a', 'b')
+   a = 1 b = 2 c = 3 args = ('a', 'b') kw = {}
+   >>> f1(1, 2, 3, 'a', 'b', x=99)
+   a = 1 b = 2 c = 3 args = ('a', 'b') kw = {'x': 99}
+   >>> f2(1, 2, d=99, ext=None)
+   a = 1 b = 2 c = 0 d = 99 kw = {'ext': None}
+   ```
+
+4. 以及调用函数时如何传入可变参数和关键字参数的语法：
+
+   可变参数既可以直接传入：`func(1, 2, 3)`，又可以先组装list或tuple，再通过`*args`传入：`func(*(1, 2, 3))`；
+
+   关键字参数既可以直接传入：`func(a=1, b=2)`，又可以先组装dict，再通过`**kw`传入：`func(**{'a': 1, 'b': 2})`。
+
+   使用`*args`和`**kw`是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。
+
+5. 命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。
+
+   定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符`*`，否则定义的将是位置参数。
+
+
+
+## 高级特性
+
+
+
+### 切片
+
+有了切片操作，很多地方循环就不再需要了。Python的切片非常灵活，一行代码就可以实现很多行循环才能完成的操作。
+
+```python
+>>> L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+```
+
+取前3个元素
+
+```python
+L[0:3]
+['Michael', 'Sarah', 'Tracy']
+```
+
+`L[0:3]`表示，从索引`0`开始取，直到索引`3`为止，但不包括索引`3`。即索引`0`，`1`，`2`，正好是3个元素。
+
+如果第一个索引是`0`，还可以省略：
+
+```python
+>>> L[:3]
+['Michael', 'Sarah', 'Tracy']
+```
+
+类似的，既然Python支持`L[-1]`取倒数第一个元素，那么它同样支持倒数切片，试试：
+
+```python
+>>> L[-2:]
+['Bob', 'Jack']
+>>> L[-2:-1]
+['Bob']
+```
+
+记住倒数第一个元素的索引是`-1`。
+
+切片操作十分有用。我们先创建一个0-99的数列：
+
+```
+>>> L = list(range(100))
+>>> L
+[0, 1, 2, 3, ..., 99]
+```
+
+可以通过切片轻松取出某一段数列。比如前10个数：
+
+```
+>>> L[:10]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+后10个数：
+
+```
+>>> L[-10:]
+[90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+```
+
+前11-20个数：
+
+```
+>>> L[10:20]
+[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+```
+
+前10个数，每两个取一个：
+
+```
+>>> L[:10:2]
+[0, 2, 4, 6, 8]
+```
+
+所有数，每5个取一个：
+
+```python
+>>> L[::5]
+[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+```
+
+甚至什么都不写，只写`[:]`就可以原样复制一个list：
+
+```python
+>>> L[:]
+[0, 1, 2, 3, ..., 99]
+```
+
+tuple也是一种list，唯一区别是tuple不可变。因此，tuple也可以用切片操作，只是操作的结果仍是tuple：
+
+```python
+>>> (0, 1, 2, 3, 4, 5)[:3]
+(0, 1, 2)
+```
+
+字符串`'xxx'`也可以看成是一种list，每个元素就是一个字符。因此，字符串也可以用切片操作，只是操作结果仍是字符串：
+
+```python
+>>> 'ABCDEFG'[:3]
+'ABC'
+>>> 'ABCDEFG'[::2]
+'ACEG'
+```
+
+在很多编程语言中，针对字符串提供了很多各种截取函数（例如，substring），其实目的就是对字符串切片。Python没有针对字符串的截取函数，只需要切片一个操作就可以完成，非常简单。
+
+
+
+### 迭代
+
+任何可迭代对象都可以作用于`for`循环，包括我们自定义的数据类型，只要符合迭代条件，就可以使用`for`循环，
+
+在Python中，迭代是通过`for ... in`来完成的。
+
+list这种数据类型虽然有下标，但很多其他数据类型是没有下标的，但是，只要是可迭代对象，无论有无下标，都可以迭代，比如dict就可以迭代：
+
+```python
+>>> d = {'a': 1, 'b': 2, 'c': 3}
+>>> for key in d:
+...     print(key)
+...
+a
+c
+b
+```
+
+默认情况下，dict迭代的是key。如果要迭代value，可以用`for value in d.values()`，如果要同时迭代key和value，可以用`for k, v in d.items()`。
+
+字符串也是可迭代对象。
+
+Python内置的`enumerate`函数可以把一个list变成索引-元素对，这样就可以在`for`循环中同时迭代索引和元素本身：
+
+```python
+>>> for i, value in enumerate(['A', 'B', 'C']):
+...     print(i, value)
+...
+0 A
+1 B
+2 C
+```
+
+上面的`for`循环里，同时引用了两个变量，在Python里是很常见的，比如下面的代码：
+
+```python
+>>> for x, y in [(1, 1), (2, 4), (3, 9)]:
+...     print(x, y)
+...
+1 1
+2 4
+3 9
+```
+
+
+
+### 列表生成式
+
+如果要生成`[1x1, 2x2, 3x3, ..., 10x10]`利用列表生成器
+
+```python
+>>> [x * x for x in range(1, 11)]
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
+
+写列表生成式时，把要生成的元素`x * x`放到前面，后面跟`for`循环，就可以把list创建出来，十分有用，多写几次，很快就可以熟悉这种语法。
+
+for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：
+
+```python
+>>> [x * x for x in range(1, 11) if x % 2 == 0]
+[4, 16, 36, 64, 100]
+```
+
+还可以使用两层循环，可以生成全排列：
+
+```python
+>>> [m + n for m in 'ABC' for n in 'XYZ']
+['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
+```
+
+运用列表生成式，可以快速生成list，可以通过一个list推导出另一个list
+
+
+
+### 生成器 generator
+
+1. 要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的`[]`改成`()`，就创建了一个generator：
+
+```python
+>>> L = [x * x for x in range(10)]
+>>> L
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> g = (x * x for x in range(10))
+>>> g
+<generator object <genexpr> at 0x1022ef630>
+```
+
+可以通过`next()`函数获得generator的下一个返回值
+
+正确的方法是使用`for`循环，因为generator也是可迭代对象：
+
+```python
+>>> g = (x * x for x in range(10))
+>>> for n in g:
+...     print(n)
+... 
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+```
+
+2. 我们创建了一个generator后，基本上永远不会调用`next()`，而是通过`for`循环来迭代它
+3. 另一种方法。如果一个函数定义中包含`yield`关键字，那么这个函数就不再是一个普通函数，而是一个generator
+
+```python
+"""斐波那数列"""
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+>>> f = fib(6)
+>>> f
+<generator object fib at 0x104feaaa0>
+```
+
+这里，最难理解的就是generator和函数的执行流程不一样。函数是顺序执行，遇到`return`语句或者最后一行函数语句就返回。而变成generator的函数，在每次调用`next()`的时候执行，遇到`yield`语句返回，再次执行时从上次返回的`yield`语句处继续执行。
+
+但是用`for`循环调用generator时，发现拿不到generator的`return`语句的返回值。如果想要拿到返回值，必须捕获`StopIteration`错误，返回值包含在`StopIteration`的`value`中：
+
+```python
+>>> g = fib(6)
+>>> while True:
+...     try:
+...         x = next(g)
+...         print('g:', x)
+...     except StopIteration as e:
+...         print('Generator return value:', e.value)
+...         break
+...
+g: 1
+g: 1
+g: 2
+g: 3
+g: 5
+g: 8
+Generator return value: done
+```
+
+generator是非常强大的工具，在Python中，可以简单地把列表生成式改成generator，也可以通过函数实现复杂逻辑的generator。
+
+要理解generator的工作原理，它是在`for`循环的过程中不断计算出下一个元素，并在适当的条件结束`for`循环。对于函数改成的generator来说，遇到`return`语句或者执行到函数体最后一行语句，就是结束generator的指令，`for`循环随之结束。
+
+请注意区分普通函数和generator函数，普通函数调用直接返回结果：
+
+```python
+>>> r = abs(6)
+>>> r
+6
+```
+
+generator函数的“调用”实际返回一个generator对象：
+
+```python
+>>> g = fib(6)
+>>> g
+<generator object fib at 0x1022ef948>
+```
+
+
+
+### 迭代器 Iterator
+
+1. 我们已经知道，可以直接作用于`for`循环的数据类型有以下几种：
+
+   一类是集合数据类型，如`list`、`tuple`、`dict`、`set`、`str`等；
+
+   一类是`generator`，包括生成器和带`yield`的 `generator function`。
+
+   这些可以直接作用于`for`循环的对象统称为：`Iterable`（可迭代对象）。
+
+   凡是可作用于`for`循环的对象都是`Iterable`类型；
+
+
+
+2. 凡是可作用于`next()`函数的对象都是`Iterator`（迭代器）类型，它们表示一个惰性计算的序列；
+
+   集合数据类型如`list`、`dict`、`str`等是`Iterable`但不是`Iterator`，不过可以通过`iter()`函数获得一个`Iterator`对象。
+
+   Python的`for`循环本质上就是通过不断调用`next()`函数实现的，例如：
+
+```python
+for x in [1, 2, 3, 4, 5]:
+    pass
+```
+
+​	实际上完全等价于：
+
+```python
+# 首先获得Iterator对象:
+it = iter([1, 2, 3, 4, 5])
+# 循环:
+while True:
+    try:
+        # 获得下一个值:
+        x = next(it)
+    except StopIteration:
+        # 遇到StopIteration就退出循环
+        break
+```
+
+StopIteration 异常用于标识迭代的完成
+
+
+
+### 迭代器 生成器 的区别
+
+**在 Python 中，使用了 yield 的函数被称为生成器（generator）。**
+
+**跟普通函数不同的是，生成器是一个返回迭代器的函数，只能用于迭代操作，更简单点理解生成器就是一个迭代器。**
+
+返回的迭代器可被 next() 函数调用。
+
+迭代是Python最强大的功能之一，是访问集合元素的一种方式。
+
+迭代器是一个可以记住遍历的位置的对象。
+
+迭代器对象从集合的第一个元素开始访问，直到所有的元素被访问完结束。迭代器只能往前不会后退。
+
+迭代器有两个基本的方法：**iter()** 和 **next()**。
+
+在调用生成器运行的过程中，每次遇到 yield 时函数会暂停并保存当前所有的运行信息，返回 yield 的值, 并在下一次执行 next() 方法时从当前位置继续运行。
+
+调用一个生成器函数，返回的是一个迭代器对象。
+
+
+
+## 函数式编程
+
+Python内建了`map()`和`reduce()`函数。
+
+
+
+### map
+
+接收两个参数，一个是函数，一个是`Iterable`，`map`将传入的函数依次作用到序列的每个元素，并把结果作为新的`Iterator`返回。
+
+`map()`作为高阶函数，事实上它把运算规则抽象了，因此，我们不但可以计算简单的f(x)=x^2
+
+```python
+>>> def f(x):
+...     return x * x
+...
+>>> r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+>>> list(r)
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
+
+还可以计算任意复杂的函数，比如，把这个list所有数字转为字符串：
+
+```python
+>>> list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+['1', '2', '3', '4', '5', '6', '7', '8', '9']
+```
+
+
+
+### reduce
+
+也接收一个函数和一个序列，这个函数必须接收两个参数
+
+比方说对一个序列求和，就可以用`reduce`实现：
+
+```python
+>>> from functools import reduce
+>>> def add(x, y):
+...     return x + y
+...
+>>> reduce(add, [1, 3, 5, 7, 9])
+25
+```
+
+当然求和运算可以直接用Python内建函数`sum()`，没必要动用`reduce`。
+
+
+
+### filter
+
+也接收一个函数和一个序列，把传入的函数依次作用于每个元素，然后根据返回值是`True`还是`False`决定保留还是丢弃该元素。
+
+例如，在一个list中，删掉偶数，只保留奇数，可以这么写：
+
+```python
+def is_odd(n):
+    return n % 2 == 1
+
+list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15]))
+# 结果: [1, 5, 9, 15]
+```
+
+把一个序列中的空字符串删掉，可以这么写：
+
+```python
+def not_empty(s):
+    return s and s.strip()
+
+list(filter(not_empty, ['A', '', 'B', None, 'C', '  ']))
+# 结果: ['A', 'B', 'C']
+```
+
+注意到`filter()`函数返回的是一个`Iterator`，也就是一个惰性序列，所以要强迫`filter()`完成计算结果，需要用`list()`函数获得所有结果并返回list。
+
+
+
+### sorted
+
+Python内置的`sorted()`函数就可以对list进行排序：
+
+```python
+>>> sorted([36, 5, -12, 9, -21])
+[-21, -12, 5, 9, 36]
+```
+
+此外，`sorted()`函数也是一个高阶函数，它还可以接收一个`key`函数来实现自定义的排序，例如按绝对值大小排序：
+
+```python
+>>> sorted([36, 5, -12, 9, -21], key=abs)
+[5, 9, -12, -21, 36]
+```
+
+默认情况下，对字符串排序，是按照ASCII的大小比较的，由于`'Z' < 'a'`，结果，大写字母`Z`会排在小写字母`a`的前面。
+
+要进行反向排序，不必改动key函数，可以传入第三个参数`reverse=True`：
+
+```python
+>>> sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+['Zoo', 'Credit', 'bob', 'about']
+```
+
+`sorted()`也是一个高阶函数。用`sorted()`排序的关键在于实现一个映射函数 key。
+
+
+
+### 闭包
+
+注意到返回的函数在其定义内部引用了局部变量`args`，所以，当一个函数返回了一个函数后，其内部的局部变量还被新函数引用，所以，闭包用起来简单，实现起来可不容易。
+
+另一个需要注意的问题是，返回的函数并没有立刻执行，而是直到调用了`f()`才执行。我们来看一个例子：
+
+```python
+def count():
+    fs = []
+    for i in range(1, 4):
+        def f():
+             return i*i
+        fs.append(f)
+    return fs
+
+f1, f2, f3 = count()
+```
+
+在上面的例子中，每次循环，都创建了一个新的函数，然后，把创建的3个函数都返回了。
+
+你可能认为调用`f1()`，`f2()`和`f3()`结果应该是`1`，`4`，`9`，但实际结果是：
+
+```python
+>>> f1()
+9
+>>> f2()
+9
+>>> f3()
+9
+```
+
+全部都是`9`！原因就在于返回的函数引用了变量`i`，但它并非立刻执行。等到3个函数都返回时，它们所引用的变量`i`已经变成了`3`，因此最终结果为`9`。
+
+**返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。**
+
+
+
+### 匿名函数
+
+当我们在传入函数时，有些时候，不需要显式地定义函数，直接传入匿名函数更方便。
+
+匿名函数`lambda x: x * x`实际上就是：
+
+```python
+>>> lambda x: x * x
+>>> def f(x):
+    	return x * x
+```
+
+关键字`lambda`表示匿名函数，冒号前面的`x`表示函数参数。
+
+匿名函数有个限制，就是只能有一个表达式，不用写`return`，返回值就是该表达式的结果。
+
+用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数。
+
+
+
+### 装饰器
+
+在函数调用前后自动打印日志，但又不希望修改`now()`函数的定义，这种在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）。
+
+本质上，decorator就是一个返回函数的高阶函数。所以，我们要定义一个能打印日志的decorator，可以定义如下：
+
+```python
+def log(func):
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+```
+
+观察上面的`log`，因为它是一个decorator，所以接受一个函数作为参数，并返回一个函数。我们要借助Python的@语法，把decorator置于函数的定义处：
+
+```python
+@log
+def now():
+    print('2015-3-25')
+```
+
+调用`now()`函数，不仅会运行`now()`函数本身，还会在运行`now()`函数前打印一行日志：
+
+```python
+>>> now()
+call now():
+2015-3-25
+```
+
+把`@log`放到`now()`函数的定义处，相当于执行了语句：
+
+```python
+now = log(now)
+```
+
+如果decorator本身需要传入参数，那就需要编写一个返回decorator的高阶函数，写出来会更复杂。比如，要自定义log的文本：
+
+```python
+def log(text):
+    def decorator(func):
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+```
+
+这个3层嵌套的decorator用法如下：
+
+```python
+@log('execute')
+def now():
+    print('2015-3-25')
+```
+
+执行结果如下：
+
+```python
+>>> now()
+execute now():
+2015-3-25
+```
+
+和两层嵌套的decorator相比，3层嵌套的效果是这样的：
+
+```python
+>>> now = log('execute')(now)
+```
+
+
+
+```python
+import functools
+@functools.wraps(func)
+```
+
+**记住在定义`wrapper()`的前面加上`@functools.wraps(func)`即可。**
+
+
+
+装饰器的原理就是：将源函数当作参数传入一个新函数中，新函数返回一个wraps函数，warps函数在源函数的基础上添加了一些功能而已。
+
+
+
+### 偏函数
+
+Python的`functools`模块提供了很多有用的功能，其中一个就是偏函数（Partial function）
+
+假设要转换大量的二进制字符串，每次都传入`int(x, base=2)`非常麻烦，于是，我们想到，可以定义一个`int2()`的函数，默认把`base=2`传进去：
+
+```python
+def int2(x, base=2):
+    return int(x, base)
+```
+
+这样，我们转换二进制就非常方便了：
+
+```python
+>>> int2('1000000')
+64
+>>> int2('1010101')
+85
+```
+
+`functools.partial`就是帮助我们创建一个偏函数的，不需要我们自己定义`int2()`，可以直接使用下面的代码创建一个新的函数`int2`：
+
+```python
+>>> import functools
+>>> int2 = functools.partial(int, base=2)
+>>> int2('1000000')
+64
+>>> int2('1010101')
+85
+```
+
+所以，简单总结`functools.partial`的作用就是，把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单。
+
+当函数的参数个数太多，需要简化时，使用`functools.partial`可以创建一个新的函数，这个新函数可以固定住原函数的部分参数，从而在调用时更简单。
+
+
+
+
+
+## 模块
+
+我们以内建的`sys`模块为例，编写一个`hello`的模块：
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+' a test module '
+
+__author__ = 'Michael Liao'
+
+import sys
+
+def test():
+    args = sys.argv
+    if len(args)==1:
+        print('Hello, world!')
+    elif len(args)==2:
+        print('Hello, %s!' % args[1])
+    else:
+        print('Too many arguments!')
+
+if __name__=='__main__':
+    # 代码if name == 'main': 实现的功能就是Make a script both importable and executable，也就是说可以让模块既可以导入到别的模块中用，另外该模块自己也可执行。自己执行的时候__name__ == __main__, 调用执行的时候 __name_ == 该模块名
+    test()
+```
+
+第1行和第2行是标准注释，第1行注释可以让这个`hello.py`文件直接在Unix/Linux/Mac上运行，第2行注释表示.py文件本身使用标准UTF-8编码；
+
+第4行是一个字符串，表示模块的文档注释，任何模块代码的第一个字符串都被视为模块的文档注释；
+
+第6行使用`__author__`变量把作者写进去，这样当你公开源代码后别人就可以瞻仰你的大名；
+
+以上就是Python模块的标准文件模板，当然也可以全部删掉不写，但是，按标准办事肯定没错。
+
+后面开始就是真正的代码部分。
+
+你可能注意到了，使用`sys`模块的第一步，就是导入该模块：
+
+```
+import sys
+```
+
+导入`sys`模块后，我们就有了变量`sys`指向该模块，利用`sys`这个变量，就可以访问`sys`模块的所有功能。
+
+
+
+### 作用域
+
+在一个模块中，我们可能会定义很多函数和变量，但有的函数和变量我们希望给别人使用，有的函数和变量我们希望仅仅在模块内部使用。在Python中，是通过`_`前缀来实现的。
+
+正常的函数和变量名是公开的（public），可以被直接引用，比如：`abc`，`x123`，`PI`等
+
+类似`_xxx`和`__xxx`这样的函数或变量就是非公开的（private），不应该被直接引用，比如`_abc`，`__abc`等
+
+外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public。
+
+
+
+## 面向对象
+
+面向对象最重要的概念就是类（Class）和实例（Instance），必须牢记类是抽象的模板，比如Student类，而实例是根据类创建出来的一个个具体的“对象”，每个对象都拥有相同的方法，但各自的数据可能不同。
+
+仍以Student类为例，在Python中，定义类是通过`class`关键字：
+
+```python
+class Student(object):
+    pass
+```
+
+`class`后面紧接着是类名，即`Student`，类名通常是大写开头的单词，紧接着是`(object)`，表示该类是从哪个类继承下来的，通常，如果没有合适的继承类，就使用`object`类，这是所有类最终都会继承的类。
+
+由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为必须绑定的属性强制填写进去。通过定义一个特殊的`__init__`方法，在创建实例的时候，就把`name`，`score`等属性绑上去：
+
+```python
+class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+```
+
+ 注意：特殊方法“__init__”前后分别有两个下划线！！！
+
+注意到`__init__`方法的第一个参数永远是`self`，表示创建的实例本身，因此，在`__init__`方法内部，就可以把各种属性绑定到`self`，因为`self`就指向创建的实例本身。
+
+**和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量`self`，并且，调用时，不用传递该参数。除此之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、可变参数、关键字参数和命名关键字参数。**
+
+```python
+class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+```
+
+要定义一个方法，除了第一个参数是`self`外，其他和普通函数一样。要调用一个方法，只需要在实例变量上直接调用，除了`self`不用传递，其他参数正常传入
