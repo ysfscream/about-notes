@@ -18,6 +18,75 @@ Python有五个标准的数据类型：
 
 其中属于集合类型的数据类型有 **列表、元组及字典**。
 
+
+
+\# 整数除法的结果都是向下取整
+
+5 // 3     # => 1
+5.0 // 3.0 # => 1.0 # 浮点数也可以
+-5 // 3  # => -2
+-5.0 // 3.0 # => -2.0
+
+
+
+\# x的y次方
+
+2**4 # => 16
+
+
+
+\# 用井字符开头的是单行注释
+
+```python
+# 用井字符开头的是单行注释
+""" 多行字符串用三个引号
+    包裹，也常被用来做多
+    行注释
+"""
+```
+
+
+
+\# 用not取非
+not True  # => False
+not False  # => True
+
+\# 逻辑运算符，注意and和or都是小写
+True and False # => False
+False or True # => True
+
+
+
+\#用.format来格式化字符串，可以重复参数以节省时间
+
+"{0}，{0}  can be {1}".format("strings", "interpolated")
+
+strings, strings can be interpolated
+
+如果不想数参数，可以用关键字
+
+"{name} wants to eat {food}".format(name="Bob", food="lasagna") 
+
+
+
+\#当与None进行比较时不要用 ==，要用is。is是用来比较两个变量是否指向同一个对象。
+
+"etc" is None  # => False
+None is None  # => True
+
+
+
+\#None，0，空字符串，空列表，空字典都算是False
+
+\#所有其他值都是True
+
+bool(0)  # => False
+bool("")  # => False
+bool([]) # => False
+bool({}) # => False
+
+
+
 ## 函数
 
 函数可以同时返回多个值，但其实就是一个tuple。
@@ -68,6 +137,18 @@ Python有五个标准的数据类型：
 5. 命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。
 
    定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符`*`，否则定义的将是位置参数。
+
+
+
+   调用可变参数函数时可以用*展开序列，用**展开字典。
+
+   ```python
+   args = (1, 2, 3, 4)
+   kwargs = {"a": 3, "b": 4}
+   all_the_args(args)   # 相当于 foo(1, 2, 3, 4)
+   all_the_args(**kwargs)   # 相当于 foo(a=3, b=4)
+   all_the_args(args, **kwargs)   # 相当于 foo(1, 2, 3, 4, a=3, b=4)
+   ```
 
 
 
@@ -177,6 +258,30 @@ tuple也是一种list，唯一区别是tuple不可变。因此，tuple也可以�
 ```
 
 在很多编程语言中，针对字符串提供了很多各种截取函数（例如，substring），其实目的就是对字符串切片。Python没有针对字符串的截取函数，只需要切片一个操作就可以完成，非常简单。
+
+列表有切割语法
+
+li[1:3]  # => [2, 4]
+
+取尾
+
+li[2:]  # => [4, 3]
+
+取头
+
+li[:3]  # => [1, 2, 4]
+
+隔一个取一个
+
+li[::2]   # =>[1, 4]
+
+倒排列表
+
+li[::-1]   # => [3, 4, 2, 1]
+
+可以用三个参数的任何组合来构建切割
+
+li[始:终:步伐]
 
 
 
@@ -744,11 +849,18 @@ if __name__=='__main__':
 
 你可能注意到了，使用`sys`模块的第一步，就是导入该模块：
 
-```
+```python
 import sys
 ```
 
 导入`sys`模块后，我们就有了变量`sys`指向该模块，利用`sys`这个变量，就可以访问`sys`模块的所有功能。
+
+```python
+# 导出个别值
+from math import ceil, floor
+print(ceil(3.7))  # => 4.0
+print(floor(3.7))   # => 3.0
+```
 
 
 
@@ -761,6 +873,28 @@ import sys
 类似`_xxx`和`__xxx`这样的函数或变量就是非公开的（private），不应该被直接引用，比如`_abc`，`__abc`等
 
 外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public。
+
+
+
+\# 函数作用域
+
+```python
+x = 5
+
+def setX(num):
+    # 局部作用域的x和全局域的x是不同的
+    x = num # => 43
+    print (x) # => 43
+
+def setGlobalX(num):
+    global x
+    print (x) # => 5
+    x = num # 现在全局域的x被赋值
+    print (x) # => 6
+
+```
+
+
 
 
 
@@ -805,3 +939,82 @@ class Student(object):
 ```
 
 要定义一个方法，除了第一个参数是`self`外，其他和普通函数一样。要调用一个方法，只需要在实例变量上直接调用，除了`self`不用传递，其他参数正常传入
+
+
+
+### 私有访问
+
+如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线`__`，在Python中，实例的变量名如果以`__`开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问，所以，我们把Student类改一改：
+
+```python
+class Student(object):
+
+    def __init__(self, name, score):
+        self.__name = name
+        self.__score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.__name, self.__score))
+```
+
+改完后，对于外部代码来说，没什么变动，但是已经无法从外部访问`实例变量.__name`和`实例变量.__score`了：
+
+```python
+>>> bart = Student('Bart Simpson', 59)
+>>> bart.__name
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Student' object has no attribute '__name'
+```
+
+但是如果外部代码要获取name和score怎么办？可以给Student类增加`get_name`和`get_score`这样的方法
+
+```python
+def get_name(self):
+    return self._name
+```
+
+如果又要允许外部代码修改score怎么办？可以再给Student类增加`set_score`方法
+
+```python
+def set_name(self, name):
+    slef._name = name
+```
+
+需要注意的是，在Python中，变量名类似`__xxx__`的，也就是以双下划线开头，并且以双下划线结尾的，是特殊变量，特殊变量是可以直接访问的，不是private变量，所以，不能用`__name__`、`__score__`这样的变量名。
+
+有些时候，你会看到以一个下划线开头的实例变量名，比如`_name`，这样的实例变量外部是可以访问的，但是，按照约定俗成的规定，当你看到这样的变量时，意思就是，“虽然我可以被访问，但是，请把我视为私有变量，不要随意访问”。
+
+双下划线开头的实例变量是不是一定不能从外部访问呢？其实也不是。不能直接访问`__name`是因为Python解释器对外把`__name`变量改成了`_Student__name`，所以，仍然可以通过`_Student__name`来访问`__name`变量
+
+但是强烈建议你不要这么干。
+
+
+
+### 继承和多态
+
+我们已经编写了一个名为`Animal`的class，有一个`run()`方法可以直接打印：
+
+```python
+class Animal(object):
+    def run(self):
+        print('Animal is running...')
+```
+
+当我们需要编写`Dog`和`Cat`类时，就可以直接从`Animal`类继承：
+
+```python
+class Dog(Animal):
+    pass
+
+class Cat(Animal):
+    pass
+```
+
+对于`Dog`来说，`Animal`就是它的父类，对于`Animal`来说，`Dog`就是它的子类。`Cat`和`Dog`类似
+
+当子类和父类都存在相同的`run()`方法时，我们说，子类的`run()`覆盖了父类的`run()`，在代码运行的时候，总是会调用子类的`run()`
+
+### 获取对象信息
+
+总是优先使用isinstance()判断类型，可以将指定类型及其子类“一网打尽”。
