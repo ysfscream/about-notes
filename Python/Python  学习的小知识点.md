@@ -1046,3 +1046,157 @@ class Cat(Animal):
 类属性属于类所有，所有实例共享一个属性；
 
 不要对实例属性和类属性使用相同的名字，否则将产生难以发现的错误。
+
+
+
+### 使用 \___slots\___
+
+正常情况下，当我们定义了一个class，创建了一个class的实例后，我们可以给该实例绑定任何属性和方法，这就是动态语言的灵活性
+
+但是，如果我们想要限制实例的属性怎么办？比如，只允许对Student实例添加`name`和`age`属性。
+
+为了达到限制的目的，Python允许在定义class的时候，定义一个特殊的`__slots__`变量，来限制该class实例能添加的属性：
+
+```python
+class Student(object):
+    __slots__ = ('name', 'age') # 用tuple定义允许绑定的属性名称
+```
+
+然后，我们试试：
+
+```python
+>>> s = Student() # 创建新的实例
+>>> s.name = 'Michael' # 绑定属性'name'
+>>> s.age = 25 # 绑定属性'age'
+>>> s.score = 99 # 绑定属性'score'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Student' object has no attribute 'score'
+```
+
+由于`'score'`没有被放到`__slots__`中，所以不能绑定`score`属性，试图绑定`score`将得到`AttributeError`的错误。
+
+使用`__slots__`要注意，`__slots__`定义的属性仅对当前类实例起作用，对继承的子类是不起作用的，
+
+除非在子类中也定义`__slots__`，这样，子类实例允许定义的属性就是自身的`__slots__`加上父类的`__slots__`。
+
+
+
+### @property
+
+在绑定属性时，如果我们直接把属性暴露出去，虽然写起来很简单，但是，没办法检查参数，导致可以把成绩随便改。
+
+一般使用 get 和 set 方法
+
+Python内置的`@property`装饰器就是负责把一个方法变成属性调用的。
+
+```python
+class Student(object):
+
+    @property
+    def score(self):
+        return self._score
+
+    @score.setter
+    def score(self, value):
+        if not isinstance(value, int):
+            raise ValueError('score must be an integer!')
+        if value < 0 or value > 100:
+            raise ValueError('score must between 0 ~ 100!')
+        self._score = value
+```
+
+`@property`的实现比较复杂，我们先考察如何使用。把一个getter方法变成属性，只需要加上`@property`就可以了，此时，`@property`本身又创建了另一个装饰器`@score.setter`，负责把一个setter方法变成属性赋值，于是，我们就拥有一个可控的属性操作：
+
+```python
+>>> s = Student()
+>>> s.score = 60 # OK，实际转化为s.set_score(60)
+>>> s.score # OK，实际转化为s.get_score()
+60
+>>> s.score = 9999
+Traceback (most recent call last):
+  ...
+ValueError: score must between 0 ~ 100!
+```
+
+注意到这个神奇的`@property`，我们在对实例属性操作的时候，就知道该属性很可能不是直接暴露的，而是通过getter和setter方法来实现的。
+
+还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性：
+
+```python
+class Student(object):
+
+    @property
+    def birth(self):
+        return self._birth
+
+    @birth.setter
+    def birth(self, value):
+        self._birth = value
+
+    @property
+    def age(self):
+        return 2015 - self._birth
+```
+
+上面的`birth`是可读写属性，而`age`就是一个*只读*属性，因为`age`可以根据`birth`和当前时间计算出来。
+
+
+
+
+
+### 多重继承
+
+```python
+class class1(object):
+    pass
+class class2(object):
+    pass
+class classMix(class1, class2):
+    pass
+```
+
+
+
+MixIn的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系。
+
+Python自带的很多库也使用了MixIn。举个例子，Python自带了`TCPServer`和`UDPServer`这两类网络服务，而要同时服务多个用户就必须使用多进程或多线程模型，这两种模型由`ForkingMixIn`和`ThreadingMixIn`提供。通过组合，我们就可以创造出合适的服务来。
+
+比如，编写一个多进程模式的TCP服务，定义如下：
+
+```python
+class MyTCPServer(TCPServer, ForkingMixIn):
+    pass
+```
+
+编写一个多线程模式的UDP服务，定义如下：
+
+```python
+class MyUDPServer(UDPServer, ThreadingMixIn):
+    pass
+```
+
+如果你打算搞一个更先进的协程模型，可以编写一个`CoroutineMixIn`：
+
+```python
+class MyTCPServer(TCPServer, CoroutineMixIn):
+    pass
+```
+
+这样一来，我们不需要复杂而庞大的继承链，只要选择组合不同的类的功能，就可以快速构造出所需的子类。
+
+由于Python允许使用多重继承，因此，MixIn就是一种常见的设计。
+
+只允许单一继承的语言（如Java）不能使用MixIn的设计。
+
+
+
+
+
+### 定制类
+
+看到类似`__slots__`这种形如`__xxx__`的变量或者函数名就要注意，这些在Python中是有特殊用途的。
+
+`__slots__`我们已经知道怎么用了，`__len__()`方法我们也知道是为了能让class作用于`len()`函数。
+
+除此之外，Python的class中还有许多这样有特殊用途的函数，可以帮助我们定制类。
