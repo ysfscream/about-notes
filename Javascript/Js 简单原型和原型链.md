@@ -109,7 +109,7 @@ console.log(foo.prototype) // [Function: Foo]
 
 new 就是以上方法的语法糖，还有解释了 构造函数中的this为什么就是指向实例化后的对象了
 
-![](/Users/yushifan/Documents/GitHub/about-blog/media/proto.png)
+![](/media/about-blog/media/proto.png)
 
 ```
 图中表示，f1由new Foo而来，而f1的__proto__连接着Foo.prototype，

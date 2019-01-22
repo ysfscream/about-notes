@@ -1,10 +1,20 @@
-const siderbarList = require('../../siderbar.json')
+const fs = require('fs')
+const path = require('path')
 
-const getSidebar = (title, children) => {
-  return title.map((side) => {
+const siderbarList = fs.readdirSync('./docs')
+  .filter($ => !['.vuepress', 'README.md'].includes($))
+
+const getSidebar = (titles) => {
+  return titles.map((title) => {
+    const root = path.join(`./docs/${title}`)
+    const filters = ['.DS_Store']
+    const files = fs.readdirSync(root)
+      .filter(file => !filters.includes(file))
+      .map(file => `/${title}/${file}`)
     return {
-      title: side,
-      collapsable: true
+      title,
+      collapsable: true,
+      children: files
     }
   })
 }
@@ -12,6 +22,7 @@ const getSidebar = (title, children) => {
 module.exports = {
   title: '扁头的窝子 | Notes',
   description: "Yushifan's Personal messy blog",
+  base: '/about-blog/',
   dest: './dist', // 设置输出目录
   repo: 'https://github.com/ysfscream/about-blog',
   themeConfig: {

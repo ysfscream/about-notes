@@ -2,7 +2,7 @@
 
 >`RegExp`对象表示正则表达式，它是对字符串执行模式匹配的强大工具
 
-![](/Users/yushifan/Documents/GitHub/about-blog/media/regexp.png)
+![](/media/about-blog/media/regexp.png)
 
 regexp.exec(String)（最强大，最慢的）
 

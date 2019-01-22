@@ -5,13 +5,11 @@
   "repository": "git@github.com:ysfscream/about-blog.git",
   "author": "ysfscream <894402575@qq.com>",
   "scripts": {
-    "docs:dev": "yarn get-sidebar && vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "get-sidebar": "get-dirs -p ./docs/ -f .vuepress media README.md -n siderbar.json"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "license": "MIT",
   "devDependencies": {
-    "node-get-dirs": "/Users/yushifan/Documents/GitHub/node-get-dirs",
     "vuepress": "^0.14.8"
   }
 }

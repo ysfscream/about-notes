@@ -36,7 +36,7 @@
 
 TCP / IP 协议族里最重要的特征就是分层，每一层都靠下一层的支持。TCP / IP 按层次分，分为四层：应用层、传输层、网络层、数据链路层。HTTPS 就是在应用层与传输层之间多了一层安全层。
 
-![](/Users/yushifan/Documents/GitHub/about-blog/media/layered.png)
+![](/media/about-blog/media/layered.png)
 
 ### 应用层
 
