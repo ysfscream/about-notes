@@ -2,8 +2,6 @@
 
 https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000
 
-
-
 ## 基础
 
 list和tuple是Python内置的有序集合，一个可变，一个不可变。根据需要来选择使用它们。
@@ -1200,3 +1198,45 @@ class MyTCPServer(TCPServer, CoroutineMixIn):
 `__slots__`我们已经知道怎么用了，`__len__()`方法我们也知道是为了能让class作用于`len()`函数。
 
 除此之外，Python的class中还有许多这样有特殊用途的函数，可以帮助我们定制类。
+
+
+
+## 错误处理
+
+try
+让我们用一个例子来看看try的机制：
+
+```python
+try:
+    print('try...')
+    r = 10 / 0
+    print('result:', r)
+except ZeroDivisionError as e:
+    print('except:', e)
+finally:
+    print('finally...')
+print('END')
+```
+
+当我们认为某些代码可能会出错时，就可以用try来运行这段代码，如果执行出错，则后续代码不会继续执行，而是直接跳转至错误处理代码，即except语句块，执行完except后，如果有finally语句块，则执行finally语句块，至此，执行完毕。
+
+出错的时候，一定要分析错误的调用栈信息，才能定位错误的位置。
+
+
+
+如果要抛出错误，首先根据需要，可以定义一个错误的class，选择好继承关系，然后，用`raise`语句抛出一个错误的实例
+
+```python
+# err_raise.py
+class FooError(ValueError):
+    pass
+
+def foo(s):
+    n = int(s)
+    if n==0:
+        raise FooError('invalid value: %s' % s)
+    return 10 / n
+
+foo('0')
+```
+

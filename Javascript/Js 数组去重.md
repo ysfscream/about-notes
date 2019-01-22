@@ -38,3 +38,22 @@ new Set([1, 1, 1, 2, 2, 3]) // Set {1, 2, 3}
 [...new Set([1, 1, 1, 2, 2, 3])] // 展开运算符可得 [1， 2，3]
 ```
 
+
+
+## filter
+
+```js
+cinst arr = [1, 2, 2, 3]
+arr.filter((item, index) => arr.indexOf(item) === index)
+```
+
+
+
+## reduce
+
+```js
+cinst arr = [1, 2, 2, 3]
+arr.reduce((unique, item) => 
+	unique.includes(item) ? unique : [...unique, item], [])
+```
+
