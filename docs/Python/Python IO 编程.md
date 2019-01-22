@@ -1,12 +1,8 @@
 # Pyhton IO 编程（文件）
 
-
-
 ## 读文件
 
 利用  with，Python引入了`with`语句来自动帮我们调用`close()`方法：
-
-
 
 ```python
 with open('/path/to/file', 'r') as f:
@@ -24,8 +20,6 @@ for line in f.readlines():
     print(line.strip()) # 把末尾的'\n'删掉
 ```
 
-## 
-
 ## 写文件
 
 ```python
@@ -36,8 +30,6 @@ with open('/Users/michael/test.txt', 'w') as f:
 没有的时候就生成，要写入特定编码的文本文件，请给`open()`函数传入`encoding`参数，将字符串自动转换成指定编码。
 
 细心的童鞋会发现，以`'w'`模式写入文件时，如果文件已存在，会直接覆盖（相当于删掉后新写入一个文件）。如果我们希望追加到文件末尾怎么办？可以传入`'a'`以追加（append）模式写入。
-
-
 
 ## 操作文件和目录
 
@@ -57,8 +49,6 @@ with open('/Users/michael/test.txt', 'w') as f:
 ```
 
 把两个路径合成一个时，不要直接拼字符串，而要通过`os.path.join()`函数，这样可以正确处理不同操作系统的路径分隔符。
-
-
 
 同样的道理，要拆分路径时，也不要直接去拆字符串，而要通过`os.path.split()`函数，这样可以把一个路径拆分为两部分
 
@@ -82,8 +72,6 @@ with open('/Users/michael/test.txt', 'w') as f:
 # 删掉文件:
 >>> os.remove('test.py')
 ```
-
-
 
 `shutil`模块提供了`copyfile()`的函数，你还可以在`shutil`模块中找到很多实用函数，它们可以看做是`os`模块的补充。
 

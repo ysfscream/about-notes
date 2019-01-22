@@ -6,7 +6,7 @@ https://zh.parceljs.org/
 serve 命令启用一个开发服务器，且支持 热模块替换 以实现快速开发。当你更改文件时，该服务器将自动重新构建你的应用程序。
 
 parcel index.html
-也可以使用 -p <port number> 选项覆盖默认的端口
+也可以使用 -p \<port number> 选项覆盖默认的端口
 
 ## 构建（Build）
 build 命令会一次性构建资源，它还启用了压缩功能，并将 NODE_ENV 变量设置为生产环境。详见生产环境

@@ -8,7 +8,7 @@
 
 **Session**: 每个用户经过我们的应用认证之后，我们的应用都要在服务端做一次记录，以方便用户下次请求的鉴别，通常而言session都是保存在内存中，而随着认证用户的增多，服务端的开销会明显增大。
 
-```
+```md
 1、用户向服务器发送用户名和密码。
 
 2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。
@@ -186,12 +186,9 @@ fetch('api/user/1', {
 })
 ```
 
-
-
 > koa 中使用 koa-jwt jwt自动校验 使用后不用在每个路由下手写校验方法
 >
 > koa 中使用 jsonwebtoken jwt实现 生成 jwt token
-
 
 
 [参考1](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
@@ -201,4 +198,3 @@ fetch('api/user/1', {
 [参考3](https://www.jianshu.com/p/576dbf44b2ae)
 
 http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html
-

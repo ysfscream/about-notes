@@ -8,7 +8,7 @@
 
   `#comments`：匹配 id="comments" 的所有元素
 
-  <side>匹配标签为 side 的所有元素
+  \<side>匹配标签为 side 的所有元素
 
 - 组合选择元素器
 
