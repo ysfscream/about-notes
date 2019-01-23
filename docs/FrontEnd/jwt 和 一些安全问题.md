@@ -51,7 +51,7 @@
 
 这个token必须要在每次请求时传递给服务端，它应该保存在请求头里， 另外，服务端要支持`CORS(跨来源资源共享)`策略，一般我们在服务端这么做就可以了`Access-Control-Allow-Origin: *`。
 
-![](/media/jwt.png)
+![](/about-blog/media/jwt.png)
 
 
 

@@ -1,4 +1,4 @@
-# HTML input type= “number” 去掉增减按钮
+# CSS input 去掉增减按钮
 
 ```html
 <input type="number">

@@ -1,6 +1,7 @@
+# Js ES6模板语法
+
 > [ES6全面介绍](http://es6.ruanyifeng.com/) 
 
-# ES6模板语法
 ```js
 `${var}是一个变量` === var + '是一个变量'
 ```

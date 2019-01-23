@@ -2,19 +2,15 @@
 
 > 搜索引擎优化。 是一种方式:利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。
 
-
-
 ## meta 标签
 
 可定义关键词、网站描述
 
 ```html
-< meta name="keywords" content="关键词1，关键词2" />
+<meta name="keywords" content="关键词1，关键词2" />
 
-< meta name="description" content="描述词1，描述词2" />
+<meta name="description" content="描述词1，描述词2" />
 ```
-
-
 
 ## 语义化标签
 

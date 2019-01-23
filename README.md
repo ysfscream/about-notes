@@ -1,4 +1,4 @@
-# about-blog.
+# about-notes
 
 > This is a memory repository. You can take it out when you need it.  --me
 
@@ -28,4 +28,3 @@ There are good and bad, welcome to learn together. 👏
 - [Wxmp](https://github.com/ysfscream/about-blog/tree/master/wxmp)
 - [Tools](https://github.com/ysfscream/about-blog/tree/master/Tools)
 - [IoT](https://github.com/ysfscream/about-blog/tree/master/IoT)
-

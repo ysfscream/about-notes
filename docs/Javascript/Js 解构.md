@@ -1,4 +1,5 @@
-## JS解构赋值
+# Js 解构赋值
+
 > 语法是一个JavaScript表达式，可以使的值从数组或属性对象中提取到不同的变量中
 
 ### 解构数组
@@ -10,6 +11,7 @@ var [one, two] = x
 console.log(one) // 显示'one'
 console.log(two) // 显示'two'
 ```
+
 * 用数组解构可以轻松交换两个变量的值
 
 ```js

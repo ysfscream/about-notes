@@ -1,6 +1,6 @@
-# Vue Vuex 禁止对函数参数再赋值 (no-param-reassign)
+# Vue 修改 state 参数
 
-vex 中修改 mutation 里函数的 state 参数，来改变状态里的值，state 作为函数参数时，当参数，会出现 Assignment to property of function parameter 错误
+vuex 中修改 mutation 里函数的 state 参数，来改变状态里的值，state 作为函数参数时，当参数，会出现 Assignment to property of function parameter 错误
 
 ```js
  // disallow reassignment of function parameters

@@ -1,4 +1,4 @@
-#JS 关于this和函数调用模式
+# Js 关于this和函数调用模式
 
 ## this
 

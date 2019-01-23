@@ -4,7 +4,7 @@ https://www.sasscss.com/docs/
 
 ## usage
 
-```shell
+```bash
 gem install sass
 
 gem install sass
@@ -20,4 +20,3 @@ sass --watch input.scss:output.css
 
 sass --watch app/sass:public/stylesheets
 ```
-

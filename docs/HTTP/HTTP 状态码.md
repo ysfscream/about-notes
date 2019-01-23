@@ -10,7 +10,7 @@
 
 
 
-![](/media/http.png)
+![](/about-blog/media/http.png)
 
 ## 常见的状态码
 

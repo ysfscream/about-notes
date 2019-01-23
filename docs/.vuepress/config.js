@@ -21,11 +21,14 @@ const getSidebar = (titles) => {
 
 module.exports = {
   title: '扁头的窝子 | Notes',
-  description: "Yushifan's Personal messy blog",
+  description: "Yushifan's personal messy notes",
   base: '/about-blog/',
   dest: './dist', // 设置输出目录
-  repo: 'https://github.com/ysfscream/about-blog',
   themeConfig: {
+    nav: [
+      { text: 'Home Page', link: 'https://ysfscream.xyz' },
+      { text: 'Github', link: 'https://github.com/ysfscream/about-notes' }
+    ],
     // 为以下路由添加侧边栏
     sidebar: getSidebar(siderbarList)
   }

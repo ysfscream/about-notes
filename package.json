@@ -2,7 +2,7 @@
   "name": "about-blog",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:ysfscream/about-blog.git",
+  "repository": "git@github.com:ysfscream/about-notes.git",
   "author": "ysfscream <894402575@qq.com>",
   "scripts": {
     "docs:dev": "vuepress dev docs",

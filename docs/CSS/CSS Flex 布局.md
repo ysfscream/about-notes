@@ -25,7 +25,7 @@ flex 的核心的概念就是 **容器** 和 **轴**。容器包括外层的 **�
 
   > **flex-start**：起始端对齐
 
-  !img](https://lc-mhke0kuv.cn-n1.lcfile.com/ac1d8c5e7b4a2ba51ca7.png)
+  ![img](https://lc-mhke0kuv.cn-n1.lcfile.com/ac1d8c5e7b4a2ba51ca7.png)
 
   > **flex-end**：末尾段对齐
 

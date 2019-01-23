@@ -1,4 +1,4 @@
-# JS 简单原型和原型链
+# Js 简单原型和原型链
 
 > 啥是原型，啥是原型链？
 > 原型：一个属性，属性名叫prototype，只有构造函数有，比如Foo.prototype;
@@ -109,7 +109,7 @@ console.log(foo.prototype) // [Function: Foo]
 
 new 就是以上方法的语法糖，还有解释了 构造函数中的this为什么就是指向实例化后的对象了
 
-![](/media/about-blog/media/proto.png)
+![](/about-blog/media/about-blog/about-blog/media/proto.png)
 
 ```
 图中表示，f1由new Foo而来，而f1的__proto__连接着Foo.prototype，

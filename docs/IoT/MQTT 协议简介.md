@@ -13,7 +13,7 @@ MQTT 全称为 Message Queuing Telemetry Transport（消息队列遥测传输）
 
 1. MQTT是一种**发布/订阅**传输协议，基本原理和实现如下；
 
-   ![mqtt1](/media/about-blog/media/mqtt1.png)
+   ![mqtt1](/about-blog/media/mqtt1.png)
 
    MQTT 协议提供一对多的消息发布，可以解除应用程序耦合，信息冗余小。该协议需要客户端和服务端，而协议中主要有三种身份：发布者（Publisher）、代理（Broker，服务器）、订阅者（Subscriber）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，而消息发布者可以同时是订阅者，实现了生产者与消费者的脱耦。
 
@@ -115,7 +115,7 @@ MQTT 协议主要是根据以下情况设计的：
 
 根据 MQTT 的基础了解后并结合简单的架构，在这里做一个简单的示例图，可以更直观的理解MQTT协议的通信模型。MQTT Broker 就选择 EMQ作为示范。比如有1个温度传感器（1个Machine），1个一个移动设备，1个电脑，一个服务器（3个Machine)，都可以得到或者显示温度传感器的温度值，需要先通过 MQTT 协议subscribe（订阅）一个比如叫 temperature 的 topic（主题）如下：
 
-![mqtt](/media/about-blog/media/mqtt2.png)
+![mqtt](/about-blog/media/mqtt2.png)
 
 图中移动设备，服务器，电脑需要先通过 EMQ subscribe 一个叫 temperature 的 topic，当温度传感器 publish 温度数据，三个设备就可以收到了。
 

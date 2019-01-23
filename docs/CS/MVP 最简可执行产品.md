@@ -6,4 +6,4 @@ MVP (minimum viable product)
 >
 > 一个 MVP 是一种策略和流程指向制造和销售产品给客户。 它是构思一代，原型，演示，数据收集，分析和学习一个反复的过程。
 
-![mvp](/media/mvp.png)
+![mvp](/about-blog/media/mvp.png)

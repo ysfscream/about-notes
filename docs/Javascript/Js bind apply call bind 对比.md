@@ -1,4 +1,4 @@
-# JS bind apply call bind 对比
+# Js bind apply call bind 对比
 
 [参考](http://web.jobbole.com/83642/)
 

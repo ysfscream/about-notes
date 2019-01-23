@@ -47,7 +47,7 @@
   background: #E01A4F;
 }
 ```
-![](/media/1513147152410.jpg)
+![](/about-blog/media/1513147152410.jpg)
 
 > 网格间距  `grid-column-gap: 10px; grid-row-gap: 1em;`
 
@@ -61,7 +61,7 @@
 }
 ```
 
-![](/media/WX20171213-151505@2x.png)
+![](/about-blog/media/WX20171213-151505@2x.png)
 
 ### fr 单位
 
@@ -85,7 +85,7 @@
   grid-template-rows: 1fr 1fr;
 }
 ```
-![](/Users/yushifan/Documents/about-knowledg/media/1513148129432.jpg
+![](/about-blog/media/1513148129432.jpg
 )
 
 > 在轨道清单中使用 `repeat()`, 有着多轨道的大型网格可使用 `repeat()`标记来重复部分或整个轨道列表
@@ -105,7 +105,7 @@
   grid-template-columns: 20px repeat(4, 1fr) 20px;
 }
 ```
-![](/media/1513148914157.jpg)
+![](/about-blog/media/1513148914157.jpg)
 
 > Repeat 语句可以传入一个轨道列表，因此你可以用它来创建一个多轨道模式的重复轨道列表。在下一个例子中，网格将有共计6个轨道，为1个1fr轨道后面跟着1个2fr轨道，该模式重复3次。
 
@@ -115,7 +115,4 @@
   grid-template-columns: repeat(3, 1fr 2fr);
 }
 ```
-![](/media/WX20171213-151146@2x.png)
-
-
-
+![](/about-blog/media/WX20171213-151146@2x.png)
