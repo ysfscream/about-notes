@@ -45,13 +45,13 @@ RSA 有一对钥匙 一个是保密的，称为私钥，另外一个是公开的
 
 把公钥和个人信息用一个Hash算法生成一个消息摘要， 这个Hash算法有个极好的特性，**只要输入数据有一点点变化，那生成的消息摘要就会有巨变**，这样就可以防止别人修改原始内容。然后用公信力的认证中心（**简称CA**）用它的私钥对消息摘要加密，形成签名
 
-![](/about-blog/media/ca.png)
+![](/about-notes/media/ca.png)
 
 当Bill把他的证书发给我的时候， 我就用同样的Hash 算法， 再次生成消息摘要，然后用CA的公钥对数字签名解密， 得到CA创建的消息摘要， 两者一比，就知道有没有人篡改了！
 
-![](/about-blog/media/ca1.png)
+![](/about-notes/media/ca1.png)
 
-![](/about-blog/media/https.png)
+![](/about-notes/media/https.png)
 
 
 

@@ -32,7 +32,7 @@ test2.a = 2
 test.a === 2	// true
 ```
 
-![](/about-blog/media/deepCopy.png)
+![](/about-notes/media/deepCopy.png)
 
 
 
@@ -42,7 +42,7 @@ test.a === 2	// true
 
 ## 深度拷贝
 
-![](/about-blog/media/deepCopy1.png)
+![](/about-notes/media/deepCopy1.png)
 
 > 将原对象的各个属性逐个复制出去，而且将原对象各个属性所包含的对象也依次采用深复制的方法**递归复制**到新对象上
 

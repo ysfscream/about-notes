@@ -15,4 +15,3 @@ https://www.w3cplus.com/preprocessor/getting-sass-y-with-bem.html
 红色部分为 modifier
 
 ![img](http://getbem.com/assets/github_captions.jpg)
-

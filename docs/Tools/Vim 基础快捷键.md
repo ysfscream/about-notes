@@ -2,7 +2,7 @@
 
 > 附上 `vim` 键盘图
 
-![](/about-blog/media/vim.jpg)
+![](/about-notes/media/vim.jpg)
 
 很多很多参考链接 https://coolshell.cn/articles/5426.html  https://feifeiyum.github.io/2017/01/23/base-vimusage/
 https://macplay.github.io/posts/vim-bu-xu-yao-duo-guang-biao-bian-ji-gong-neng/

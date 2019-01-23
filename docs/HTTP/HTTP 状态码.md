@@ -10,7 +10,7 @@
 
 
 
-![](/about-blog/media/http.png)
+![](/about-notes/media/http.png)
 
 ## 常见的状态码
 

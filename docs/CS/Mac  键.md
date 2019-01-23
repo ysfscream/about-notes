@@ -2,16 +2,15 @@
 
 > Mac 键盘值 快捷键各种
 
-![](/about-blog/media/15117927195295.jpg)
+![](/about-notes/media/15117927195295.jpg)
 
-![](/about-blog/media/15117941521058.jpg)
+![](/about-notes/media/15117941521058.jpg)
 
+![](/about-notes/media/15117941671914.jpg)
 
-![](/about-blog/media/15117941671914.jpg)
+![](/about-notes/media/15117941786881.jpg)
 
-![](/about-blog/media/15117941786881.jpg)
-
-![](/about-blog/media/15117942108353.jpg)
+![](/about-notes/media/15117942108353.jpg)
 
 ## 终端快捷键
 
@@ -19,7 +18,7 @@
 1、列出文件
 ls 参数 目录名        例: 看看驱动目录下有什么:ls /System/Library/Extensions
 参数 -w 显示中文，-l 详细信息， -a 包括隐藏文件
-2、转换目录     
+2、转换目录
 
 cd    例：想到驱动目录下溜达一圈   cd /System/Library/Extensions
 

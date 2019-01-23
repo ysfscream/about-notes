@@ -1,15 +1,16 @@
 {
-  "name": "about-blog",
+  "name": "about-notes",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "git@github.com:ysfscream/about-notes.git",
   "author": "ysfscream <894402575@qq.com>",
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "deploy:build": "yarn docs:build && gh-pages -d dist"
   },
   "license": "MIT",
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "vuepress": "^0.14.8"
   }
 }

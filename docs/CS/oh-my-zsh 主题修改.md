@@ -8,6 +8,5 @@ cd .oh-my-zsh/themes
 vi ~/.zshrc
 
 # 找到对应的主提名字添加到该变量下
-ZSH_THEME="" 
+ZSH_THEME=""
 ```
-

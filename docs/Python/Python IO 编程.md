@@ -38,7 +38,7 @@ with open('/Users/michael/test.txt', 'w') as f:
 ```python
 # 查看当前目录的绝对路径:
 >>> os.path.abspath('.')
-'/about-blog/media/about-blog/'
+'/about-notes/media/about-notes/'
 # 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
 >>> os.path.join('/Users/ysf', 'testdir')
 '/Users/ysf/testdir'

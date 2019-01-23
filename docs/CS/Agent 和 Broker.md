@@ -1,10 +1,7 @@
 # Agent 和 Broker
 
 >agent 客户端的用的代理，  比如暴雪战网更新， 有个agent.exe占流量的
-
 > broker  服务端的一部分，消息中转站。  比如消息队列服务器都叫某某broker。
-
-
 
 消息队列的解释：https://github.com/jasonGeng88/blog/blob/master/201705/MQ.md
 
