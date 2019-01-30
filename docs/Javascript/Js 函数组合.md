@@ -27,10 +27,11 @@ greet('bt') // HELLO BT
 ```
 
 
-
 可以写一个 compose 函数支持传入多个函数
 
 接抄袭 underscore 的 compose 函数的实现：
+
+**注意**: arguments 对象是所有（非箭头）函数中都可用的局部变量
 
 ```js
 function compose() {
