@@ -1,4 +1,6 @@
-# npm 发布包
+# npm 包管理
+
+## npm 发布包
 
 ```bash
 npm login
@@ -9,7 +11,7 @@ npm adduser
 npm publish
 ```
 
-npm 撤销发布包
+## npm 撤销发布包
 
 ```bash
 npm unpublish
@@ -27,7 +29,7 @@ npm unpublish的推荐替代命令：
 
 例如：npm deprecate penghuwanapp '这个包我已经不再维护了哟～'
 
-npm更新发布后的包
+## npm 更新发布后的包
 
 事实上npm更新包和发布包的命令是一样的，都是npm publish,不同之处在于，你需要修改包的版本
 
