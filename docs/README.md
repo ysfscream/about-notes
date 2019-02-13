@@ -15,6 +15,7 @@ There are good and bad, welcome to learn together. 👏
 - [HTML](https://github.com/ysfscream/about-notes/tree/master/docs/HTML)
 - [CSS](https://github.com/ysfscream/about-notes/tree/master/docs/CSS)
 - [JavaScript](https://github.com/ysfscream/about-notes/tree/master/docs/Javascript)
+- [TypeScript](https://github.com/ysfscream/about-notes/tree/master/docs/Typescript)
 - [Python](https://github.com/ysfscream/about-notes/tree/master/docs/Python)
 - [HTTP](https://github.com/ysfscream/about-notes/tree/master/docs/HTTP)
 - [Vue](https://github.com/ysfscream/about-notes/tree/master/docs/Vue)
