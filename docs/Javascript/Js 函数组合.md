@@ -2,8 +2,6 @@
 
 https://github.com/mqyqingfeng/Blog/issues/45
 
-
-
 **函数组合**就是组合两到多个函数来生成一个新函数的过程。将函数组合在一起，就像将一连串管道扣合在一起，让数据流过一样。 简而言之，函数 `f` 和 `g`的组合可以被定义为 `f(g(x))`，从内到外（从右到左）求值。也就是说，求值顺序是：
 
 1. `x`
@@ -17,15 +15,14 @@ https://github.com/mqyqingfeng/Blog/issues/45
 const toUpperCase = (str) => str.toUpperCase()
 const hello = (str) => `HELLO ${str}`
 const compose = (f, g) => {
-	return (x) => {
-		return f(g(x))
+    return (x) => {
+        return f(g(x))
     }
 }
 
 const greet = compose(hello, toUpperCase)
 greet('bt') // HELLO BT
 ```
-
 
 可以写一个 compose 函数支持传入多个函数
 
@@ -45,8 +42,6 @@ function compose() {
     };
 };
 ```
-
-
 
 ## pointfree
 

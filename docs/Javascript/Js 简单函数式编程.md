@@ -3,7 +3,6 @@
 > 摘自 - > http://www.ruanyifeng.com/blog/2012/04/functional_programming.html
 > https://github.com/jasonGeng88/blog/blob/master/201705/functional_programming.md
 
-
 ## 定义
 
 函数式编程是 [编程范式（面向过程，面向对象，函数式编程，多范式）](https://www.zhihu.com/question/20428688)的一种
@@ -69,8 +68,6 @@ var c = b - 4
 var res = sub(mult(add(1, 1), 3))
 ```
 
-
-
 ## 特点
 
 1. 函数是‘’一等公民‘’：函数和其它数据类型一样，处于平等地位，可以赋值给其它变量，也可以作为参数传入另一个函数，或者作为别的函数的返回值
@@ -83,7 +80,6 @@ var print = function (i) {
 }
 [1, 2, 3].forEach(print)
 ```
-
 
 
 2. 只用表达式，不用语句：表达式是一个运算的过程，总是有一个返回值，语句没有。函数式编程要求每一步都是单纯的运算，而且都有返回值。
@@ -119,3 +115,37 @@ var print = function (i) {
 - 易于并发编程（函数间互不干扰，放心增加线程）
 
 - 代码的热升级（函数式编程没有副作用，只要保证接口不变，内部实现是外部无关的。所以，可以在运行状态下直接升级代码，不需要重启，也不需要停机）
+
+## 函数式编程的应用
+
+- 高阶函数是一个函数以函数为参数，或以函数为返回值，或者既以函数为参数又以函数为返回值。
+
+- 偏函数是通过指定部分参数来产生一个新定制的函数，如：
+
+```js
+const isType = function (type) {
+ return function (obj) {
+    return toString.call(obj) == '[object' + type + ']'; 
+ };
+};
+const isString = isType('string');
+```
+
+- 柯里化是将一个多参数函数转换成多个单参数函数
+
+```js
+function addX(y) {
+ return  function (x) {
+    return x + y;
+ };
+}
+addX(2)(1) // 3
+```
+
+- 函数复合是结合两个或多个函数，从而产生一个新的函数以简化中间步骤
+
+```js
+const add = (a, b) => a + b;
+const mult = (a, b) => a * b;
+add(2, mult(3, 5)) // 17
+```
