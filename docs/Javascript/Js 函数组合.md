@@ -70,4 +70,20 @@ greet('kevin');
 
 那么使用 pointfree 模式究竟有什么好处呢？
 
-> pointfree 模式能够帮助我们减少不必要的命名，让代码保持简洁和通用，更符合语义，更容易复用，测试也变得轻而易举。
+pointfree 模式能够帮助我们减少不必要的命名，让代码保持简洁和通用，更符合语义，更容易复用，测试也变得轻而易举。
+
+## 复合函数
+
+复合函数是组合两个或两个以上的函数并产生一个新函数的过程。
+
+创建一个 pipe 函数，使其通过返回带有一个参数的函数来从左到右依次执行传入的函数。
+
+```javascript
+const pipe = (...fns) => x => fns.reduce((v, fn) => fn(v), x)
+
+const square = v => v * v
+const double = v => v * 2
+const addOne = v => v + 1
+const res = pipe(square, double, addOne)
+res(3) // 19; addOne(double(square(3)))
+```

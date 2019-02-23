@@ -17,7 +17,7 @@ class HelloMessage extends React.Component {
   render() {
     return (
       <div>
-        Hello {this.props.name}
+        Hello {this.props.name} // Taylor
       </div>
     );
   }
@@ -29,15 +29,72 @@ ReactDOM.render(
 );
 ```
 
+如果没有传入 props 可以设置静态的 props 默认值，这样就算没有传入 也可以正常使用 props 了
+
+```javascript
+class HelloMessage extends React.Component {
+  static defaultProps = {
+    name: 'Swfit',
+  }
+  render() {
+    return (
+      <div>
+        Hello {this.props.name} // Swift
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <HelloMessage />,
+  mountNode
+);
+```
+
 - 有状态组件
 
   除了使用外部传入的数据以外 (通过 this.props 访问传入数据), 组件还可以拥有其内部的状态数据 (通过 this.state 访问状态数据)。 `setState`方法由父类`Component`所提供。**当我们调用这个函数的时候，React.js 会更新组件的状态`state`，并且重新调用`render`方法，然后再把`render`方法所渲染的最新的内容显示到页面上**。**它接受一个对象或者函数作为参数**。当组件的状态数据改变时， 组件会调用 render() 方法重新渲染。
+
+```javascript
+class Timer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { seconds: 0 };
+  }
+
+  tick() {
+    this.setState(prevState => ({
+      seconds: prevState.seconds + 1
+    }));
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  render() {
+    return (
+      <div>
+        Seconds: {this.state.seconds}
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Timer />, mountNode);
+```
+
+
 
 `setState`传入一个对象的时候，这个对象表示该组件的新状态。但你只需要传入需要更新的部分就可以了。
 
 如果你想在`setState`之后使用新的`state`来做后续运算就做不到了。
 
-```jsx
+```javascript
 handleClickButton () {
     this.setState({ count: 0 }) // undefined
     this.setState({ count: this.state.count + 1 }) // undefined + 1 = NaN
@@ -46,7 +103,7 @@ handleClickButton () {
 
 `setState`把你的传进来的状态缓存起来，稍后才会帮你更新到`state`上，需要传入函数。
 
-```jsx
+```javascript
 handleClickOnLikeButton () {
     this.setState((prevState) => {
       return { count: 0 }
@@ -74,6 +131,52 @@ const HelloWorld = (props) => {
   )
 }
 ```
+
+
+
+- 状态提升
+
+当你遇到需要同时获取多个子组件数据，或者两个组件之间需要相互通讯的情况时，把子组件的 state 数据提升至其共同的父组件当中保存。之后父组件可以通过 props 将状态数据传递到子组件当中。这样应用当中的状态数据就能够更方便地交流共享了。可以用 props 添加自定义方法，在子组件中进行回调传参。
+
+
+
+```javascript
+// 父组件
+class Parent extends Component {
+    handleSubmit(value) {
+        console.log(value) // hello       
+    }
+    render() {
+        return (
+           <Child onSubmit={this.handleSubmit.bind(this)} />
+        )
+    }
+}
+// 子组件
+class Child extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            msg: null
+        }        
+    }
+    submit() {
+        this.setState({
+            msg: 'hello'
+        })
+        const { msg } = this.state
+        this.props.onSubmit(msg)
+    }
+    render() {
+        return (
+            <button onClick={this.submit.bind(this)}>
+               Click
+            </button>
+        )
+    }
+}
+```
+
 
 
 **注意：**
@@ -134,5 +237,34 @@ class CustomButton extends Component {
       <button onClick={this.handleClickOnTitle.bind(this)}>Button</button>
     )
   }
+}
+```
+
+
+
+React.js 认为所有的状态都应该由 React.js 的 state 控制，只要类似于`<input />`、`<textarea />`、`<select />`这样的输入控件被设置了`value`值，那么它们的值永远以被设置的值为准。值不变，`value`就不会变化。如果这些标签的 value 的值是由 state 里面的值控制的话，需要用 setState 修改值 ，则需要添加 onChange 方法监听
+
+
+
+```javascript
+class Input extends Component {
+    constructor() {
+        super()
+        this.state = {
+            value: '',
+        }
+    }
+    handleInput(e) {
+        this.setState({
+            value: e.target.value
+        })
+    }
+    render() {
+        return (
+            <input
+              value={this.state.value}
+              onChange={this.handleInput.bind(this)}/>
+        )
+    }
 }
 ```
