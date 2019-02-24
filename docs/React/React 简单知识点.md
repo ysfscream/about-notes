@@ -1,4 +1,4 @@
-# React 基础知识点
+# React 简单知识点
 
 https://react.docschina.org/
 
@@ -132,13 +132,9 @@ const HelloWorld = (props) => {
 }
 ```
 
-
-
 - 状态提升
 
 当你遇到需要同时获取多个子组件数据，或者两个组件之间需要相互通讯的情况时，把子组件的 state 数据提升至其共同的父组件当中保存。之后父组件可以通过 props 将状态数据传递到子组件当中。这样应用当中的状态数据就能够更方便地交流共享了。可以用 props 添加自定义方法，在子组件中进行回调传参。
-
-
 
 ```javascript
 // 父组件
@@ -158,7 +154,7 @@ class Child extends Component {
         super(props)
         this.state = {
             msg: null
-        }        
+        }
     }
     submit() {
         this.setState({
@@ -170,14 +166,12 @@ class Child extends Component {
     render() {
         return (
             <button onClick={this.submit.bind(this)}>
-               Click
+                Click
             </button>
         )
     }
 }
 ```
-
-
 
 **注意：**
 
