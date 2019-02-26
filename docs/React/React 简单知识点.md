@@ -234,11 +234,7 @@ class CustomButton extends Component {
 }
 ```
 
-
-
 React.js 认为所有的状态都应该由 React.js 的 state 控制，只要类似于`<input />`、`<textarea />`、`<select />`这样的输入控件被设置了`value`值，那么它们的值永远以被设置的值为准。值不变，`value`就不会变化。如果这些标签的 value 的值是由 state 里面的值控制的话，需要用 setState 修改值 ，则需要添加 onChange 方法监听
-
-
 
 ```javascript
 class Input extends Component {
@@ -262,3 +258,15 @@ class Input extends Component {
     }
 }
 ```
+
+## Style
+
+React.js 中的元素的 style 属性的用法和 DOM 里面的 style 不大一样，在 React.js 中你需要把 CSS 属性变成一个对象再传给元素：
+
+```javascript
+<h1 style={{fontSize: '12px', color: 'red'}}>Hello World</h1>
+```
+
+style 接受一个对象，这个对象里面是这个元素的 CSS 属性键值对，原来 CSS 属性中带 - 的元素都必须要去掉 - 换成驼峰命名，如 font-size 换成 fontSize，text-align 换成 textAlign。
+
+用对象作为 style 方便我们动态设置元素的样式。我们可以用 props 或者 state 中的数据生成样式对象再传给元素，然后用 setState 就可以修改样式

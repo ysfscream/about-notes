@@ -4,6 +4,8 @@ https://www.jianshu.com/p/bef1c1ee5a0e
 
 http://caibaojian.com/vue-vs-react.html
 
+## 简单的概念
+
 Vue 和 React 的一个最大的相似点就是使用了 virtual dom 即 虚拟 DOM
 
 > 它的诞生是基于这么一个概念：改变真实的DOM状态远比改变一个JavaScript对象的花销要大得多。
@@ -48,7 +50,7 @@ vitural dom 是一个映射真实 DOM 的 JavaScript 对象
 
 ```js
 const VNode = {
-	type: 'ul',
+    type: 'ul',
     props: {'class': 'list'},
     children: [
         { type: 'li',  props: {}, children: ['item 1'] }
@@ -61,3 +63,12 @@ const VNode = {
 > 本质上是一个嵌套着数组的原生对象。
 
 如果你的应用中，交互复杂，需要处理大量的UI变化，那么使用Virtual DOM是一个好主意。如果你更新元素并不频繁，那么Virtual DOM并不一定适用，性能很可能还不如直接操控DOM。
+
+## 好处
+
+- 库或者框架中使用虚拟 DOM 主要为了提高性能。当应用程序的状态发生变化时，真实 DOM 需要进行及时更新以表示出其变化。然而，修改真实 DOM 节点与重新计算虚拟 DOM 相比需要更高的成本。前一个虚拟 DOM 和新的虚拟 DOM 进行对比可以非常的快。
+
+- 旧的虚拟 DOM 和新的虚拟 DOM 之间一旦有变化，就可以通过框架中的比对引擎计算出来。真实的 DOM 就可以在最短的事件内快速的进行差异更新以匹配应用程序中最新的状态。
+
+- 使用虚拟 DOM 可以减少对底层的 DOM 操作，这样采用声明式编程可以编程过程更加简洁直观。
+虚拟 DOM 可以将同一时间内多个状态的变化累计计算出最终状态，以便对 DOM 只执行一次更新。

@@ -28,6 +28,13 @@ componentWillMount 和 componentDidMount 都是可以像 render 方法一样自�
 - componentDidMount：组件挂载完成以后，也就是 DOM 元素已经插入页面后调用。
 - componentWillUnmount：组件对应的 DOM 元素从页面中删除之前调用。
 
+### 关于更新阶段的组件生命周期：
+
+- shouldComponentUpdate(nextProps, nextState)：你可以通过这个方法控制组件是否重新渲染。如果返回 false 组件就不会重新渲染。这个生命周期在 React.js 性能优化上非常有用。
+- componentWillReceiveProps(nextProps)：组件从父组件接收到新的 props 之前调用。
+- componentWillUpdate()：组件开始重新渲染之前调用。
+- componentDidUpdate()：组件重新渲染并且把更改变更到真实的 DOM 以后调用。
+
 ## 作用
 
 - 一些组件启动的动作，包括像 Ajax 数据的拉取操作、一些定时器的启动等，就可以放在 componentWillMount 里面进行
