@@ -136,11 +136,13 @@ const HelloWorld = (props) => {
 
 当你遇到需要同时获取多个子组件数据，或者两个组件之间需要相互通讯的情况时，把子组件的 state 数据提升至其共同的父组件当中保存。之后父组件可以通过 props 将状态数据传递到子组件当中。这样应用当中的状态数据就能够更方便地交流共享了。可以用 props 添加自定义方法，在子组件中进行回调传参。
 
+当多个组件需要共享一些相同的数据时，建议将共享的状态提升到离这些组件最近的共同祖先上。 例如，如果两个子组件共享了一些相同的数据，那么就建议将共享的状态移至他们的父组件，而不是在两个子组件中使用本地状态进行维护。
+
 ```javascript
 // 父组件
 class Parent extends Component {
     handleSubmit(value) {
-        console.log(value) // hello       
+        console.log(value) // hello
     }
     render() {
         return (
@@ -150,26 +152,26 @@ class Parent extends Component {
 }
 // 子组件
 class Child extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            msg: null
-        }
-    }
-    submit() {
-        this.setState({
-            msg: 'hello'
-        })
-        const { msg } = this.state
-        this.props.onSubmit(msg)
-    }
-    render() {
-        return (
-            <button onClick={this.submit.bind(this)}>
-                Click
-            </button>
-        )
-    }
+  constructor(props) {
+      super(props)
+      this.state = {
+          msg: null
+      }
+  }
+  submit() {
+      this.setState({
+          msg: 'hello'
+      })
+      const { msg } = this.state
+      this.props.onSubmit(msg)
+  }
+  render() {
+      return (
+          <button onClick={this.submit.bind(this)}>
+              Click
+          </button>
+      )
+  }
 }
 ```
 
@@ -189,7 +191,7 @@ class Child extends Component {
 
 在 JSX 当中你可以插入 JavaScript 的表达式，表达式返回的结果会相应地渲染到页面上。表达式用`{}`包裹。jsx 中使用 {} 可以展示任何数据, 如果你往 {} 放一个数组，React.js 会帮你把数组里面一个个元素罗列并且渲染出来。
 
-简而言之，`{}`内可以放任何 JavaScript 的代码，包括变量、表达式计算、函数执行等等，也可以放 JSX。`render`会把这些代码返回的内容如实地渲染到页面上，非常的灵活。
+简而言之，`{}`内可以放任何 JavaScript 的代码，包括变量、表达式计算、函数执行等等，也可以放 JSX。`render`会把这些代码返回的内容如实地渲染到页面上，非常的灵活。`render`方法应该是`props`和`state`的纯函数。
 
 表达式插入不仅仅可以用在标签内部，也可以用在标签的属性上，例如：
 
@@ -239,10 +241,12 @@ React.js 认为所有的状态都应该由 React.js 的 state 控制，只要类
 ```javascript
 class Input extends Component {
     constructor() {
-        super()
-        this.state = {
-            value: '',
-        }
+      super()
+      this.state = {
+        value: '',
+      }
+      // 放到顶部绑定 this，不在元素里面可以提升性能
+      this.handleInput = this.handleInput.bind(this)
     }
     handleInput(e) {
         this.setState({
@@ -253,7 +257,7 @@ class Input extends Component {
         return (
             <input
               value={this.state.value}
-              onChange={this.handleInput.bind(this)}/>
+              onChange={this.handleInput}/>
         )
     }
 }
