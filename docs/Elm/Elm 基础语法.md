@@ -1,5 +1,7 @@
 # Elm 基础语法
 
+https://github.com/Jocs/jocs.github.io/issues/2
+
 https://guide.elm-lang.org/core_language.html
 
 ## Function
