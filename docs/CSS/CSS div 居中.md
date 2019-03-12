@@ -1,6 +1,6 @@
 # CSS div 居中
 
-参考 ->  https://github.com/simaQ/cssfun/issues/3
+参考 -> https://github.com/simaQ/cssfun/issues/3
 
 ## 对需要水平居中的DIV 加入 margin: auto
 
@@ -90,7 +90,7 @@ css部分
 - 父容器要用相对定位position:relative;否则的话子元素会相对于浏览器窗口进行绝对定位。
 - 子容器绝对定位，top:50%;left:50%;margin-top，margin-left的值取该容器高度，宽度的一半的负值。
 
-# 使用flexbox布局
+## 使用 flexbox 布局
 
 抛开兼容性，我想这是一个完美的居中，不需要考虑宽度和高度值。
 

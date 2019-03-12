@@ -236,6 +236,13 @@ class CustomButton extends Component {
 }
 ```
 
+你也可以使用箭头函数把事件处理和传递的参数包裹在内，这等同于调用 bind：
+
+```html
+<button onClick={() => this.handleClick(id)} />
+<button onClick={this.handleClick.bind(this, id)} />
+```
+
 React.js 认为所有的状态都应该由 React.js 的 state 控制，只要类似于`<input />`、`<textarea />`、`<select />`这样的输入控件被设置了`value`值，那么它们的值永远以被设置的值为准。值不变，`value`就不会变化。如果这些标签的 value 的值是由 state 里面的值控制的话，需要用 setState 修改值 ，则需要添加 onChange 方法监听
 
 ```javascript

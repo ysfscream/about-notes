@@ -58,3 +58,17 @@ componentWillUnmount() {
 ```
 
 我们一般会把组件的 state 的初始化工作放在 constructor 里面去做；在 componentWillMount 进行组件的启动工作，例如 Ajax 数据拉取、定时器的启动；组件从页面上销毁的时候，有时候需要一些数据的清理，例如定时器的清理，就会放在 componentWillUnmount 里面去做。
+
+## 生命周期的不同阶段
+
+- Initialization：在这个阶段，组件准备设置初始化状态和默认属性。
+
+- Mounting：react 组件已经准备装载到 DOM 上。这个阶段包含 getDerivedStateFromProps 和 componentDidMount 生命周期方法。
+
+- Updating：在这个阶段，组件通过两种方式进行更新，发送新的属性和更新状态。这个阶段包含 getDerivedStateFromProps，shouldComponentUpdate，getSnapshotBeforeUpdate 和 componentDidUpdate 生命周期方法。
+
+- Unmounting：在这个阶段，组件已经不再被需要了，他从浏览器 DOM 中卸载下来。这个阶段包含 componentWillUnmount 生命周期方法。
+
+- Error Handling：在这个阶段，不论在渲染的过程中，还是在生命周期方法中或是在任何子组件的构造函数中发生错误，该组件都会被调用。这个阶段包含了 componentDidCatch 生命周期方法。
+
+![react](/about-notes/media/React-1.jpg)

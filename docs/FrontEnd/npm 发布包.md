@@ -62,3 +62,21 @@ npm有一套自己的版本控制标准——Semantic versioning（语义化版�
 
 通过npm version \<update_type> 自动改变版本
 update_type为patch, minor, or major其中之一，分别表示补丁，小改，大改
+
+## 版本名称
+
+- alpha
+内测版
+内部测试版本
+　　
+- beta
+公测版
+Beta阶段会一直加入新的功能
+
+- RC
+候选版
+几乎就不会加入新的功能了，而主要着重于除错
+
+- Release
+正式版
+稳定版本
