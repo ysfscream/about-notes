@@ -14,6 +14,10 @@ https://www.jianshu.com/p/81bbd9b6605c
 
 - dart 没有 public、private、protected 这些关键字，变量名以"_"开头意味着对它的 lib 是私有的
 
+### 常量
+
+使用final和const关键字都可以声明一个常量，但是与final不同的是const是编译期常量，也就是说在编译器编译时使用const声明的常量必须是已经确定的值。使用final 和const修饰的变量不可以从新赋值
+
 ### 类型转化
 
 ```dart
@@ -98,6 +102,21 @@ String say(String from, String msg, [String device]) {
 }
 ```
 
+可选择名称的函数（具名函数）
+
+```dart
+void printStr3({String name,int age}){
+ print3("Name is $name age is $age");
+}
+printStr4(name: "flyou");
+// Name is flyou age is null
+```
+
+使用{}包括函数参数就可以把原来的函数变成可选择名称函数，在调用时可以直接指定参数名传值。
+当然，我们也可以选择只传入一个参数，另一个参数在使用的地方做判断或者使用函数的默认值
+
+同样如果有多和相同类型的入参，我们可以根据声明参数名调用的方式来调用函数
+
 还可以设置默认
 
 ```dart
@@ -130,8 +149,9 @@ String toString() => msg ?? super.toString();
 //如果 msg 不为空，返回 msg；否则返回后面的
 ```
 
+- .. 运算符，把对同一对象的不同操作串联起来
+
 ```dart
-// .. 运算符，把对同一对象的不同操作串联起来
 final addressBook = (new AddressBookBuilder()
     ..name = 'jenny'
     ..email = 'jenny@example.com'

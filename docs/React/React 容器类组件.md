@@ -45,3 +45,6 @@ props.children 它其实是个数组, 是你传入进来的元素的顺序。
   _owner: FiberNode
   _store: Object
 ```
+
+React API 提供了 children 属性的方法：React.Children.map，React.Children.forEach，React.Children.count，React.Children.only 和 React.Children.toArray。
+

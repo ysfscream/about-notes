@@ -121,7 +121,7 @@ slot 可以用一个特殊的属性 name 来配置分发的的内容多个插槽
 ```html
 <div class="child">
   <slot text="hello from child"></slot>
-</div>	
+</div>
 ```
 
 在父级中，具有特殊特性 `slot-scope` 的 `<template>` 元素必须存在，表示它是作用域插槽的模板。`slot-scope` 的值将被用作一个临时变量名，此变量接收从子组件传递过来的 prop 对象：
@@ -182,7 +182,9 @@ slot 可以用一个特殊的属性 name 来配置分发的的内容多个插槽
 ## 2.6 更新
 
 默认作用域插槽 (default scoped slot)
+
 v-slot 语法
+
 ```html
 <my-component v-slot="{ msg }">
   {{ msg }}
@@ -207,3 +209,44 @@ v-slot 语法
   </template>
 </my-component>
 ```
+
+有时让插槽内容能够访问子组件中才有的数据是很有用的。例如，设想一个带有如下模板的 `<current-user>` 组件：
+
+```html
+<span>
+  <slot>{{ user.lastName }}</slot>
+</span>
+我们想让它的后备内容显示用户的名，以取代正常情况下用户的姓，如下：
+```
+
+```html
+<current-user>
+  {{ user.firstName }}
+</current-user>
+```
+
+然而上述代码不会正常工作，因为只有 `<current-user>` 组件可以访问到 user 而我们提供的内容是在父级渲染的。
+
+为了让 user 在父级的插槽内容可用，我们可以将 user 作为一个 `<slot>` 元素的特性绑定上去：
+
+```html
+<span>
+  <slot v-bind:user="user">
+    {{ user.lastName }}
+  </slot>
+</span>
+```
+
+绑定在 `<slot>` 元素上的特性被称为插槽 prop。现在在父级作用域中，我们可以给 v-slot 带一个值来定义我们提供的插槽 prop 的名字：
+
+```html
+<current-user>
+  <template v-slot:default="slotProps">
+    {{ slotProps.user.firstName }}
+  </template>
+</current-user>
+```
+
+在这个例子中，我们选择将包含所有插槽 prop 的对象命名为 slotProps，但你也可以使用任意你喜欢的名字。
+
+-- 摘自 Vue 官方文档
