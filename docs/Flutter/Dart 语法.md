@@ -34,6 +34,8 @@ String oneAsString = 1.toString();
 String piAsString = 3.14159.toStringAsFixed(2);
 ```
 
+var 类似于JavaScript中的var，它可以接收任何类型的变量，但最大的不同是Dart中var变量一旦赋值，类型便会确定，则不能再改变其类型
+
 ### bool
 
 Dart 是强 bool 类型检查，只有bool 类型的值是true 才被认为是true

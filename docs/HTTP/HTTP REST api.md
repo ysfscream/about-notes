@@ -10,6 +10,8 @@
 
 [参考3](https://github.com/jasonGeng88/blog/blob/master/201706/rest-api.md)
 
+[参考4](https://hacpai.com/article/1552958044343)
+
 ## 协议
 
 API与用户的通信协议，总是使用[HTTPs协议](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)。
@@ -18,25 +20,19 @@ API与用户的通信协议，总是使用[HTTPs协议](http://www.ruanyifeng.co
 
 应该尽量将API部署在专用域名之下。
 
-> ```
-> https://api.example.com
->
-> ```
+```text
+https://api.example.com
+```
 
 如果确定API很简单，不会有进一步扩展，可以考虑放在主域名下。
 
-> ```
-> https://example.org/api/
->
-> ```
+> `https://example.org/api/`
 
 ## 版本（Versioning）
 
 应该将API的版本号放入URL。
 
-> ```
-> https://api.example.com/v1/
-> ```
+> `https://api.example.com/v1/`
 
 ## 路径（Endpoint）
 
@@ -46,11 +42,9 @@ API与用户的通信协议，总是使用[HTTPs协议](http://www.ruanyifeng.co
 
 举例来说，有一个API提供动物园（zoo）的信息，还包括各种动物和雇员的信息，则它的路径应该设计成下面这样。
 
-> - https://api.example.com/v1/zoos
-> - https://api.example.com/v1/animals
-> - https://api.example.com/v1/employees
-
-
+> `https://api.example.com/v1/zoos`
+> `https://api.example.com/v1/animals`
+> `https://api.example.com/v1/employees`
 
 ## 过滤信息（Filtering）
 
@@ -99,22 +93,13 @@ API与用户的通信协议，总是使用[HTTPs协议](http://www.ruanyifeng.co
 
 `/static/`开头的URL是静态资源文件，类似的，`/api/`开头的URL就是REST AP
 
-**API 的参数永远是一个字符串**
-
-
+**API 的参数永远是一个字符串**:
 
 > `200 OK` `GET`, `PUT` 或 `POST` 请求响应成功.
-
 > `201 Created` 标识一个新实例创建成功。当创建一个新的实例，请使用`POST`方法并返回`201`状态码。
-
 > `304 Not Modified` 发现资源已经缓存在本地，浏览器会自动减少请求次数。
-
 > `400 Bad Request` 请求未被处理，因为服务器不能理解客户端是要什么。
-
 > `401 Unauthorized` 因为请求缺少有效的凭据，应该使用所需的凭据重新发起请求。
-
 > `403 Forbidden` 意味着服务器理解本次请求，但拒绝授权。
-
 > `404 Not Found` 表示未找到请求的资源。
-
 > `500 Internal Server Error` 表示请求本身是有效，但由于某些意外情况，服务器无法实现，服务器发生了故障。

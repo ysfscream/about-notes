@@ -1,3 +1,5 @@
+# SS 一键安装脚本
+
 ```bash
 #!/usr/bin/env bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin

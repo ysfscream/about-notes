@@ -1,0 +1,29 @@
+# Flutter 概念
+
+## 结构
+
+以默认创建的 demo 为例子
+
+- MyApp类代表Flutter应用，它继承了 StatelessWidget类，这也就意味着应用本身也是一个widget。
+
+- 在Flutter中，大多数东西都是widget，包括对齐(alignment)、填充(padding)和布局(layout)。
+
+- Flutter在构建页面时，会调用组件的build方法，widget的主要工作是提供一个build()方法来描述如何构建UI界面（通常是通过组合、拼装其它基础widget）。
+
+- MaterialApp 是Material库中提供的Flutter APP框架，通过它可以设置应用的名称、主题、语言、首页及路由列表等。MaterialApp也是一个widget。
+
+- Scaffold 是Material库中提供的页面脚手架，它包含导航栏和Body以及FloatingActionButton（如果需要的话）。 路由默认都是通过Scaffold创建。
+
+- home 为Flutter应用的首页，它也是一个widget。
+
+## Stateful 和Stateless 不同：
+
+- Stateful widget可以拥有状态，这些状态在widget生命周期中是可以变的，而Stateless widget是不可变的。
+
+- Stateful widget至少由两个类组成：
+
+  - 一个StatefulWidget类。
+  - 一个 State类； StatefulWidget类本身是不变的，但是 State类中持有的状态在widget生命周期中可能会发生变化。
+_MyHomePageState类是MyHomePage类对应的状态类。和MyApp 类不同， MyHomePage类中并没有build方法，取而代之的是，build方法被挪到了_MyHomePageState方法中
+
+> 对于StatefulWidget，将build方法放在State中，可以给开发带来很大的灵活性。
