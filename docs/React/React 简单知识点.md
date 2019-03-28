@@ -88,8 +88,6 @@ class Timer extends React.Component {
 ReactDOM.render(<Timer />, mountNode);
 ```
 
-
-
 `setState`传入一个对象的时候，这个对象表示该组件的新状态。但你只需要传入需要更新的部分就可以了。
 
 如果你想在`setState`之后使用新的`state`来做后续运算就做不到了。
@@ -175,7 +173,7 @@ class Child extends Component {
 }
 ```
 
-**注意：**
+**注意**:
 
 1. JSX 是 JavaScript 语言的一种语法扩展，长得像 HTML，但并不是 HTML。
 
@@ -206,7 +204,7 @@ render () {
 }
 ```
 
-**注意：**
+**注意**:
 
 直接使用`class`在 React.js 的元素上添加类名如`<div class=“xxx”>`这种方式是不合法的。因为`class`是 JavaScript 的关键字，所以 React.js 中定义了一种新的方式：`className`来帮助我们给元素添加类名。
 
@@ -294,3 +292,32 @@ const tree = (
   </div>
 )
 ```
+
+## props 检查
+
+可以使用 `prop-types`
+
+```javascript
+import PropTypes from "prop-types"
+
+class User extends React.Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired
+  }
+
+  render() {
+    return (
+      <h1>Welcome, {this.props.name}</h1>
+      <h2>Age, {this.props.age}
+    )
+  }
+}
+```
+
+**注意**：
+
+- 我们可以自定义 propTypes
+- 使用 propTypes 并不是必需的，但这是一个非常棒的减少错误的实践
+- 使用 PropTypes.element 可以指定只传递一个子代
+- defaultProps 用来确保 this.props 在父组件没有指定的情况下有一个初始值。类型检查发生在 defaultProps 赋值之后，所以类型检查也会应用在 defaultProps 上。
