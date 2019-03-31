@@ -48,6 +48,7 @@ var vegetables = new List();
 
 // 或者简单的用List来赋值
 var fruits = ['apples', 'oranges'];
+List fruits = ['apples', 'oranges'];
 
 // 添加元素
 fruits.add('kiwis');
@@ -84,6 +85,33 @@ fruits.clear();
 
 // sort()对元素进行排序，传入一个函数作为参数，return <0表示由小到大， >0表示由大到小
 fruits.sort((a, b) => a.compareTo(b));
+```
+
+### Map
+
+映射 是一个有键和值的对象。 键和值都可以是任何类型的对象。 每个键只出现一次，但您可以多次使用相同的值。 Dart的Map支持由映射文字和Map。
+
+```dart
+Map gifts = {
+  // Key:    Value
+  'first': 'partridge',
+};
+
+var nobleGases = {
+  2: 'helium',
+};
+
+gifts['first'] == 'partridge'
+```
+
+要创建一个为编译时常量的Map，请在map之前添加const：
+
+```dart
+final constantMap = const {
+  2: 'helium',
+};
+
+// constantMap[2] = 'Helium'; // 取消注释会导致错误。
 ```
 
 ### 函数参数

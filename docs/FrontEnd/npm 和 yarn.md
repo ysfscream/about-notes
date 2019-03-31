@@ -4,14 +4,12 @@
 
 ## npm
 
-> `npm` 即：[npm package manager ](https://www.npmjs.com/)，是一种重用其他开发人员的代码的方法，也是一种与他人共享代码的方式，并且可以很容易地管理不同版本的代码。`npm` 开始作为 Node 包管理器，所以你会发现很多模块可以在服务器端使用。也有很多的包添加命令供您在命令行中使用。你还会发现可以在前端使用的软件包。
+> `npm` 即：[npm package manager](https://www.npmjs.com/)，是一种重用其他开发人员的代码的方法，也是一种与他人共享代码的方式，并且可以很容易地管理不同版本的代码。`npm` 开始作为 Node 包管理器，所以你会发现很多模块可以在服务器端使用。也有很多的包添加命令供您在命令行中使用。你还会发现可以在前端使用的软件包。
 
-#### **如何更新 Npm**
+### **如何更新 Npm**
 
 1. npm install npm@latest -g （npm install npm -g）
 2. 更新(重新下载) Node.js
-
-
 
 ## yarn
 
@@ -21,7 +19,7 @@
 
 如果你打算在现有项目中尝试Yarn，只需执行：`yarn`
 
-#### **如何安装 Yarn**
+## **如何安装 Yarn**
 
 对于如何安装 `Yarn`，Yarn 官方给出了很全面的说明，详见 [Install Yarn](https://yarnpkg.com/zh-Hans/docs/install)；涵盖 MacOs，Windows，Linux 等平台，并且还给出一些备用安装方式，譬如通过 `npm` 来安装：
 
@@ -35,7 +33,7 @@ npm install --global yarn
 
 但在实际使用中，这倒是最为方便的方式之一，迄今倒也没遇到什么问题；当然，最好按照官方推荐的方式；如果你使用并熟悉 Mac 操作系统，用推荐方式安装 Yarn 也是很简单：`brew install yarn`(笔者注)。
 
-#### 如何更新 Yarn
+## 如何更新 Yarn
 
 对于如何更新 Yarn，可以结合安装时候对应命令；如果是 Mac 操作系统，使用 `brew` 安装，那么如此操作予以更新：
 
@@ -48,8 +46,6 @@ brew upgrade yarn
 ```shell
 yarn global add yarn
 ```
-
-
 
 ## npm 与 yarn 常用命令对比
 
@@ -87,8 +83,6 @@ yarn global add yarn
 
 - [npm rebuild pacakgename](https://docs.npmjs.com/cli/rebuild): 用于更改包内容后进行重建；比如常见的 `npm rebuild node-sass`；当使用 Sass（Scss） 来作样式表预处理器，再打包的时候，你可能会遇见如下错误；而解决此问题，最为简单的方式即使用 `rebuild` 命令，对 [node-sass](https://www.npmjs.com/package/node-sass) 进行重建即可。
 
-
-
 ### **Yarn 独有的命令**
 
 - [yarn import](https://yarnpkg.com/zh-Hans/docs/cli/import)：依据原npm安装后的`node_modules`目录生成一份`yarn.lock`文件；
@@ -97,15 +91,11 @@ yarn global add yarn
 - [yarn why](https://yarnpkg.com/zh-Hans/docs/cli/why)：显示有关一个包为何被安装的信息。
 - [yarn autoclean](https://yarnpkg.com/zh-Hans/docs/cli/autoclean)：从包依赖里清除并移除不需要的文件。
 
-
-
 ### **管理 Node 版本**
 
 - `nvm` 是一个独立软件包：在安装之时，`nvm` 将不同的 node 版本存储到 *~/.nvm//* 下，然后修改 `$PATH`，将指定版本的 node 路径加入，如此我们调用的 node 命令，即是所指定版本的 node；
 
 npm 脚本 http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html
-
-
 
 ## yarn.lock 和 package-lock.json
 
@@ -115,8 +105,8 @@ npm 脚本 http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html
 
 文件是自动产生的，而且应该完全被管理。 当你用 Yarn/npm CLI 增加／升级／删除依赖，它将自动更新你的文件。 不要直接编辑这个文件，那样很容易弄坏某些东西。
 
+**看来 npm 和 Yarn 在安装包的速度差异和要安装的包个数强相关，不过不管怎么样，Yarn 都比 npm 要快，更简洁的输出**。
 
-
-**看来 npm 和 Yarn 在安装包的速度差异和要安装的包个数强相关，不过不管怎么样，Yarn 都比 npm 要快，更简洁的输出**
+因为 npm 采用串行安装 安装完一个才安装下一个，yarn 则使用并行安装
 
 在安装一个要打包到生产环境的安装包时，你应该使用 `npm install --save`，如果你在安装一个用于开发环境的安装包（例如，linter, 测试库等），你应该使用 `npm install --save-dev`。请在 [npm 文档](https://docs.npmjs.com/cli/install) 中查找更多信息。

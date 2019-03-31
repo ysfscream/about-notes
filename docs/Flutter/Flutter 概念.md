@@ -77,3 +77,26 @@ build()：此回调读者现在应该已经相当熟悉了，它主要是用于�
 - 如果某一个状态是不同widget共享的则最好由它们共同的父widget管理。
 
 在widget内部管理状态封装性会好一些，而在父widget中管理会比较灵活。有些时候，如果不确定到底该怎么管理状态，那么推荐的首选是在父widget中管理（灵活会显得更重要一些）。
+
+## Scaffold 布局脚手架
+
+```dart
+class Scaffold extends StatefulWidget {
+  /// Creates a visual scaffold for material design widgets.
+  const Scaffold({
+    Key key,
+    this.appBar,
+    this.body,
+    this.floatingActionButton,
+    this.floatingActionButtonLocation,
+    this.floatingActionButtonAnimator,
+    this.persistentFooterButtons,
+    this.drawer,
+    this.endDrawer,
+    this.bottomNavigationBar,
+    this.bottomSheet,
+    this.backgroundColor,
+    this.resizeToAvoidBottomPadding = true,
+    this.primary = true,
+  }) : assert(primary != null), super(key: key);
+```
