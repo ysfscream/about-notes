@@ -36,3 +36,18 @@ initState() {
   _pages = [NewPages(coutner: _counter), TestPages()]
 }
 ```
+
+> initializes a class-level field. This code is executed before the constructor is completed and the object fully initialized, therefore accessing this. (implicit or explicit) is forbidden because it can't be guaranteed that what you attempt to access is already initialized.
+
+- `fontSize`：该属性和Text的 `textScaleFactor` 都用于控制字体大小。但是有两给主要区别：fontSize可以精确指定字体大小，而textScaleFactor只能通过缩放比例来控制。
+textScaleFactor主要是用于系统字体大小设置改变时对Flutter应用字体进行全局调整，而fontSize通常用于单个文本。
+
+- How to scroll page in flutter?
+
+```dart
+body: SingleChildScrollView(
+  child: Stack(
+    children: <Widget>[],
+  ),
+);
+```
