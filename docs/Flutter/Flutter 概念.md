@@ -100,3 +100,27 @@ class Scaffold extends StatefulWidget {
     this.primary = true,
   }) : assert(primary != null), super(key: key);
 ```
+
+## widget 分类
+
+根据Widget是否需要包含子节点将Widget分为了三类，分别对应三种Element，如下：
+
+- LeafRenderObjectWidget, LeafRenderObjectElement Widget树的叶子节点，用于没有子节点的widget，通常基础widget都属于这一类，如Text、Image。
+
+- SingleChildRenderObjectWidget,SingleChildRenderObjectElement 包含一个子Widget，如：ConstrainedBox、DecoratedBox等
+
+- MultiChildRenderObjectWidget,MultiChildRenderObjectElement 包含多个子Widget，一般都有一个children参数，接受一个Widget数组。如Row、Column、Stack等
+
+## 布局类和容器类的 widget
+
+容器类Widget和布局类Widget都作用于其子Widget，不同的是：
+
+- 布局类Widget一般都需要接收一个widget数组（children），他们直接或间接继承自（或包含）MultiChildRenderObjectWidget ；而容器类Widget一般只需要接受一个子Widget（child），他们直接或间接继承自（或包含）SingleChildRenderObjectWidget。
+
+- 布局类Widget是按照一定的排列方式来对其子Widget进行排列；而容器类Widget一般只是包装其子Widget，对其添加一些修饰（补白或背景色等）、变换(旋转或剪裁等)、或限制(大小等)。
+
+## 动画
+
+vsync 是什么？
+
+vsync对象会绑定动画的定时器到一个可视的widget，所以当widget不显示时，动画定时器将会暂停，当widget再次显示时，动画定时器重新恢复执行，这样就可以避免动画相关UI不在当前屏幕时消耗资源。 如果要使用自定义的State对象作为vsync时，请包含TickerProviderStateMixin

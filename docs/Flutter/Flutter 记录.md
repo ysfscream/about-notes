@@ -51,3 +51,30 @@ body: SingleChildScrollView(
   ),
 );
 ```
+
+- TextField 的 onChanged 和 Controller对比：onChanged是专门用于监听文本变化，而controller的功能却多一些，除了能监听文本变化外，它还可以设置默认值、选择文本
+
+- 当超过 3 个 BottomNavigationBar items 的时候 底部导航栏就自动变了样式，type 改变了，解决：
+
+```dart
+bottomNavigationBar: BottomNavigationBar(
+  type: BottomNavigationBarType.fixed,
+)
+```
+
+- ShowDialog using children is deprecated how to use it the other way?
+
+不使用 child 用一个 builder 构建
+
+```dart
+showDialog(
+  context: context,
+  builder: (context) => Text('Any widget in here')
+)
+```
+
+- 获取 StatefulWidget 的 state 的方法：通过 (widget 部件的实例).of(context)可以获取父级最近的Widget的State对象，Flutter还有一种通用的获取StatefulWidget对象State的方法，通过GlobalKey来获取
+
+- error: The argument type '_MyAppState' can't be assigned to the parameter type 'TickerProvider'.
+
+解决：Add with TickerProviderStateMixin to the end of your State’s class declaration.
