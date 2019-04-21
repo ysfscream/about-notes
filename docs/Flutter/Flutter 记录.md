@@ -78,3 +78,23 @@ showDialog(
 - error: The argument type '_MyAppState' can't be assigned to the parameter type 'TickerProvider'.
 
 解决：Add with TickerProviderStateMixin to the end of your State’s class declaration.
+
+- How can show grid view with other view in single page #flutter
+
+解决：You should just set height of the Container or warp it by Expanded widget
+
+```dart
+body:ListView(
+  children: <Widget>[
+    Text("checking"),
+    Container(
+      height: 300.0
+      child: GridView.count(
+        crossAxisCount: 3,
+        childAspectRatio: .6,
+        children: _list.map((p) => ProductManagment(p)).toList(),
+      ),
+    )
+  ],
+)
+```

@@ -10,3 +10,4 @@
 * `git checkout -b newBranch` 新建 newBranch 分支并切换到 新建分支
   * 步骤类似于 `git branch newBranch` && `git checkout newBranch`
   
+[Git 的一些奇淫技巧](https://github.com/521xueweihan/git-tips)
