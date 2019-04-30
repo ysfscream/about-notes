@@ -27,7 +27,7 @@ console.log(b) //1
 
 ```js
 var o = {p: 42, q: true}
-var {p, q} = o 
+var {p, q} = o
 console.log(p) //42
 console.log(q) //true
 ```
@@ -36,7 +36,7 @@ console.log(q) //true
 
 ```js
 var o = {p: 42, q: true}
-var {p: foo, q: bar} = o 
+var {p: foo, q: bar} = o
 console.log(foo) //42
 console.log(bar) //true
 ```
