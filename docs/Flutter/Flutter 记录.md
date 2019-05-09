@@ -100,3 +100,5 @@ body:ListView(
 ```
 
 - async 函数需要返回一个 Future 类型
+
+- EdgeInsets.symmetric(vertical: 20, horizontal: 10) ，可以指定垂直和水平方向的边距，也可以单独指定垂直或者水平方向的边距

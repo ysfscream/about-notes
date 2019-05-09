@@ -2,15 +2,15 @@
 
 > Mac 键盘值 快捷键各种
 
-![](/about-notes/media/15117927195295.jpg)
+![short](/about-notes/media/15117927195295.jpg)
 
-![](/about-notes/media/15117941521058.jpg)
+![short](/about-notes/media/15117941521058.jpg)
 
-![](/about-notes/media/15117941671914.jpg)
+![short](/about-notes/media/15117941671914.jpg)
 
-![](/about-notes/media/15117941786881.jpg)
+![short](/about-notes/media/15117941786881.jpg)
 
-![](/about-notes/media/15117942108353.jpg)
+![short](/about-notes/media/15117942108353.jpg)
 
 ## 终端快捷键
 
@@ -263,11 +263,10 @@ defaults write com.apple.screencapture location 存放位置
 killall SystemUIServer
 
 在输入命令的时候，将“存放位置”替换成真正的文件夹就可以了。例如，你希望存放到自己用户目录的Screenshots文件夹下，就输入
+
+```shell
 defaults write com.apple.screencapture location ~/Screenshots
-
- 
-
- 
+```
 
 Mac锁屏设置快捷键
 如果用户要离开电脑一段时间，可以选择直接把笔记本直接合上。但是这样原先在跑 的进程就会挂起或者结束，如果正在下载，那么下载就被暂停（有时还不能恢复），如果正在提供网络服务，那么因为网络断了，别人也连不上你的笔记本。锁屏可 以解决这个问题，在Windows下用Win+L快捷键就锁屏了，但Mac OS X下一直没有默认的快捷键。
@@ -280,8 +279,12 @@ Mac锁屏设置快捷键
 
 第二步，要用快捷键启动屏幕保护程序，相对复杂一点。在“应用程序”里找到“Automator”。新建一个服务，在“操作”下的“实用工具”里找 到“启动屏幕保护程序”，并把此操作拖动到右边，并且选择“没有输入”和位于“任何应用程序”，如下图所示。然后把服务保存为自己定义的名字。
 
-
-
 最后，在“系统偏好设置”里找到“键盘”，然后为刚才定义的服务配置快捷键，我设成了Command+Control+L。
 
+## oh-my-zsh 快捷键
 
+|    命令     |                    作用                    |
+| :-------: | :--------------------------------------: |
+|    hsi    | history 插件，`hsi git` = `history | grep git` |
+|   take    |   take test 相当于 mkdir test && cd test    |
+| zsh_stats |     zsh_stats 可以看到你的使用频率前 20 的命令是什么      |

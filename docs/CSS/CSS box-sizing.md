@@ -2,7 +2,7 @@
 
 ```css
 div {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 ```
 
@@ -14,3 +14,15 @@ div {
 >
 > `border-box` 告诉浏览器去理解你设置的边框和内边距的值是包含在width内的。也就是说，如果你将一个元素的width设为100px,那么这100px会包含其它的border和padding，内容区的实际宽度会是width减去border + padding的计算值。大多数情况下这使得我们更容易的去设定一个元素的宽高。
 
+不希望每次都重写一遍，而是希望他是继承而来的，那么我们可以使用如下代码：
+
+```css
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+```
+
+复制代码这样的好处在于他不会覆盖其他组件的 box-sizing 值，又无需为每一个元素重复设置 box-sizing: border-box;

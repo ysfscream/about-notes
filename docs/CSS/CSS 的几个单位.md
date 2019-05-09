@@ -1,6 +1,6 @@
 # CSS 的几个单位
 
-from -> https://github.com/simaQ/cssfun/issues/1
+from -> [https://github.com/simaQ/cssfun/issues/1](https://github.com/simaQ/cssfun/issues/1)
 
 ## em 和 rem
 
@@ -28,6 +28,11 @@ from -> https://github.com/simaQ/cssfun/issues/1
 * `rem` 继承根元素（`html`）中的 `font-size`
 * 在大多数浏览器中，根元素的 `font-size` 默认值为 `16px`
 
+一般建议在 line-height 使用 em。因为在需要调整字体大小的时候，只需修改 font-size 的值，而 line-height 已经设置成了相对行高了。
+
+在存在首行缩进的需求，我也会使用这个单位。
+`text-indent: 2em`
+
 ## vh and vw
 
 响应式web设计离不开百分比。但是，CSS百分比并不是所有的问题的最佳解决方案。CSS的宽度是相对于包含它的最近的父元素的宽度的。但是如果你就想用视口（viewpoint）的宽度或者高度，而不是父元素的，那该肿么办？ 这就是 `vh` 和 `vw` 单位为我们提供的。
@@ -50,7 +55,7 @@ from -> https://github.com/simaQ/cssfun/issues/1
 那么问题来了，我们应该在什么场景下使用这两个单位呢？
 假设有一个元素，你需要让它始终在屏幕上可见。只要对其高度和宽度使用vmin单位，并赋予其低于100的值就可以做到了。
 
-##  ex and ch
+## ex and ch
 
 `ex` 和 `ch` 单位，类似于 `em` 和 `rem`, 依赖于当前的字体和字体大小。 但是，不同的是，这两货是基于字体的度量单位，依赖于设定的字体。
 
@@ -72,4 +77,3 @@ sub {
     bottom: -1ex;
 }
 ```
-
