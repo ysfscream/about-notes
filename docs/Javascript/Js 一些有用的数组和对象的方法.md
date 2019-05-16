@@ -1,8 +1,8 @@
-#  Js 一些有用的数组和对象的方法
+# Js 一些有用的数组和对象的方法
 
-##  str.substr 和 str.substring
+## str.substr 和 str.substring
 
->  **substr()** 方法返回一个字符串中从指定位置开始到指定字符数的字符。
+> **substr()** 方法返回一个字符串中从指定位置开始到指定字符数的字符。
 
 ```js
 var str = "abcdefghij";
@@ -78,6 +78,8 @@ console.log(arr)
 ## find 和 filter
 
 > `find()`方法返回数组中满足提供的测试函数的第一个元素的值。否则返回undefined
+>
+> findIndex：这与find几乎完全相同，但不是返回第一个匹配元素，而是返回第一个匹配元素的索引。
 
 ```js
 var arr = [1, 2, 3, 4, 5, 6]
@@ -156,6 +158,29 @@ arr.reduce((first, second) => first + second})
 
   map 比 forEach 更快
 
+## shift 和 unshift
+
+shift:从数组中删除第一项。同样，它在适当的位置修改数组。函数本身返回从数组中删除的项。
+
+```javascript
+let arr = [1, 2, 3, 4];
+const shifted = arr.shift();
+console.log(arr);
+// [2, 3, 4]
+console.log(shifted);
+// 1
+```
+
+unshift:将一个或多个元素添加到数组的开头。同样，它在适当的位置修改数组。与许多其他方法不同，函数本身返回数组的新长度。
+
+```javascript
+let arr = [1, 2, 3, 4];
+const unshifted = arr.unshift(5, 6, 7);
+console.log(arr);
+// [5, 6, 7, 1, 2, 3, 4]
+console.log(unshifted);
+// 7
+```
 
 
 ## includes

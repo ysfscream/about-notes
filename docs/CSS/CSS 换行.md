@@ -25,4 +25,4 @@ word-break:break-all;
 }
 ```
 
-参考：http://www.cnblogs.com/johnwonder/archive/2010/04/07/1706073.html
+参考：[http://www.cnblogs.com/johnwonder/archive/2010/04/07/1706073.html](http://www.cnblogs.com/johnwonder/archive/2010/04/07/1706073.html)

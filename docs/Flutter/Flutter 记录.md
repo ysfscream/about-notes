@@ -102,3 +102,13 @@ body:ListView(
 - async 函数需要返回一个 Future 类型
 
 - EdgeInsets.symmetric(vertical: 20, horizontal: 10) ，可以指定垂直和水平方向的边距，也可以单独指定垂直或者水平方向的边距
+
+- Stack widget 报错 RenderStack object was given an infinite size during layout. This probably means that it is a render object that tries to be as big as possible, but it was put inside another render object that allows its children to pick their own size.
+
+解决：because a Stack widget must have at least one item which can have a static size at build time，Stack 里面必须包含一个含有静态大小的 widget，可以放一个空的 Container();
+
+- ListView.builder适合列表项比较多（或者无限）的情况，因为只有当子Widget真正显示的时候才会被创建，而默认的构造函数适合只有少量的子widget的情况，因为这种方式需要将所有children都提前创建好（这需要做大量工作），而不是等到子widget真正显示的时候再创建。
+
+- AspectRatio(长宽比) 一个widget，试图将子widget的大小指定为某个特定的长宽比。这是一个比率控件，按照宽度和比率来计算高度。一般会设置父容器的宽度，然后设置AspectRatio的aspectRatio，那么AspectRatio就会按照指定比例来显示
+
+- 如要获得某一 Widget 的尺寸范围，只需给它包裹一层 LayoutBuilder 的 Widget

@@ -84,15 +84,27 @@ if(ticTacToe === 1){
 let ticTacToe = ticTacToe === 1 ? 'X' : 'O';
 ```
 
-
-
 - There is more then console.log()
 
-console logged a JS object, arrays, try it: 
-
-```js
+```javascript
 console.table(yourObject)
+
+console.group()
+
+console.warn() & console.error()
+
+console.log('%c Auth ',
+            'color: white; background-color: #2274A5',
+            'Login page rendered');
+console.log('%c GraphQL ',
+            'color: white; background-color: #95B46A',
+            'Get user details');
+console.log('%c Error ',
+            'color: white; background-color: #D33F49',
+            'Error getting user details');
 ```
+
+This can be used when you want to group or nest relevant details together to be able to easily read the logs.
 
 
 
@@ -101,7 +113,6 @@ console.table(yourObject)
 ```js
 'LoveYou'.replace(/([a-z])([A-Z])/g, '$1 $2') // Love You
 ```
-
 
 - let 和 var 的区别, 作用域
 

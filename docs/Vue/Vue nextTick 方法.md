@@ -26,10 +26,10 @@
     })
   ```
 
-
-
-https://juejin.im/post/5a6fdb846fb9a01cc0268618
+[https://juejin.im/post/5a6fdb846fb9a01cc0268618](https://juejin.im/post/5a6fdb846fb9a01cc0268618)
 
 在Vue生命周期的`created()`钩子函数进行的DOM操作一定要放在`Vue.nextTick()`的回调函数中
 
 在数据变化后要执行的某个操作，而这个操作需要使用随数据改变而改变的DOM结构的时候，这个操作都应该放进`Vue.nextTick()`的回调函数中。
+
+**应用场景**：需要在视图更新之后，基于新的视图进行操作。

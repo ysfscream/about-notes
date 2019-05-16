@@ -72,3 +72,18 @@ const obj = {a: 1, b: 2, c: 3}
 const { a, ...cleanObj } = obj
 cleanObj // { b:2, c: 3 }
 ```
+
+使用解构传参数，像 react 中传入 props 参数
+
+```javascript
+const props = {
+  name: 'ysf',
+  children: <span>24<span>,
+}
+
+const Text = ({ name, children }) => {
+  consle.log(name, children)
+}
+
+Text(props) // ysf, <span>24<span>
+```
