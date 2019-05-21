@@ -111,4 +111,4 @@ body:ListView(
 
 - AspectRatio(长宽比) 一个widget，试图将子widget的大小指定为某个特定的长宽比。这是一个比率控件，按照宽度和比率来计算高度。一般会设置父容器的宽度，然后设置AspectRatio的aspectRatio，那么AspectRatio就会按照指定比例来显示
 
-- 如要获得某一 Widget 的尺寸范围，只需给它包裹一层 LayoutBuilder 的 Widget
+- 如要获得某一 Widget 的尺寸范围，只需给它包裹一层 LayoutBuilder 的 Widget; 在构建前如果需要确定小部件有多大则可以使用LayoutBuilder;
