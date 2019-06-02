@@ -1,8 +1,8 @@
 # Js Virtual DOM
 
-https://www.jianshu.com/p/bef1c1ee5a0e
+[https://www.jianshu.com/p/bef1c1ee5a0e](https://www.jianshu.com/p/bef1c1ee5a0e)
 
-http://caibaojian.com/vue-vs-react.html
+[http://caibaojian.com/vue-vs-react.html](http://caibaojian.com/vue-vs-react.html)
 
 ## 简单的概念
 
@@ -72,3 +72,17 @@ const VNode = {
 
 - 使用虚拟 DOM 可以减少对底层的 DOM 操作，这样采用声明式编程可以编程过程更加简洁直观。
 虚拟 DOM 可以将同一时间内多个状态的变化累计计算出最终状态，以便对 DOM 只执行一次更新。
+
+> 把 DOM 和 ECMAScript 各自想象成一个岛屿，它们之间用收费桥梁连接。——《高性能JavaScript》
+
+DOM 属于渲染引擎，而 JS 又是属于 JS 引擎，在浏览器内核中他们彼此独立。单独来看，两者都是很快的，但当我们用 JS 去操作 DOM 时，引擎之间进行了“跨界交流”。这个“跨界交流”的实现并不简单，既然是收费桥梁，过“桥”就要收费。我们每操作一次 DOM（不管是为了修改还是仅仅为了访问其值），都要过一次“桥”。次数一多就会产生比较明显的性能问题。
+
+> ECMAScript 每次访问 DOM，都要经过这座桥，并交纳“过桥费”，访问 DOM 的次数越多，费用也就越高。因此，推荐的做法是尽量减少过桥的次数，努力呆在 ECMAScript 岛上。——《高性能JavaScript》
+
+那能不能不要立即去操作 DOM 呢？
+
+将这 N 次更新的内容保存到一个 js 对象中，最终将这个 js 对象一次性 attach 到 DOM 树上，通知浏览器去执行绘制工作。这样无论多么复杂的 DOM 操作，最终都只会触发一次渲染全流程
+
+虚拟 DOM 是 DOM 在内存中的一种轻量级表达方式，是一种统一约定！可以通过不同的渲染引擎生成不同平台下的 UI！
+
+虚拟 DOM 真正的价值从来都不是性能，而是不管数据怎么变化，都可以用最小的代价来更新 DOM，而且掩盖了底层的 DOM 操作。
