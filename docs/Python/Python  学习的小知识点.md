@@ -1,6 +1,6 @@
 # Python  学习的部分知识点
 
-https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000
+[https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
 
 ## 基础
 
@@ -681,8 +681,6 @@ f1, f2, f3 = count()
 
 用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数。
 
-
-
 ### 装饰器
 
 在函数调用前后自动打印日志，但又不希望修改`now()`函数的定义，这种在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）。
@@ -765,6 +763,32 @@ import functools
 
 
 装饰器的原理就是：将源函数当作参数传入一个新函数中，新函数返回一个wraps函数，warps函数在源函数的基础上添加了一些功能而已。
+
+```python
+def decotor(f):
+...    def wrapper():
+...            print('docotor')
+...            f()
+...    return wrapper
+...
+def myFunc():
+...    print('my func')
+...
+>>> myFunc = decotor(myFunc)
+>>> myFunc()
+docotor
+my func
+>>>
+
+# 等同于
+def decorator(f):
+    print "my decorator"
+    return f
+@decorator
+def myfunc():
+    print "my function"
+myfunc()
+```
 
 
 
