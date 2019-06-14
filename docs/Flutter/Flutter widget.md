@@ -43,3 +43,39 @@ Alignment实际上是包含了两个属性的，其中第一个参数，-1.0是�
 ## Layoutbuilder
 
 - 如要获得某一 Widget 的尺寸范围，只需给它包裹一层 LayoutBuilder 的 Widget; 在构建前如果需要确定小部件有多大则可以使用LayoutBuilder;
+
+## MediaQuery
+
+```dart
+// 可以获取到屏幕的转向
+final Orientation orientation = MediaQuery.of(context).orientation;
+
+// 竖屏方向
+orientation == Orientation.portrait
+// 横屏方向
+orientation == Orientation.landscape
+```
+
+## SafeArea
+
+在刘海屏幕中，显示位置不是我们期待的。大部分刘海区域不是我们所触发按钮的区域。直接写会出现内容占到刘海屏的情况，这时我们可以使用SafeArea Widget来很好的解决这个问题。
+
+```dart
+class FlutterAlign extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Align(
+        alignment: Alignment(-1, -1),
+        child: Container(
+          child: Text(
+            "Hello",
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+这个Widget也能很好的处理iPhone X类似的底部bottom的区域。

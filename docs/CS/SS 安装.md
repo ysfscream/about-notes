@@ -1,5 +1,7 @@
 # SS 安装
 
+## SS
+
 本脚本适用环境
 系统支持：CentOS 6+，Debian 7+，Ubuntu 12+
 内存要求：≥128M
@@ -90,4 +92,27 @@ Shadowsocks-Go 版：
 /etc/shadowsocks-go/config.json
 Shadowsocks-libev 版：
 /etc/shadowsocks-libev/config.json
+```
+
+## SSR
+
+```shell
+git clone https://github.com/suniceman/ss-fly.git
+
+ss-fly/ss-fly.sh -ssr
+```
+
+选择填写的内容大致如下图：
+
+```shell
+Congratulations, ShadowsocksR server install completed!
+Your Server IP        :  23.105.203.126
+Your Server Port      :  12802
+Your Password         :  ysfscream
+Your Protocol         :  auth_sha1_v4
+Your obfs             :  tls1.2_ticket_auth
+Your Encryption Method:  chacha20
+
+Welcome to visit:https://shadowsocks.be/9.html
+Enjoy it!
 ```

@@ -143,3 +143,27 @@ Container(
   ),
 )
 ```
+
+- Error caught by rendering library, thrown during performResize()。
+Vertical viewport was given unbounded height ...
+
+解决：
+
+1. 因为ListView高度边界无法确定引起，所以解决的办法也很明显，我们需要给ListView指定边界，我们通过SizedBox指定一个列表高度
+
+2. 可以使用Expanded自动拉伸组件大小的Widget，Column是继承自Flex的，所以我们可以直接使用Column+Expanded来实现。
+
+```dart
+body: Column(
+  children: <Widget>[
+    Expanded(
+      child: GridView.count(
+        crossAxisCount: 2,
+        children: List.generate(100, (index) {
+          return Text(index.toString());
+        })
+      ),
+    ),
+  ],
+),
+```
