@@ -310,7 +310,7 @@ module.exports = {
   devServer: {
     hot: true, // 启用 HMR 就是更新 webpack-dev-server 的配置
     port: 8080, // 默认 8080 可自定义
-	contentBase: './dist'
+    contentBase: './dist'
   } // 使用 webpack-dev-server 提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)。让我们设置以下 以上配置告知 webpack-dev-server，在 localhost:8080 下建立服务，将 dist 目录下的文件，作为可访问文件。package.json 添加脚本 "webpack-dev-server --open" 即可打开服务。
 }
 ```

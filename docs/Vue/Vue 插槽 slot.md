@@ -181,6 +181,8 @@ slot 可以用一个特殊的属性 name 来配置分发的的内容多个插槽
 
 ## 2.6 更新
 
+`v-slot` 只能用于 `template` 标签上
+
 默认作用域插槽 (default scoped slot)
 
 v-slot 语法

@@ -109,6 +109,31 @@ const Counter = () => {
 
 用法很简单，将React.createContext返回的结果传入useContext即可，同时context改变的时候也会引发该组件重新渲染。
 
+## Suspense
+
+Suspense 会自动处理加载延迟，显示像 Loading... 之类的组件作为 fallback。
+
+```javascript
+import React, { useState, useEffect, Suspense } from "react";
+
+const TodoList = React.lazy(() => import('./components/todolist'))
+
+const App = () => {
+    return (
+        <div className="todolist-view">
+            <Suspense fallback={<div>Loading...</div>}>
+                <TodoList
+                    payload={todoListPayload}
+                    completeTodoTaskHandler={completeTodoTaskHandler}
+                />
+            </Suspense>
+        </div>
+    )
+}
+```
+
+只要用 Suspense 包装组件就行了，就是这么简单。我们使用 React.lazy() 懒加载了组件：TodoList。由于它会在内部为每个组件生成 bundle，因此网络条件不佳的情况下可能需要花些时间来加载它们。
+
 ## 总结
 
 > 我开始学习react的时候就想过React的logo和react有什么关系，这个项目也不叫做Atom（原子），也不是一个物理引擎，其中的一个解释是基于reaction（反应）的，化学反应就是基于原子在其中的表现，所以叫react。但是，我发现了一个更合理的解释，我觉得是这样，原子的种类和属性决定了物理反应的表现和形态，react让我知道了你可以把用户界面分离成一个个独立的个体，这个个体叫做组件，这些组件的属性和种类决定了用户界面的外观和特效。可是搞笑的是，Atom这个词的本身含义就是不可分离的，当科学家们第一次发现原子的时候，他们以为这就是最小的物质，但不久他们就发现了电子，电子就是原子中更小的一部分，电子对原子如何表现进行了更深一层的解释。我觉得hooks就像是电子一样，他不是一个新的功能，他只是让我能够使用那些react已知的功能，比如说state（状态），context（上下文），life cycle生命周期函数，hooks是react一种更直接的表达方式，更好的解释了组件如何在内部工作的，我觉得这些已经隐藏了长达四年久，现在你看一下react的logo，你可以看到那些电子的运动轨道，所以说hooks可能就一直存在，就像logo上的电子轨道一样。 - Dan Abramov
