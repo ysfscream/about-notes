@@ -1,8 +1,8 @@
-# Vue is 动态组件
+# Vue 动态组件
 
 组件可以用过: is 结合 component 组件来动态切换显示组件，通过 is 来切换的组件，必须得注册 name 属性。
 
-```vue
+```html
 <template>
   <div>
     <!--

@@ -1,4 +1,4 @@
-# CSS :lang() 伪类
+# CSS 伪类 lang
 
 > `:lang()` CSS 伪类用来匹配不同的语言下的元素
 
