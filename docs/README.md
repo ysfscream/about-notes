@@ -20,6 +20,7 @@ There are good and bad, welcome to learn together. 👏
 - [HTTP](https://github.com/ysfscream/about-notes/tree/master/docs/HTTP)
 - [Vue](https://github.com/ysfscream/about-notes/tree/master/docs/Vue)
 - [React](https://github.com/ysfscream/about-notes/tree/master/docs/React)
+- [Electron](https://github.com/ysfscream/about-notes/tree/master/docs/Electron)
 - [Elm](https://github.com/ysfscream/about-notes/tree/master/docs/Elm)
 - [FrontEnd](https://github.com/ysfscream/about-notes/tree/master/docs/FrontEnd)
 - [MongoDB](https://github.com/ysfscream/about-notes/tree/master/docs/MongoDB)

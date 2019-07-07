@@ -83,4 +83,10 @@ https://macplay.github.io/posts/vim-bu-xu-yao-duo-guang-biao-bian-ji-gong-neng/
 
 - 修改 N 个位置的单词 `/搜索的单词 -> cgn (修改单词) -> . (输入点操作)`
 
+- 快捷注释 `SPC c l` 注释/反注释当前行, `SPC c p` 注释/反注释段落
+
+- 跳转 buffers 的 tabs 栏 `\ + 跳转的数字`
+
+- `:w !pbcopy` 拷贝选中的内容至系统剪切板
+
 http://www.ruanyifeng.com/blog/2018/09/vimrc.html 阮一峰 配置 Vim 入门
