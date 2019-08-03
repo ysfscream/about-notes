@@ -3,12 +3,4 @@ node_js:
   - "10"
 cache: yarn
 script:
-  - yarn deploy:build
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
-  target_branch: gh_pages # default target branch gh_pages
-  on:
-    branch: master
+  - yarn deploy:traivs
