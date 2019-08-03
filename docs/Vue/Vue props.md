@@ -166,3 +166,26 @@ export default {
 }
 </script>
 ```
+
+## 将对象的所有属性作为 prop 进行传递
+
+如果你想把一个对象的所有属性作为 prop 进行传递，可以使用不带任何参数的 v-bind (即用 v-bind 而不是 v-bind:prop-name)。例如，已知一个 todo 对象：
+
+```javascript
+todo: {
+  text: 'Learn Vue',
+  isComplete: false
+}
+```
+
+然后:
+
+```html
+<todo-item v-bind="todo"></todo-item>
+将等价于：
+
+<todo-item
+  v-bind:text="todo.text"
+  v-bind:is-complete="todo.isComplete"
+></todo-item>
+```

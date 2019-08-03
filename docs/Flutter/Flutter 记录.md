@@ -173,3 +173,5 @@ body: Column(
   - 全局变量的初始化程序
   - 静态字段的初始化程序
   - 应用的 main() 方法
+
+- iOS 无法启动 [https://github.com/flutter/flutter/issues/29437](https://github.com/flutter/flutter/issues/29437)

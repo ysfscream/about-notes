@@ -128,6 +128,19 @@ for (let i = 0; i < arr.length; i++) {
 // Change let to var, what will the following code output?
 ```
 
+- 一次循环分出两个数组
 
+They really should have called it builder instead of reduce.
 
+```javascript
+const exampleValues = [2, 15, 8, 23, 1, 32];
+const [truthyValues, falseyValues] = exampleValues.reduce((arrays, exampleValue) => {
+  if (exampleValue > 10) {
+    arrays[0].push(exampleValue);
+    return arrays;
+  }
 
+  arrays[1].push(exampleValue);
+  return arrays;
+}, [[], []]);
+```
