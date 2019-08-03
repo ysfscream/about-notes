@@ -7,7 +7,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "deploy:build": "yarn docs:build && gh-pages -d dist",
-    "deploy:traivs": "yarn docs:build && gh-pages --repo https://$GITHUB_TOKEN@github.com:ysfscream/about-notes.git -d dist"
+    "deploy:traivs": "yarn docs:build && gh-pages --repo https://$GITHUB_TOKEN@github.com/ysfscream/about-notes.git -d dist"
   },
   "license": "MIT",
   "devDependencies": {
