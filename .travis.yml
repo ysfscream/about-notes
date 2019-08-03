@@ -3,4 +3,5 @@ node_js:
   - "10"
 cache: yarn
 script:
+  - gh-pages-clean
   - yarn deploy:traivs
