@@ -1,5 +1,7 @@
 # about-notes
 
+![build](https://travis-ci.org/ysfscream/about-notes.svg?branch=master)
+
 > This is a memory repository. You can take it out when you need it.  --me
 
 Knowledge is power. ⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄
