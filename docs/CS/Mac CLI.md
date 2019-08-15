@@ -1,20 +1,7 @@
-# Mac  键
+# Mac CLI
 
-> Mac 键盘值 快捷键各种
+## 基本命令
 
-![short](/about-notes/media/15117927195295.jpg)
-
-![short](/about-notes/media/15117941521058.jpg)
-
-![short](/about-notes/media/15117941671914.jpg)
-
-![short](/about-notes/media/15117941786881.jpg)
-
-![short](/about-notes/media/15117942108353.jpg)
-
-## 终端快捷键
-
-基本命令
 1、列出文件
 ls 参数 目录名        例: 看看驱动目录下有什么:ls /System/Library/Extensions
 参数 -w 显示中文，-l 详细信息， -a 包括隐藏文件
@@ -43,9 +30,7 @@ mv 文件   例：想把AppleHDA.Kext 移到桌面    mv /System/Library/Extensi
 7、文本编辑
 nano 文件名   例：编辑natit Info.plist     nano /System/Library/Extensions/Natit.kext/Info.plist
 
- 
-
-目录操作
+## 目录操作
 
 命令名                       功能描述                                             使用举例
 
@@ -61,9 +46,7 @@ pwd                          显示当前目录的路径名                     
 
 ls                              显示当前目录的内容                             ls -la
 
- 
-
-文件操作
+## 文件操作
 
 命令名                                 功能描述                                  使用举例
 
@@ -181,7 +164,9 @@ alias                            给某个命令定义别名                    
 
 unalias                     取消对某个别名的定义                                  unalias del
 
-其它命令
+ln 用来为文件创建链接 将目录/usr/mengqc/mub1下的文件m2.c链接到目录/usr/liu下的文件a2.c  `ln -s /usr/mengqc/mub1 /usr/liu/abc` 为某一个文件在另外一个位置建立一个同步的链接.当我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在某个固定的目录，放上该文件，然后在 其它的目录下用ln命令链接（link）它就可以，不必重复的占用磁盘空间。
+
+## 其它命令
 
 命令名                                  功能描述                                         使用举例
 
