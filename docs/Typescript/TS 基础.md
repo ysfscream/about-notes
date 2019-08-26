@@ -59,3 +59,30 @@ const queue = new Queue<number>();
 queue.push(0);
 queue.push('1'); // Error：不能推⼊⼀个 `string`，只有 number 类型被允许
 ```
+
+## 全局变量的声明
+
+### 全局变量的声明文件主要有以下几种语法
+
+- `declare var` 声明全局变量
+- `declare function` 声明全局方法
+- `declare class` 声明全局类
+- `declare enum` 声明全局枚举类型
+- `declare namespace` 声明（含有子属性的）全局对象
+- `interface` 和 `type` 声明全局类型
+
+> 需要注意的是，声明语句中只能定义类型，切勿在声明语句中定义具体的实现
+
+### namespace
+
+随着 ES6 的广泛应用，现在已经不建议再使用 ts 中的 namespace，而推荐使用 ES6 的模块化方案了，故我们不再需要学习 namespace 的使用了。但是在声明文件中，declare namespace 还是比较常用的，它用来表示全局变量是一个对象，包含很多子属性。
+
+比如 jQuery 是一个全局变量，它是一个对象，提供了一个 jQuery.ajax 方法可以调用，那么我们就应该使用 declare namespace jQuery 来声明这个拥有多个子属性的全局变量。
+
+```typescript
+// src/jQuery.d.ts
+
+declare namespace jQuery {
+  function ajax(url: string, settings?: any): void;
+}
+```
