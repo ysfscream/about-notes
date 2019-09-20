@@ -9,5 +9,6 @@
 * `git push origin --delete <branchName>` 删除远程分支
 * `git checkout -b newBranch` 新建 newBranch 分支并切换到 新建分支
   * 步骤类似于 `git branch newBranch` && `git checkout newBranch`
+* `gup` => `git pull --rebase`
   
 [Git 的一些奇淫技巧](https://github.com/521xueweihan/git-tips)

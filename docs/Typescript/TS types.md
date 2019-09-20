@@ -1,4 +1,4 @@
-# TS Interface
+# TS types
 
 ## 普通属性
 
@@ -50,3 +50,30 @@ let tom: Person = {
 
 使用 [propName: string] 定义了任意属性取 string 类型的值。
 需要注意的是，一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集。
+
+## 类型别名
+
+用来给一个类型起个新名字。
+
+```typescript
+type Name = string;
+type NameResolver = () => string;
+type NameOrResolver = Name | NameResolver;
+function getName(n: NameOrResolver): Name {
+    if (typeof n === 'string') {
+        return n;
+    } else {
+        return n();
+    }
+}
+```
+
+## 字符串字面量类型
+
+```typescript
+type Name = 'Bob' | 'Joy';
+
+const HisName: Name = 'Lucy';
+// Type Error, must be Bob or Joy
+// Type '"Lucy"' is not assignable to type 'Name'.
+```

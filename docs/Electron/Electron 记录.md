@@ -43,3 +43,22 @@
 Disable the remote module
 
 Filter the remote module
+
+- Unable to override app name on mac os electron menu
+
+When you run your application in development environment using;
+
+`./node_modules/.bin/electron main.js`
+or
+
+`electron main.js`
+
+You are actually running a prebuilt electron executable that runs file specified by you. So in this case, the OS will display the name under which the application was built and packaged.
+
+If you wish to change it, you need to package it. i.e. build your own distributable package. And to do this, there is an awesome package electron-builder
+
+- 打开 `devtoole`
+
+win下的快捷键是：`ctrl+shift+i`，mac下的快捷键是：`alt+command+i` 这两个快捷键和chrome的定义，是有所区别的。
+
+[https://newsn.net/say/electron-devtools.html](https://newsn.net/say/electron-devtools.html)

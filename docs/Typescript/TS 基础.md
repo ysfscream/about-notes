@@ -86,3 +86,52 @@ declare namespace jQuery {
   function ajax(url: string, settings?: any): void;
 }
 ```
+
+#### 防止命名冲突
+
+暴露在最外层的 interface 或 type 会作为全局类型作用于整个项目中，我们应该尽可能的减少全局变量或全局类型的数量。故最好将他们放到 namespace 下13：
+
+```typescript
+// src/jQuery.d.ts
+
+declare namespace jQuery {
+    interface AjaxSettings {
+        method?: 'GET' | 'POST'
+        data?: any;
+    }
+    function ajax(url: string, settings?: AjaxSettings): void;
+}
+```
+
+注意，在使用这个 interface 的时候，也应该加上 jQuery 前缀：
+
+```typescript
+// src/index.ts
+
+let settings: jQuery.AjaxSettings = {
+    method: 'POST',
+    data: {
+        name: 'foo'
+    }
+};
+jQuery.ajax('/api/post_something', settings);
+```
+
+### 类型导出
+
+只有 function、class 和 interface 可以直接默认导出，其他的变量需要先定义出来，再默认导出
+
+export default enum 是错误的语法，需要使用 declare enum 定义出来，然后使用 export default
+
+```typescript
+// types/foo/index.d.ts
+
+declare enum Directions {
+  Up,
+  Down,
+  Left,
+  Right
+}
+
+export default Directions;
+```
