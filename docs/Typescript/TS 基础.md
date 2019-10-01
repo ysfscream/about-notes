@@ -135,3 +135,24 @@ declare enum Directions {
 
 export default Directions;
 ```
+
+### 类型断言
+
+类型断言（Type Assertion）可以用来手动指定一个值的类型。
+
+语法
+
+`<类型>值`
+
+或
+
+`值 as 类型`
+
+作用是当多个联合的类型声明时，将一个联合类型的变量指定为一个更加具体的类型
+
+```typescript
+function greet(name: string | number): string {
+  // return name as string
+  return <string>name
+}
+```

@@ -3,25 +3,36 @@
 - 强制不换行
 
 ```CSS
-div{
-white-space:nowrap;
+div {
+  white-space:nowrap;
 }
 ```
 
 - 自动换行
 
 ```CSS
-div{
-word-wrap: break-word;
-word-break: normal;
+div {
+  word-wrap: break-word;
+  word-break: normal;
 }
 ```
 
 - 强制英文单词断行
 
 ```CSS
-div{
-word-break:break-all;
+div {
+  word-break:break-all;
+}
+```
+
+`<pre>` 标签内的换行
+
+有个pre-wrap，保留空白符序列，但是正常地进行换行。
+
+```css
+div {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 ```
 
