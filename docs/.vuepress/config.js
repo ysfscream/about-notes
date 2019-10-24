@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const ga = require('./googleGa')
 
 const siderbarList = fs.readdirSync('./docs')
   .filter($ => !['.vuepress', 'README.md'].includes($))
@@ -33,5 +34,13 @@ module.exports = {
     // 为以下路由添加侧边栏
     sidebar: getSidebar(siderbarList)
   },
-  plugins: ['@vuepress/pwa'],
+  plugins: [
+    '@vuepress/pwa',
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': ga // UA-00000000-0
+      }
+    ]
+  ],
 }
