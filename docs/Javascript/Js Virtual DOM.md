@@ -86,3 +86,23 @@ DOM 属于渲染引擎，而 JS 又是属于 JS 引擎，在浏览器内核中�
 虚拟 DOM 是 DOM 在内存中的一种轻量级表达方式，是一种统一约定！可以通过不同的渲染引擎生成不同平台下的 UI！
 
 虚拟 DOM 真正的价值从来都不是性能，而是不管数据怎么变化，都可以用最小的代价来更新 DOM，而且掩盖了底层的 DOM 操作。
+
+一段简单的代码解释 `Virtual DOM`
+
+```javascript
+class Element {
+    constructor(tagName, props, children) {
+        this.tagName = tagName
+        this.props = props
+        this.children = children
+    }
+
+    render() {
+        const dom = document.createElement(this.tagName)
+        Object.keys(this.props).forEach(prop => dom.setAttribute(prop, this.props[prop]))
+        return dom
+    }
+}
+
+parentElement.appendChild(element.render())
+```
