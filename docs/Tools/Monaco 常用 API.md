@@ -69,3 +69,122 @@ monaco.editor.colorize('console.log("Hello world!");', 'javascript').then(functi
 <pre id="code" data-lang="javascript" style="width:500px;">console.log("Hello world!");</pre>
 monaco.editor.colorizeElement(document.getElementById('code'));
 ```
+
+## 更新选项设置
+
+例如更新 `tabSize` 需要先获取 `editor` 的 `model`，然后调用 `updateOptions`
+
+```javascript
+const editor = monaco.editor.create(
+  document.getElementById("editor"), {
+    language: "html",
+    value: "<p>Hello World!</p>",
+});
+
+editor.getModel().updateOptions({ tabSize: 2 })
+```
+
+## 如何销毁
+
+```javascript
+this.editor.dispose()
+```
+
+**深坑！！！**这里只是销毁了你的 editor，如果你注册了 `registerHoverProvider`，`registerCompletionItemProvider` 等方法，是不会被销毁的。解决方法：
+
+> registerCompletionItemProvider returns an IDisposable with the dispose method which I can call on unmount
+
+这些方法都会返回一个 `IDisposable`，而且都带有 `dispose` 方法。和 `editor.dispose()` 在同一地方调用即可。
+
+```javascript
+created() {
+    this.disposeID = monaco.registerCompletionItemProvider('json', {
+        provideCompletionItems: (model, position) => {
+            // ...
+        },
+      })
+},
+
+beforeDestroy(){
+    if (this.editor) {
+        this.editor.dispose()
+        this.disposeID.dispose() // 即可销毁
+    }
+},
+```
+
+## 自定义语言
+
+语言的定义文件可以参考：[https://github.com/microsoft/monaco-languages](https://github.com/microsoft/monaco-languages)
+
+如何自定义语言的使用：[https://juejin.im/post/5c0dc3fe6fb9a049d235e093](https://juejin.im/post/5c0dc3fe6fb9a049d235e093)
+
+自定义语言后如何设置自定义语言的 config
+
+```javascript
+// custom-lang.js
+export const conf = {
+  comments: {
+    lineComment: '--',
+    blockComment: ['/*', '*/'],
+  },
+  brackets: [
+    ['{', '}'],
+    ['[', ']'],
+    ['(', ')']
+  ],
+  autoClosingPairs: [{
+      open: '{',
+      close: '}'
+    },
+    {
+      open: '[',
+      close: ']'
+    },
+    {
+      open: '(',
+      close: ')'
+    },
+    {
+      open: '"',
+      close: '"'
+    },
+    {
+      open: '\'',
+      close: '\''
+    },
+  ],
+  surroundingPairs: [{
+      open: '{',
+      close: '}'
+    },
+    {
+      open: '[',
+      close: ']'
+    },
+    {
+      open: '(',
+      close: ')'
+    },
+    {
+      open: '"',
+      close: '"'
+    },
+    {
+      open: '\'',
+      close: '\''
+    },
+  ]
+};
+const languages = {
+    //... 自定义语言内容
+}
+export default languages
+
+// monaco-editor.js
+import customLang, { conf } from 'custom-lang'
+// Custom language config
+monaco.languages.setLanguageConfiguration('custom-lang', conf)
+// Basic token for this custom language
+monaco.languages.setMonarchTokensProvider('custom-lang', customLang)
+```
