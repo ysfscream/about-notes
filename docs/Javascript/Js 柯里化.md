@@ -5,7 +5,7 @@
 例如：
 
 ```js
-let add  = function(x) {
+let add = function(x) {
     return function(y) {
         return x + y
     }
@@ -20,4 +20,3 @@ let addTen = add(10)
 addTen(1) // 11
 
 ```
-

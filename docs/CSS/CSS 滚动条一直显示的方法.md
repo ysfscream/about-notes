@@ -1,12 +1,12 @@
-# CSS 滚动条一直显示的方法
+# CSS 滚动条相关
 
-http://jsfiddle.net/simurai/UsvLN/
+## 一直显示滚动条
 
-http://simurai.com/blog/2011/07/26/webkit-scrollbar
+[http://jsfiddle.net/simurai/UsvLN/](http://jsfiddle.net/simurai/UsvLN/)
 
-https://codeday.me/bug/20170520/17148.html
+[http://simurai.com/blog/2011/07/26/webkit-scrollbar](http://simurai.com/blog/2011/07/26/webkit-scrollbar)
 
-
+[https://codeday.me/bug/20170520/17148.html](https://codeday.me/bug/20170520/17148.html)
 
 ```html
 <ul>
@@ -76,8 +76,6 @@ https://codeday.me/bug/20170520/17148.html
 </ul>
 ```
 
-
-
 ```css
 body { padding: 50px; }
 
@@ -85,8 +83,6 @@ ul {
     max-height:300px;
     overflow:auto;
 }
-
-
 
 /* Overwrite the default to keep the scrollbar always visible */
 
@@ -102,3 +98,19 @@ ul {
 }
 ```
 
+## 不显示滚动条
+
+```css
+/* Firefox浏览器： */
+scrollbar-width: none; /* Firefox */
+
+/* IE浏览器： */
+-ms-overflow-style: none; /* IE 10+ */
+
+/* Chrome 和 Safari 浏览器： */
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+```
+
+如果滚动时需要显示的话就在 hover 时设置为 auto

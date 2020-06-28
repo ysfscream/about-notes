@@ -1,7 +1,7 @@
 # 函数式编程
 
-> 摘自 - > http://www.ruanyifeng.com/blog/2012/04/functional_programming.html
-> https://github.com/jasonGeng88/blog/blob/master/201705/functional_programming.md
+> [http://www.ruanyifeng.com/blog/2012/04/functional_programming.html]( http://www.ruanyifeng.com/blog/2012/04/functional_programming.html)
+> [https://github.com/jasonGeng88/blog/blob/master/201705/functional_programming.md](https://github.com/jasonGeng88/blog/blob/master/201705/functional_programming.md)
 
 ## 定义
 
@@ -125,7 +125,7 @@ var print = function (i) {
 ```js
 const isType = function (type) {
  return function (obj) {
-    return toString.call(obj) == '[object' + type + ']'; 
+    return toString.call(obj) == '[object' + type + ']';
  };
 };
 const isString = isType('string');
