@@ -77,3 +77,12 @@ const HisName: Name = 'Lucy';
 // Type Error, must be Bob or Joy
 // Type '"Lucy"' is not assignable to type 'Name'.
 ```
+
+```typescript
+// keyof 将 interface 的所有属性名提取成一个新的联合类型
+type KeyOfTodo = keyof Todo // 'title' | 'description' | 'completed'
+// Pick 可以从一个 interface 中提取一组属性，生成新的类型
+type TodoPreview = Pick<Todo, 'title' | 'completed'> // {title: string, completed: boolean}
+// Extract 可以找到两个并集类型的交集，生成新的类型
+type Inter = Extract<keyof Todo, 'title' | 'author'> // 'title'
+```

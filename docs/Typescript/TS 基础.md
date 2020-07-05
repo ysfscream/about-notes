@@ -156,3 +156,32 @@ function greet(name: string | number): string {
   return <string>name
 }
 ```
+
+### 泛型
+
+约束中也可以用到其他的类型参数或使用多个类型参数，在下面的代码中我们限制类型参数 K 必须是 obj 的一个属性名：
+
+```typescript
+function getProperty<T, K extends keyof T>(obj: T, key: K) {
+  return obj[key];
+}
+```
+
+除了在函数上使用泛型之外，我们还可以定义泛型类型：
+
+```typescript
+type Partial<T> = {
+  [P in keyof T]?: T[P];
+}
+```
+
+当定义泛型类型时我们实际上是在定义一种处理类型的「函数」，使用泛型参数去生成新的类型，这也被称作「元编程」。例如 Partial 会遍历传入类型 T 的每一个属性，返回一个所有属性都可空的新类型：
+
+```typescript
+interface Person {
+  name: string
+}
+
+const a: Person = {} // 报错 Property 'name' is missing in type '{}' but required in type 'Person'.
+const b: Partial<Person> = {}
+```
