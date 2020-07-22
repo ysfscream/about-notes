@@ -115,10 +115,10 @@ Event Loop只做一件事情，负责监听Call Stack和Callback Queue。当Call
 
 ![img](https://user-gold-cdn.xitu.io/2018/1/16/160fcd26f8023a85?imageslim)
 
-
-
 JS的运行原理主要有以下几个方面：
 
-- JS引擎主要负责把JS代码转为机器能执行的机器码，而JS代码中调用的一些WEB API则由其运行环境提供，这里指的是浏览器。
+- JS引擎主要负责把JS代码转为机器能执行的机器码，而 JS 代码中调用的一些 WEB API 则由其运行环境提供，这里指的是浏览器。
 - JS是单线程运行，每次都从调用栈出取出代码进行调用。如果当前代码非常耗时，则会阻塞当前线程导致浏览器卡顿。
 - 回调函数是通过加入到事件队列中，等待Event Loop拿出并放到调用栈中进行调用。只有Event Loop监听到调用栈为空时，才会从事件队列中从队头拿出回调函数放进调用栈里。
+
+<img class="lazyload inited loaded" data-src="https://user-gold-cdn.xitu.io/2019/8/30/16ce31846487c72e?imageslim" data-width="967" data-height="579" src="https://user-gold-cdn.xitu.io/2019/8/30/16ce31846487c72e?imageslim">

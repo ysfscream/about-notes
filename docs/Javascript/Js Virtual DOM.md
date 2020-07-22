@@ -106,3 +106,15 @@ class Element {
 
 parentElement.appendChild(element.render())
 ```
+
+VDOM 的更多好处：
+
+VirtualDOM 进行了更彻底的分层，有着这个抽象层我们可以将 VirtualDOM映射到更多类似应用场景:
+
+```shell
+                 VirtualDOM
+                    ||
+React DOM, React Native, PDF, ink, 360-VR
+```
+
+所以说 VirtualDOM 更大的意义在于开发方式的转变: 声明式、 数据驱动, 让开发者不需要关心 DOM 的操作细节(属性操作、事件绑定、DOM 节点变更)，换句话说应用的开发方式变成了view=f(state), 这对生产力的解放是有很大推动作用的; 另外有了 VirtualDOM 这一层抽象层，使得多平台渲染成为可能。
